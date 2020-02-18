@@ -18,18 +18,16 @@ class DownloaderViewController: NSViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var webView: WKWebView!
-    @IBOutlet var textView: NSTextView!
+    @IBOutlet weak var statusLabel: NSTextField!
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        guard let url = URL(string: developerToolsDownloadURL) else {
-            print("Invalid URL")
-            return
-        }
+        let url = URL(string: developerToolsDownloadURL)!
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
+        updateStatus(text: "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.")
     }
 
     override var representedObject: Any? {
@@ -37,19 +35,22 @@ class DownloaderViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
+    
+    @IBAction func statusTapAction(_ sender: NSClickGestureRecognizer) {
+    }
+    
 }
 
 //MARK: - Download Helper
 extension DownloaderViewController {
     fileprivate func startDownload(fileURL: String?) {
         DownloadProcessManager.shared.startDownload(fileURL: fileURL) { (outputStream) in
-            self.updateTextView(text: outputStream)
+            self.updateStatus(text: outputStream)
         }
     }
     
-    fileprivate func updateTextView(text: String) {
-        textView.string.append(text)
-        textView.scrollToEndOfDocument(nil)
+    fileprivate func updateStatus(text: String) {
+        statusLabel.stringValue = text.replacingOccurrences(of: "\n", with: " ")
     }
 }
 
@@ -66,7 +67,7 @@ extension DownloaderViewController : WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
-        updateTextView(text: "\(error.localizedDescription)\n")
+        updateStatus(text: error.localizedDescription)
     }
 
     
@@ -75,14 +76,14 @@ extension DownloaderViewController : WKNavigationDelegate {
             webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
                 let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value
                 DownloadProcessManager.shared.downloadAuthToken = downloadAuthToken
-                self.updateTextView(text: "Download authentication token - OK\n")
+                self.updateStatus(text: "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.")
             }
         }
     }
 
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        updateTextView(text: "\(error.localizedDescription)\n")
+        updateStatus(text: error.localizedDescription)
     }
 }
 

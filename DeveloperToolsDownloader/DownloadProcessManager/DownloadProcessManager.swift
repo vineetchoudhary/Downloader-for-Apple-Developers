@@ -9,13 +9,20 @@
 import Foundation
 
 class DownloadProcessManager {
+    //MARK: - Constants
+    let downloadCompletedResult = "download completed"
+    
+    //MARK: - Properties
     var downloadAuthToken: String?
     private(set) var downloadProcesses = [String: Process]()
     
+    
+    //MARK: - Initializers
     static let shared = DownloadProcessManager()
     private init() {
     }
     
+    //MARK: - Download Helper
     func startDownload(fileURL: String?, outputStream: @escaping (String)-> Void) {
         guard let downloadAuthToken = downloadAuthToken else {
             outputStream("Download authentication token not found.\n")
@@ -56,7 +63,11 @@ class DownloadProcessManager {
         notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: .main) { [unowned self] (notification) in
             let outputData = outputPipe.fileHandleForReading.availableData
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
-                outputStream(outputString)
+                if outputString.lowercased().contains(self.downloadCompletedResult) {
+                    outputStream("Download Completed. Please check your download folder.")
+                } else {
+                    outputStream(outputString)
+                }
                 outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
             } else if let notificationObserver = notificationObserver {
                 currentDownloadProcess.terminate()

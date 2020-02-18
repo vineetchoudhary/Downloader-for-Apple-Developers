@@ -96,54 +96,52 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOh-vS-p9D">
-                                <rect key="frame" x="0.0" y="143" width="1000" height="457"/>
+                                <rect key="frame" x="0.0" y="40" width="1000" height="560"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <scrollView borderType="none" horizontalLineScroll="10" horizontalPageScroll="10" verticalLineScroll="10" verticalPageScroll="10" hasHorizontalScroller="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0wO-UG-IVv">
-                                <rect key="frame" x="0.0" y="0.0" width="1000" height="135"/>
-                                <clipView key="contentView" drawsBackground="NO" copiesOnScroll="NO" id="FPW-Ch-Kbf">
-                                    <rect key="frame" x="0.0" y="0.0" width="1000" height="135"/>
-                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                    <subviews>
-                                        <textView editable="NO" importsGraphics="NO" richText="NO" verticallyResizable="YES" allowsCharacterPickerTouchBarItem="NO" textCompletion="NO" id="MPo-Dn-Oxq">
-                                            <rect key="frame" x="0.0" y="0.0" width="1000" height="135"/>
-                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                            <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
+                            <customView translatesAutoresizingMaskIntoConstraints="NO" id="Aky-tF-hbj">
+                                <rect key="frame" x="0.0" y="0.0" width="1000" height="40"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="7Pc-Ec-EQT">
+                                        <rect key="frame" x="18" y="12" width="964" height="16"/>
+                                        <textFieldCell key="cell" lineBreakMode="truncatingTail" alignment="left" title="Status" id="Po4-bS-PN2">
+                                            <font key="font" usesAppearanceFont="YES"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                             <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
-                                            <size key="minSize" width="1000" height="135"/>
-                                            <size key="maxSize" width="1000" height="10000000"/>
-                                            <color key="insertionPointColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                        </textView>
-                                    </subviews>
-                                </clipView>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="135" id="mgL-ky-qqC"/>
+                                    <constraint firstItem="7Pc-Ec-EQT" firstAttribute="leading" secondItem="Aky-tF-hbj" secondAttribute="leading" constant="20" id="7lS-LW-pxN"/>
+                                    <constraint firstAttribute="trailing" relation="lessThanOrEqual" secondItem="7Pc-Ec-EQT" secondAttribute="trailing" constant="20" id="EOE-ep-LeQ"/>
+                                    <constraint firstAttribute="bottom" secondItem="7Pc-Ec-EQT" secondAttribute="bottom" constant="12" id="jKa-ud-pXU"/>
+                                    <constraint firstItem="7Pc-Ec-EQT" firstAttribute="top" secondItem="Aky-tF-hbj" secondAttribute="top" constant="12" id="l9R-ur-DgL"/>
+                                    <constraint firstAttribute="height" constant="40" id="qBi-Ok-cGf"/>
                                 </constraints>
-                                <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="p2C-h7-JY1">
-                                    <rect key="frame" x="-100" y="-100" width="240" height="16"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                                <scroller key="verticalScroller" wantsLayer="YES" verticalHuggingPriority="750" horizontal="NO" id="Qj9-gp-eF9">
-                                    <rect key="frame" x="984" y="0.0" width="16" height="135"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </scroller>
-                            </scrollView>
+                                <gestureRecognizers>
+                                    <clickGestureRecognizer delaysPrimaryMouseButtonEvents="YES" numberOfClicksRequired="1" id="nQG-Rs-uPY">
+                                        <connections>
+                                            <action selector="statusTapAction:" target="XfG-lQ-9wD" id="NDc-To-pZz"/>
+                                        </connections>
+                                    </clickGestureRecognizer>
+                                </gestureRecognizers>
+                            </customView>
                         </subviews>
                         <constraints>
-                            <constraint firstItem="0wO-UG-IVv" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="B1E-h4-gpj"/>
                             <constraint firstItem="zOh-vS-p9D" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Df6-zk-eSP"/>
-                            <constraint firstAttribute="trailing" secondItem="0wO-UG-IVv" secondAttribute="trailing" id="T6E-v6-Cbh"/>
+                            <constraint firstItem="Aky-tF-hbj" firstAttribute="top" secondItem="zOh-vS-p9D" secondAttribute="bottom" id="VF8-Bp-0Ta"/>
                             <constraint firstItem="zOh-vS-p9D" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="cN9-TC-OlI"/>
-                            <constraint firstAttribute="bottom" secondItem="0wO-UG-IVv" secondAttribute="bottom" id="hh5-iU-5Np"/>
-                            <constraint firstItem="0wO-UG-IVv" firstAttribute="top" secondItem="zOh-vS-p9D" secondAttribute="bottom" constant="8" symbolic="YES" id="jYr-xc-hUg"/>
+                            <constraint firstAttribute="bottom" secondItem="Aky-tF-hbj" secondAttribute="bottom" id="qN7-aD-B80"/>
+                            <constraint firstItem="Aky-tF-hbj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rBc-xG-tvC"/>
+                            <constraint firstAttribute="trailing" secondItem="Aky-tF-hbj" secondAttribute="trailing" id="t03-ag-YuS"/>
                             <constraint firstAttribute="trailing" secondItem="zOh-vS-p9D" secondAttribute="trailing" id="xW1-sb-r3x"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="textView" destination="MPo-Dn-Oxq" id="9p1-ko-1bl"/>
+                        <outlet property="statusLabel" destination="7Pc-Ec-EQT" id="8Bk-Oa-gsX"/>
                         <outlet property="webView" destination="zOh-vS-p9D" id="D6L-WS-b1q"/>
                     </connections>
                 </viewController>
