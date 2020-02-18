@@ -23,3 +23,7 @@
 "DownloadURLNotFound" = "Download url not found.";
 "DownloadInProgress" = "Please wait. Download in progress....";
 "DownloadComplete" = "Download Completed. Please check your download folder.";
+
+//UpdateManager.swift
+"UpdateMessage" = "New Version Available";
+"UpdateInformativeText" = "A newer version of the \"Downloader\" is available. Do you want to update it?";

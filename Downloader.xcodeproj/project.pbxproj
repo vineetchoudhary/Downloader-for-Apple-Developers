@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
+		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
 		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
 		44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DA23FA9B3F00567A20 /* Assets.xcassets */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		44370C8323FC36BA0015D47D /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
 		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
@@ -70,9 +72,18 @@
 		44370C8123FC35770015D47D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				44370C8223FC369B0015D47D /* UpdateManager */,
 				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		44370C8223FC369B0015D47D /* UpdateManager */ = {
+			isa = PBXGroup;
+			children = (
+				44370C8323FC36BA0015D47D /* UpdateManager.swift */,
+			);
+			path = UpdateManager;
 			sourceTree = "<group>";
 		};
 		44DE11CA23FA9B3900567A20 = {
@@ -270,6 +281,7 @@
 			files = (
 				44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
+				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
 				44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */,
