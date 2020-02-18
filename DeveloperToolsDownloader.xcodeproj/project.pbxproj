@@ -18,6 +18,8 @@
 		44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */; };
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
 		44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE120C23FBF11B00567A20 /* LogsViewController.swift */; };
+		44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE120E23FC2ECA00567A20 /* WebKit.framework */; };
+		44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE121023FC2ECF00567A20 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessManager.swift; sourceTree = "<group>"; };
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		44DE120C23FBF11B00567A20 /* LogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
+		44DE120E23FC2ECA00567A20 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
+		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
 		C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.debug.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.debug.xcconfig"; sourceTree = "<group>"; };
 		FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Downloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,7 +48,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */,
 				09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */,
+				44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,6 +137,8 @@
 		98064A8414BDA2AB1AA50220 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				44DE121023FC2ECF00567A20 /* Cocoa.framework */,
+				44DE120E23FC2ECA00567A20 /* WebKit.framework */,
 				FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */,
 			);
 			name = Frameworks;
@@ -396,7 +404,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = co.di.DeveloperToolsDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
@@ -419,7 +427,7 @@
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				PRODUCT_BUNDLE_IDENTIFIER = co.di.DeveloperToolsDownloader;
+				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 			};
