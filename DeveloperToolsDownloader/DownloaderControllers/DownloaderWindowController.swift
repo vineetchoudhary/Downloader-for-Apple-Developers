@@ -19,11 +19,11 @@ extension DownloaderWindowController: NSWindowDelegate {
     func windowShouldClose(_ sender: NSWindow) -> Bool {
         if DownloadProcessManager.shared.downloadProcesses.count > 0 {
             let alert = NSAlert()
-            alert.messageText = "Are you sure you want to close Downloader?"
-            alert.informativeText = "Closing this will stop the download task."
+            alert.messageText = NSLocalizedString("WindowCloseMessage", comment: "")
+            alert.informativeText = NSLocalizedString("WindowCloseInformativeText", comment: "")
+            alert.addButton(withTitle: NSLocalizedString("WindowCloseStopDownloading", comment: ""))
+            alert.addButton(withTitle: NSLocalizedString("No", comment: ""))
             alert.alertStyle = .informational
-            alert.addButton(withTitle: "Stop Downloading")
-            alert.addButton(withTitle: "No")
             if alert.runModal() == .alertFirstButtonReturn {
                 return true
             }

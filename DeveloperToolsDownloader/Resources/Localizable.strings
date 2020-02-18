@@ -1,0 +1,25 @@
+/* 
+  Localizable.strings
+  DeveloperToolsDownloader
+
+  Created by Vineet Choudhary on 18/02/20.
+  Copyright © 2020 Developer Insider. All rights reserved.
+*/
+//Common
+"No" = "No";
+"Yes" = "Yes";
+
+//DownloaderWindowController.swift
+"WindowCloseMessage" = "Are you sure you want to close Downloader?";
+"WindowCloseInformativeText" = "Closing this will stop the download task.";
+"WindowCloseStopDownloading" = "Stop Downloading";
+
+//DownloaderViewController.swift
+"InitialStatus" = "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.";
+"DownloadAuthTokenSuccess" = "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.";
+
+//DeveloperToolsDownloader.swift
+"DownloadAuthTokenNotFound" = "Download authentication token not found.";
+"DownloadURLNotFound" = "Download url not found.";
+"DownloadInProgress" = "Please wait. Download in progress....";
+"DownloadComplete" = "Download Completed. Please check your download folder.";

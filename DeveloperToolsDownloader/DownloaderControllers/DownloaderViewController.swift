@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  DownloaderViewController.swift
 //  DeveloperToolsDownloader
 //
 //  Created by Vineet Choudhary on 17/02/20.
@@ -27,7 +27,7 @@ class DownloaderViewController: NSViewController {
         let url = URL(string: developerToolsDownloadURL)!
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
-        updateStatus(text: "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.")
+        updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
     }
 
     override var representedObject: Any? {
@@ -76,7 +76,7 @@ extension DownloaderViewController : WKNavigationDelegate {
             webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
                 let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value
                 DownloadProcessManager.shared.downloadAuthToken = downloadAuthToken
-                self.updateStatus(text: "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.")
+                self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
             }
         }
     }

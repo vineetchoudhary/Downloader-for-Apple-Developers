@@ -25,11 +25,11 @@ class DownloadProcessManager {
     //MARK: - Download Helper
     func startDownload(fileURL: String?, outputStream: @escaping (String)-> Void) {
         guard let downloadAuthToken = downloadAuthToken else {
-            outputStream("Download authentication token not found.\n")
+            outputStream(NSLocalizedString("DownloadAuthTokenNotFound", comment: ""))
             return
         }
         guard var downloadFileURL = fileURL else {
-            outputStream("Download url not found.\n")
+            outputStream(NSLocalizedString("DownloadURLNotFound", comment: ""))
             return
         }
         
@@ -45,7 +45,7 @@ class DownloadProcessManager {
         }
         
         if currentDownloadProcess.isRunning {
-            outputStream("Please wait. Download in progress....\n")
+            outputStream(NSLocalizedString("DownloadInProgress", comment: ""))
             return
         }
 
@@ -64,7 +64,7 @@ class DownloadProcessManager {
             let outputData = outputPipe.fileHandleForReading.availableData
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
                 if outputString.lowercased().contains(self.downloadCompletedResult) {
-                    outputStream("Download Completed. Please check your download folder.")
+                    outputStream(NSLocalizedString("DownloadComplete", comment: ""))
                 } else {
                     outputStream(outputString)
                 }
