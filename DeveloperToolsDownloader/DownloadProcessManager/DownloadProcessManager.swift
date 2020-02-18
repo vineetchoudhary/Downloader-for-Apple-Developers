@@ -9,11 +9,14 @@
 import Foundation
 
 class DownloadProcessManager {
+    typealias OutputStream = (String)-> Void
+    
     //MARK: - Constants
     let downloadCompletedResult = "download completed"
     
     //MARK: - Properties
     var downloadAuthToken: String?
+    private(set) var downloadLogs = String()
     private(set) var downloadProcesses = [String: Process]()
     
     
@@ -23,13 +26,15 @@ class DownloadProcessManager {
     }
     
     //MARK: - Download Helper
-    func startDownload(fileURL: String?, outputStream: @escaping (String)-> Void) {
+    func startDownload(fileURL: String?, outputStream: @escaping OutputStream) {
         guard let downloadAuthToken = downloadAuthToken else {
-            outputStream(NSLocalizedString("DownloadAuthTokenNotFound", comment: ""))
+            let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
+            sendOutputStream(outputString: outputString, outputStream: outputStream)
             return
         }
         guard var downloadFileURL = fileURL else {
-            outputStream(NSLocalizedString("DownloadURLNotFound", comment: ""))
+            let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
+            sendOutputStream(outputString: outputString, outputStream: outputStream)
             return
         }
         
@@ -45,7 +50,8 @@ class DownloadProcessManager {
         }
         
         if currentDownloadProcess.isRunning {
-            outputStream(NSLocalizedString("DownloadInProgress", comment: ""))
+            let outputString = NSLocalizedString("DownloadInProgress", comment: "")
+            sendOutputStream(outputString: outputString, outputStream: outputStream)
             return
         }
 
@@ -64,9 +70,11 @@ class DownloadProcessManager {
             let outputData = outputPipe.fileHandleForReading.availableData
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
                 if outputString.lowercased().contains(self.downloadCompletedResult) {
-                    outputStream(NSLocalizedString("DownloadComplete", comment: ""))
+                    let downloadCompleted = NSLocalizedString("DownloadComplete", comment: "")
+                    self.sendOutputStream(outputString: outputString, outputStream: outputStream)
+                    self.sendOutputStream(outputString: downloadCompleted, outputStream: outputStream)
                 } else {
-                    outputStream(outputString)
+                    self.sendOutputStream(outputString: outputString, outputStream: outputStream)
                 }
                 outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
             } else if let notificationObserver = notificationObserver {
@@ -79,4 +87,13 @@ class DownloadProcessManager {
         currentDownloadProcess.launch()
     }
     
+    private func sendOutputStream(outputString: String, outputStream: OutputStream) {
+        outputStream(outputString)
+        downloadLogs.append(outputString)
+        NotificationCenter.default.post(name: .DownloadOutputStream, object: outputString)
+    }
+}
+
+extension Notification.Name {
+    static let DownloadOutputStream = Notification.Name("DownloadOutputStream")
 }

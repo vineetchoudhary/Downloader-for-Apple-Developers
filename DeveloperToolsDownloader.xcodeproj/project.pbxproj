@@ -16,10 +16,11 @@
 		44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */; };
 		44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */; };
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
+		44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE120C23FBF11B00567A20 /* LogsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		44DE11D323FA9B3900567A20 /* DeveloperToolsDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeveloperToolsDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
 		44DE11DA23FA9B3F00567A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -31,6 +32,7 @@
 		44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderWindowController.swift; sourceTree = "<group>"; };
 		44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessManager.swift; sourceTree = "<group>"; };
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		44DE120C23FBF11B00567A20 /* LogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,7 +57,7 @@
 		44DE11D423FA9B3900567A20 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				44DE11D323FA9B3900567A20 /* DeveloperToolsDownloader.app */,
+				44DE11D323FA9B3900567A20 /* Downloader.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +68,7 @@
 				44DE11E623FAA88C00567A20 /* Scripts */,
 				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
 				44DE11FB23FBC8F500567A20 /* DownloaderControllers */,
+				44DE120B23FBF0F000567A20 /* LogsViewController */,
 				44DE120423FBE3E600567A20 /* Resources */,
 				44DE11D623FA9B3900567A20 /* AppDelegate.swift */,
 				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
@@ -110,12 +113,20 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		44DE120B23FBF0F000567A20 /* LogsViewController */ = {
+			isa = PBXGroup;
+			children = (
+				44DE120C23FBF11B00567A20 /* LogsViewController.swift */,
+			);
+			path = LogsViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		44DE11D223FA9B3900567A20 /* DeveloperToolsDownloader */ = {
+		44DE11D223FA9B3900567A20 /* Downloader */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "DeveloperToolsDownloader" */;
+			buildConfigurationList = 44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "Downloader" */;
 			buildPhases = (
 				44DE11CF23FA9B3900567A20 /* Sources */,
 				44DE11D023FA9B3900567A20 /* Frameworks */,
@@ -125,9 +136,9 @@
 			);
 			dependencies = (
 			);
-			name = DeveloperToolsDownloader;
+			name = Downloader;
 			productName = DeveloperToolsDownloader;
-			productReference = 44DE11D323FA9B3900567A20 /* DeveloperToolsDownloader.app */;
+			productReference = 44DE11D323FA9B3900567A20 /* Downloader.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -158,7 +169,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				44DE11D223FA9B3900567A20 /* DeveloperToolsDownloader */,
+				44DE11D223FA9B3900567A20 /* Downloader */,
 			);
 		};
 /* End PBXProject section */
@@ -183,6 +194,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
@@ -373,7 +385,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "DeveloperToolsDownloader" */ = {
+		44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "Downloader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44DE11E423FA9B3F00567A20 /* Debug */,

@@ -37,6 +37,13 @@ class DownloaderViewController: NSViewController {
     }
     
     @IBAction func statusTapAction(_ sender: NSClickGestureRecognizer) {
+        performSegue(withIdentifier: "ShowLogsViewController", sender: nil)
+    }
+    
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        if let logsViewController = segue.destinationController as? LogsViewController {
+            logsViewController.initialLogs = DownloadProcessManager.shared.downloadLogs
+        }
     }
     
 }
@@ -80,7 +87,6 @@ extension DownloaderViewController : WKNavigationDelegate {
             }
         }
     }
-
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         updateStatus(text: error.localizedDescription)
