@@ -57,6 +57,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44370C8023FC354A0015D47D /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				44DE11FB23FBC8F500567A20 /* DownloaderControllers */,
+				44DE120B23FBF0F000567A20 /* LogsViewController */,
+				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		44370C8123FC35770015D47D /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
 		44DE11CA23FA9B3900567A20 = {
 			isa = PBXGroup;
 			children = (
@@ -79,12 +97,10 @@
 			isa = PBXGroup;
 			children = (
 				44DE11E623FAA88C00567A20 /* Scripts */,
-				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
-				44DE11FB23FBC8F500567A20 /* DownloaderControllers */,
-				44DE120B23FBF0F000567A20 /* LogsViewController */,
+				44370C8123FC35770015D47D /* Common */,
+				44370C8023FC354A0015D47D /* ViewControllers */,
 				44DE120423FBE3E600567A20 /* Resources */,
 				44DE11D623FA9B3900567A20 /* AppDelegate.swift */,
-				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
 				44DE11DF23FA9B3F00567A20 /* Info.plist */,
 				44DE11E023FA9B3F00567A20 /* Downloader.entitlements */,
 			);
