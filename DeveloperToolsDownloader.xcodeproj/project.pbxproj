@@ -8,19 +8,23 @@
 
 /* Begin PBXBuildFile section */
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
-		44DE11D923FA9B3900567A20 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* ViewController.swift */; };
+		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
 		44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DA23FA9B3F00567A20 /* Assets.xcassets */; };
 		44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DC23FA9B3F00567A20 /* Main.storyboard */; };
+		44DE11E923FAB88800567A20 /* Download.sh in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11E723FAA8B000567A20 /* Download.sh */; };
+		44DE11ED23FAE2E900567A20 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11EC23FAE2E900567A20 /* aria2c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		44DE11D323FA9B3900567A20 /* DeveloperToolsDownloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeveloperToolsDownloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		44DE11D823FA9B3900567A20 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
 		44DE11DA23FA9B3F00567A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44DE11DD23FA9B3F00567A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44DE11DF23FA9B3F00567A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44DE11E023FA9B3F00567A20 /* DeveloperToolsDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeveloperToolsDownloader.entitlements; sourceTree = "<group>"; };
+		44DE11E723FAA8B000567A20 /* Download.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = Download.sh; sourceTree = "<group>"; };
+		44DE11EC23FAE2E900567A20 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,14 +57,24 @@
 		44DE11D523FA9B3900567A20 /* DeveloperToolsDownloader */ = {
 			isa = PBXGroup;
 			children = (
+				44DE11E623FAA88C00567A20 /* Scripts */,
 				44DE11D623FA9B3900567A20 /* AppDelegate.swift */,
-				44DE11D823FA9B3900567A20 /* ViewController.swift */,
+				44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */,
 				44DE11DA23FA9B3F00567A20 /* Assets.xcassets */,
 				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
 				44DE11DF23FA9B3F00567A20 /* Info.plist */,
 				44DE11E023FA9B3F00567A20 /* DeveloperToolsDownloader.entitlements */,
 			);
 			path = DeveloperToolsDownloader;
+			sourceTree = "<group>";
+		};
+		44DE11E623FAA88C00567A20 /* Scripts */ = {
+			isa = PBXGroup;
+			children = (
+				44DE11EC23FAE2E900567A20 /* aria2c */,
+				44DE11E723FAA8B000567A20 /* Download.sh */,
+			);
+			path = Scripts;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -121,6 +135,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				44DE11ED23FAE2E900567A20 /* aria2c in Resources */,
+				44DE11E923FAB88800567A20 /* Download.sh in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
 				44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */,
 			);
@@ -133,7 +149,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44DE11D923FA9B3900567A20 /* ViewController.swift in Sources */,
+				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -272,6 +288,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperToolsDownloader/DeveloperToolsDownloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AFDKURH36K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
@@ -279,6 +296,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.DeveloperToolsDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -292,6 +310,7 @@
 				CODE_SIGN_ENTITLEMENTS = DeveloperToolsDownloader/DeveloperToolsDownloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = AFDKURH36K;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
@@ -299,6 +318,7 @@
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.DeveloperToolsDownloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
