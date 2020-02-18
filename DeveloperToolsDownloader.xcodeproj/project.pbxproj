@@ -142,7 +142,6 @@
 				C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */,
 				AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -389,7 +388,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = AFDKURH36K;
+				DEVELOPMENT_TEAM = 4F7SW76LL6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -412,7 +411,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = AFDKURH36K;
+				DEVELOPMENT_TEAM = 4F7SW76LL6;
 				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
