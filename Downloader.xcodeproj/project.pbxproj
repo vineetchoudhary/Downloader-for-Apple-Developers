@@ -29,7 +29,7 @@
 		44DE11DA23FA9B3F00567A20 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		44DE11DD23FA9B3F00567A20 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		44DE11DF23FA9B3F00567A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		44DE11E023FA9B3F00567A20 /* DeveloperToolsDownloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DeveloperToolsDownloader.entitlements; sourceTree = "<group>"; };
+		44DE11E023FA9B3F00567A20 /* Downloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Downloader.entitlements; sourceTree = "<group>"; };
 		44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = AppleMoreDownload.sh; sourceTree = "<group>"; };
 		44DE11EC23FAE2E900567A20 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
 		44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderWindowController.swift; sourceTree = "<group>"; };
@@ -60,7 +60,7 @@
 		44DE11CA23FA9B3900567A20 = {
 			isa = PBXGroup;
 			children = (
-				44DE11D523FA9B3900567A20 /* DeveloperToolsDownloader */,
+				44DE11D523FA9B3900567A20 /* Downloader */,
 				44DE11D423FA9B3900567A20 /* Products */,
 				CB1EAA203A3960A8004525D0 /* Pods */,
 				98064A8414BDA2AB1AA50220 /* Frameworks */,
@@ -75,7 +75,7 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		44DE11D523FA9B3900567A20 /* DeveloperToolsDownloader */ = {
+		44DE11D523FA9B3900567A20 /* Downloader */ = {
 			isa = PBXGroup;
 			children = (
 				44DE11E623FAA88C00567A20 /* Scripts */,
@@ -86,9 +86,9 @@
 				44DE11D623FA9B3900567A20 /* AppDelegate.swift */,
 				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
 				44DE11DF23FA9B3F00567A20 /* Info.plist */,
-				44DE11E023FA9B3F00567A20 /* DeveloperToolsDownloader.entitlements */,
+				44DE11E023FA9B3F00567A20 /* Downloader.entitlements */,
 			);
-			path = DeveloperToolsDownloader;
+			path = Downloader;
 			sourceTree = "<group>";
 		};
 		44DE11E623FAA88C00567A20 /* Scripts */ = {
@@ -189,7 +189,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 44DE11CE23FA9B3900567A20 /* Build configuration list for PBXProject "DeveloperToolsDownloader" */;
+			buildConfigurationList = 44DE11CE23FA9B3900567A20 /* Build configuration list for PBXProject "Downloader" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -392,13 +392,13 @@
 			baseConfigurationReference = C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DeveloperToolsDownloader/DeveloperToolsDownloader.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4F7SW76LL6;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
+				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -415,13 +415,13 @@
 			baseConfigurationReference = AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = DeveloperToolsDownloader/DeveloperToolsDownloader.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4F7SW76LL6;
 				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = DeveloperToolsDownloader/Info.plist;
+				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
@@ -436,7 +436,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		44DE11CE23FA9B3900567A20 /* Build configuration list for PBXProject "DeveloperToolsDownloader" */ = {
+		44DE11CE23FA9B3900567A20 /* Build configuration list for PBXProject "Downloader" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				44DE11E123FA9B3F00567A20 /* Debug */,
