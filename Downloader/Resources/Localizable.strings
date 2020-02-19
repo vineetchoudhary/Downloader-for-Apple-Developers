@@ -8,6 +8,7 @@
 //Common
 "No" = "No";
 "Yes" = "Yes";
+"PleaseWait" = "Please Wait...";
 
 //DownloaderWindowController.swift
 "WindowCloseMessage" = "Are you sure you want to close Downloader?";
@@ -17,9 +18,10 @@
 //DownloaderViewController.swift
 "InitialStatus" = "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.";
 "DownloadAuthTokenSuccess" = "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.";
+"CheckingDownloadAuthToken" = "Please wait. Checking download authentication token...";
 
 //DeveloperToolsDownloader.swift
-"DownloadAuthTokenNotFound" = "Download authentication token not found. Press ⌘+R to get updated token.";
+"DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";
 "DownloadURLNotFound" = "Download url not found.";
 "DownloadInProgress" = "Please wait. Download in progress....";
 "DownloadComplete" = "Download Completed. Please check your download folder.";
