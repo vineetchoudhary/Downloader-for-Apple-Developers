@@ -17,7 +17,7 @@ struct Aria2cParser {
         
         if let possibleReadoutLine = lines.last(where: {$0.first == "["}),
             let readoutLine = possibleReadoutLine.components(separatedBy: "]")
-                .first(where: {$0.first == "["}) {
+                .last(where: {$0.first == "["}) {
             return readoutLine
         }
         

@@ -12,7 +12,7 @@ class DownloadProcessManager {
     typealias OutputStream = (String)-> Void
     
     //MARK: - Properties
-    var downloadAuthToken: String?
+    private(set) var downloadAuthToken: String?
     private(set) var downloadLogs = String()
     private(set) var downloadProcesses = [String: Process]()
     
@@ -23,8 +23,12 @@ class DownloadProcessManager {
     }
     
     //MARK: - Download Helper
+    func setDownloadAuthToken(token: String) {
+        downloadAuthToken = token
+    }
+    
     func startDownload(fileURL: String?, outputStream: @escaping OutputStream) {
-        guard let downloadAuthToken = downloadAuthToken else {
+        guard let authToken = downloadAuthToken else {
             let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
             sendOutputStream(outputString: outputString, outputStream: outputStream)
             return
@@ -55,7 +59,7 @@ class DownloadProcessManager {
         let aria2c = Bundle.main.path(forResource: "aria2c", ofType: nil)!
         let launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")
         currentDownloadProcess.launchPath = launchPath
-        currentDownloadProcess.arguments = [aria2c, downloadFileURL, downloadAuthToken]
+        currentDownloadProcess.arguments = [aria2c, downloadFileURL, authToken]
         
         let outputPipe = Pipe()
         currentDownloadProcess.standardOutput = outputPipe

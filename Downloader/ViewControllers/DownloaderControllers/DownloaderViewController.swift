@@ -83,9 +83,11 @@ extension DownloaderViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let currentURL = webView.url?.absoluteString, currentURL == developerToolsDownloadURL {
             webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
-                if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
-                    DownloadProcessManager.shared.downloadAuthToken = downloadAuthToken
-                    self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                DispatchQueue.main.async {
+                    if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
+                        DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
+                        self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                    }
                 }
             }
         }
