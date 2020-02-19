@@ -13,7 +13,7 @@ class DownloaderViewController: NSViewController {
 
     //MARK: - Constants
     private let downloadAuthCookieName = "ADCDownloadAuth"
-    private let developerToolsDownloadURL = "https://developer.apple.com/download/more/";
+    private let developerToolsDownloadURL = "https://developer.apple.com/download/more";
     private let supportedExtension = ["xip", "dmg", "zip", "pdf", "pkg"]
     
     //MARK: - IBOutlets
@@ -70,6 +70,8 @@ extension DownloaderViewController {
                     if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
                         DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
                         self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                    } else {
+                        self.webView.reload()
                     }
                 }
             }
