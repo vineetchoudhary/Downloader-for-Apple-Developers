@@ -3,7 +3,7 @@
 VERSION="1.0.3"
 APP_NAME="Downloader.app"
 FILE_NAME="Downloader.tar.gz"
-FILE_URL="https://github.com/vineetchoudhary/Downloader-for-Apple-Developer/releases/download/$VERSION/AppBox.tar.gz"
+FILE_URL="https://github.com/vineetchoudhary/Downloader-for-Apple-Developer/releases/download/$VERSION/$FILE_NAME"
 APPLICATION_DIR='/Applications'
 
 echo "Downloading Downloader for Apple Developers $VERSION..."
