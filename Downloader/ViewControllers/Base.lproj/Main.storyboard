@@ -59,7 +59,7 @@
                         <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
                     </connections>
                 </application>
-                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="DeveloperToolsDownloader" customModuleProvider="target"/>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate" customModule="Downloader" customModuleProvider="target"/>
                 <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
                 <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -68,7 +68,7 @@
         <!--Window Controller-->
         <scene sceneID="R2V-B0-nI4">
             <objects>
-                <windowController id="B8D-0N-5wS" customClass="DownloaderWindowController" customModule="DeveloperToolsDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                <windowController id="B8D-0N-5wS" customClass="DownloaderWindowController" customModule="Downloader" customModuleProvider="target" sceneMemberID="viewController">
                     <window key="window" title="Downloader for Apple Developer" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
                         <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
@@ -90,7 +90,7 @@
         <!--Downloader View Controller-->
         <scene sceneID="hIz-AP-VOD">
             <objects>
-                <viewController id="XfG-lQ-9wD" customClass="DownloaderViewController" customModule="DeveloperToolsDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="XfG-lQ-9wD" customClass="DownloaderViewController" customModule="Downloader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="m2S-Jp-Qdl">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="600"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -129,11 +129,25 @@
                                     </clickGestureRecognizer>
                                 </gestureRecognizers>
                             </customView>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="vpV-dA-awc">
+                                <rect key="frame" x="996" y="0.0" width="4" height="14"/>
+                                <buttonCell key="cell" type="bevel" bezelStyle="rounded" alignment="center" imageScaling="proportionallyDown" inset="2" id="s5e-5x-a6B">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                    <string key="keyEquivalent">r</string>
+                                    <modifierMask key="keyEquivalentModifierMask" command="YES"/>
+                                </buttonCell>
+                                <connections>
+                                    <action selector="reload:" target="zOh-vS-p9D" id="nag-RJ-bm0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="zOh-vS-p9D" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="Df6-zk-eSP"/>
+                            <constraint firstAttribute="bottom" secondItem="vpV-dA-awc" secondAttribute="bottom" id="HK5-Ik-GCf"/>
                             <constraint firstItem="Aky-tF-hbj" firstAttribute="top" secondItem="zOh-vS-p9D" secondAttribute="bottom" id="VF8-Bp-0Ta"/>
                             <constraint firstItem="zOh-vS-p9D" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" id="cN9-TC-OlI"/>
+                            <constraint firstAttribute="trailing" secondItem="vpV-dA-awc" secondAttribute="trailing" id="njY-hv-4de"/>
                             <constraint firstAttribute="bottom" secondItem="Aky-tF-hbj" secondAttribute="bottom" id="qN7-aD-B80"/>
                             <constraint firstItem="Aky-tF-hbj" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" id="rBc-xG-tvC"/>
                             <constraint firstAttribute="trailing" secondItem="Aky-tF-hbj" secondAttribute="trailing" id="t03-ag-YuS"/>
@@ -153,7 +167,7 @@
         <!--Logs View Controller-->
         <scene sceneID="z2S-MH-Yj0">
             <objects>
-                <viewController storyboardIdentifier="LogsViewController" id="QrV-eT-kKP" customClass="LogsViewController" customModule="DeveloperToolsDownloader" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LogsViewController" id="QrV-eT-kKP" customClass="LogsViewController" customModule="Downloader" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="iAB-Cz-Zlg">
                         <rect key="frame" x="0.0" y="0.0" width="650" height="400"/>
                         <autoresizingMask key="autoresizingMask"/>
