@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
+		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
 		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
 		44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DA23FA9B3F00567A20 /* Assets.xcassets */; };
@@ -25,6 +26,7 @@
 
 /* Begin PBXFileReference section */
 		44370C8323FC36BA0015D47D /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
+		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
 		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderViewController.swift; sourceTree = "<group>"; };
@@ -139,6 +141,7 @@
 		44DE11FC23FBC99900567A20 /* DownloadProcessManager */ = {
 			isa = PBXGroup;
 			children = (
+				44370C8523FD076C0015D47D /* Aria2cParser.swift */,
 				44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */,
 			);
 			path = DownloadProcessManager;
@@ -280,6 +283,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */,
+				44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
 				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
@@ -423,10 +427,10 @@
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4F7SW76LL6;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -447,10 +451,10 @@
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 2;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_ASSET_PATHS = "";
 				DEVELOPMENT_TEAM = 4F7SW76LL6;
-				ENABLE_HARDENED_RUNTIME = YES;
+				ENABLE_HARDENED_RUNTIME = NO;
 				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

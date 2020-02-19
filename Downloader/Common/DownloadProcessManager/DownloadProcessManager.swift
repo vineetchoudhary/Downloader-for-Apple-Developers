@@ -11,9 +11,6 @@ import Foundation
 class DownloadProcessManager {
     typealias OutputStream = (String)-> Void
     
-    //MARK: - Constants
-    let downloadCompletedResult = "download completed"
-    
     //MARK: - Properties
     var downloadAuthToken: String?
     private(set) var downloadLogs = String()
@@ -67,16 +64,10 @@ class DownloadProcessManager {
         
         var notificationObserver: NSObjectProtocol?
         notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: .main) { [unowned self] (notification) in
+            outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
             let outputData = outputPipe.fileHandleForReading.availableData
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
-                if outputString.lowercased().contains(self.downloadCompletedResult) {
-                    let downloadCompleted = NSLocalizedString("DownloadComplete", comment: "")
-                    self.sendOutputStream(outputString: outputString, outputStream: outputStream)
-                    self.sendOutputStream(outputString: downloadCompleted, outputStream: outputStream)
-                } else {
-                    self.sendOutputStream(outputString: outputString, outputStream: outputStream)
-                }
-                outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+                self.sendOutputStream(outputString: Aria2cParser.parse(string: outputString), outputStream: outputStream)
             } else if let notificationObserver = notificationObserver {
                 currentDownloadProcess.terminate()
                 self.downloadProcesses.removeValue(forKey: downloadFileURL)
@@ -89,8 +80,8 @@ class DownloadProcessManager {
     
     private func sendOutputStream(outputString: String, outputStream: OutputStream) {
         outputStream(outputString)
-        downloadLogs.append(outputString)
-        NotificationCenter.default.post(name: .DownloadOutputStream, object: outputString)
+        downloadLogs.append("\(outputString)\n")
+        NotificationCenter.default.post(name: .DownloadOutputStream, object: "\(outputString)\n")
     }
 }
 

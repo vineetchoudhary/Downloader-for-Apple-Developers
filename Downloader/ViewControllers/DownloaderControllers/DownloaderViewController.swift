@@ -57,7 +57,9 @@ extension DownloaderViewController {
     }
     
     fileprivate func updateStatus(text: String) {
-        statusLabel.stringValue = text.replacingOccurrences(of: "\n", with: " ")
+        if !text.isEmpty {
+            self.statusLabel.stringValue = text
+        }
     }
 }
 
