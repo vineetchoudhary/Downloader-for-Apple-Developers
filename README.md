@@ -15,7 +15,7 @@ Now, you can install Downloader by running following command in your terminal -
 curl -s https://raw.githubusercontent.com/vineetchoudhary/Downloader-for-Apple-Developers/master/install.sh | bash
 ```
 #### Manual
-If you face any issue using the above command then you can manually install it by downloading it from [here](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/releases/download/1.0.5/Downloader.app.zip). After that, unzip Downloader.app.zip and move Downloader.app into /Applications directory.
+If you face any issue using the above command then you can manually install it by downloading it from [here](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/releases/download/1.0.6/Downloader.app.zip). After that, unzip Downloader.app.zip and move Downloader.app into /Applications directory.
 
 ## How to use  
 
