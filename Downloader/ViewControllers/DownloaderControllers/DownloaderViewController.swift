@@ -61,6 +61,20 @@ extension DownloaderViewController {
             self.statusLabel.stringValue = text
         }
     }
+    
+    fileprivate func tryToGetAuthToken() {
+        if let currentURL = webView.url?.absoluteString,
+            currentURL.lowercased().contains(developerToolsDownloadURL.lowercased()) {
+            webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
+                DispatchQueue.main.async {
+                    if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
+                        DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
+                        self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                    }
+                }
+            }
+        }
+    }
 }
 
 //MARK: - WebKit Navigation Delegate
@@ -78,24 +92,16 @@ extension DownloaderViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
         updateStatus(text: error.localizedDescription)
     }
-
+    
+    func webView(_ webView: WKWebView, didCommit navigation: WKNavigation!) {
+        tryToGetAuthToken()
+    }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if let currentURL = webView.url?.absoluteString, currentURL == developerToolsDownloadURL {
-            webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
-                DispatchQueue.main.async {
-                    if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
-                        DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
-                        self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
-                    }
-                }
-            }
-        }
+        tryToGetAuthToken()
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         updateStatus(text: error.localizedDescription)
     }
 }
-
-
