@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="1.0.5"
+VERSION="1.0.6"
 APP_NAME="Downloader.app"
 FILE_NAME="Downloader.tar.gz"
 FILE_URL="https://github.com/vineetchoudhary/Downloader-for-Apple-Developer/releases/download/$VERSION/$FILE_NAME"
