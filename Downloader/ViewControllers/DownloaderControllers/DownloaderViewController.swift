@@ -14,15 +14,30 @@ class DownloaderViewController: NSViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var statusLabel: NSTextField!
+    @IBOutlet weak var downloadServicesTableView: NSTableView!
+    @IBOutlet weak var downloadProgressTableView: NSTableView!
+    
+    //MARK: - Properties
+    var downloadServiceTableViewHandler: DownloadServiceTableViewHandler!
+    var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = URL(string: DownloadURL.tools.rawValue)!
-        webView.navigationDelegate = self
-        webView.load(URLRequest(url: url))
-        updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
+        //Download Service TableView
+        downloadServiceTableViewHandler = DownloadServiceTableViewHandler(tableView: downloadServicesTableView)
+        downloadServiceTableViewHandler.selectionChange { [weak self] (downloadURL) in
+            guard let self = self else {
+                return;
+            }
+            let url = URL(string: downloadURL.rawValue)!
+            self.webView.navigationDelegate = self
+            self.webView.load(URLRequest(url: url))
+            self.updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
+        }
+        
+        downloadProgressTableViewHandler = DownloadProgressTableViewHandler(tableView: downloadProgressTableView)
     }
 
     override var representedObject: Any? {

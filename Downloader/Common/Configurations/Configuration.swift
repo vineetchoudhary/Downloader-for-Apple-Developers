@@ -9,9 +9,20 @@
 import Foundation
 
 //MARK: - Constants
-enum DownloadURL: String {
-    case video = "https://developer.apple.com/videos/"
+enum DownloadURL: String, CaseIterable {
     case tools = "https://developer.apple.com/download/more"
+    case video = "https://developer.apple.com/videos/"
+    
+    var title: String {
+        get {
+            switch self {
+            case .video:
+                return NSLocalizedString("WWDCVideos", comment: "")
+            case .tools:
+                return NSLocalizedString("DeveloperTools", comment: "")
+            }
+        }
+    }
 }
 
 enum SupportedExtension: String {

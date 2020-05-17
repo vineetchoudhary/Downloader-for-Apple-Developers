@@ -10,6 +10,10 @@
 "Yes" = "Yes";
 "PleaseWait" = "Please Wait...";
 
+//Configuration.swift
+"WWDCVideos" = "WWDC Videos";
+"DeveloperTools" = "Tools (Xcode, macOS, etc.)";
+
 //DownloaderWindowController.swift
 "WindowCloseMessage" = "Are you sure you want to close Downloader?";
 "WindowCloseInformativeText" = "Closing this will stop the download task.";
