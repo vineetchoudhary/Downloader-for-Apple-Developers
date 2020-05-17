@@ -77,6 +77,23 @@ extension DownloaderViewController {
             self.statusLabel.stringValue = text
         }
     }
+    
+    fileprivate func checkDownloadAuthToken() {
+        DispatchQueue.main.asyncAfter(deadline: .now()+4) { [weak self] in
+            guard let self = self else {
+                return;
+            }
+            
+            self.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
+                if let downloadAuthToken = cookie.first(where: {$0.name == CookieName.downloadAuthToken.rawValue})?.value {
+                    DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
+                    self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                } else {
+                    self.updateStatus(text: NSLocalizedString("DownloadAuthTokenNotFound", comment: ""))
+                }
+            }
+        }
+    }
 }
 
 //MARK: - WebKit Navigation Delegate
@@ -96,19 +113,17 @@ extension DownloaderViewController : WKNavigationDelegate {
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        if let currentURL = webView.url?.absoluteString,
-            currentURL.lowercased().contains(DownloadSource.tools.url.lowercased()) {
-            self.updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
-            DispatchQueue.main.asyncAfter(deadline: .now()+4) {
-                webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
-                    if let downloadAuthToken = cookie.first(where: {$0.name == CookieName.DownloadAuthToken.rawValue})?.value {
-                        DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
-                        self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
-                    } else {
-                        self.updateStatus(text: NSLocalizedString("DownloadAuthTokenNotFound", comment: ""))
-                    }
-                }
-            }
+        guard let currentURL = webView.url?.absoluteString else {
+            updateStatus(text: NSLocalizedString("CommonError", comment: ""))
+            return;
+        }
+        if currentURL.lowercased().contains(AppleDomains.auth.rawValue.lowercased()) {
+            updateStatus(text: NSLocalizedString("LoginRequired", comment: ""))
+        } else if currentURL.lowercased().contains(DownloadSource.tools.url.lowercased()) {
+            updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
+            checkDownloadAuthToken()
+        } else {
+            updateStatus(text: " ")
         }
     }
     

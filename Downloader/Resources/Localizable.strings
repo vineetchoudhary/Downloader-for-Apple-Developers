@@ -9,6 +9,7 @@
 "No" = "No";
 "Yes" = "Yes";
 "PleaseWait" = "Please Wait...";
+"CommonError" = "Something went wrong. Please try again.";
 
 //Configuration.swift
 "WWDCVideos" = "WWDC Videos";
@@ -24,6 +25,7 @@
 "DownloadAuthTokenSuccess" = "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.";
 "CheckingDownloadAuthToken" = "Please wait. Checking download authentication token...";
 "SwitchingSource" = "Please wait. Loading %@ page...";
+"LoginRequired" = "Login is required to access this page.";
 
 //DeveloperToolsDownloader.swift
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";

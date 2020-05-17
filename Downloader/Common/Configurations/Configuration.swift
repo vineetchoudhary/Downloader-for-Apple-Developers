@@ -8,7 +8,7 @@
 
 import Foundation
 
-//MARK: - Constants
+//MARK: - Download Sources
 enum DownloadSource: String, CaseIterable {
     case tools, video
     
@@ -35,11 +35,18 @@ enum DownloadSource: String, CaseIterable {
     }
 }
 
+//Supported download file extension
 enum SupportedExtension: String {
     case xip, dmg, zip, pdf, pkg, mov, mp4, avi
     case unsupported
 }
 
+//Important cookies name
 enum CookieName: String {
-    case DownloadAuthToken = "ADCDownloadAuth"
+    case downloadAuthToken = "ADCDownloadAuth"
+}
+
+//Other URLs
+enum AppleDomains: String {
+    case auth = "idmsa.apple.com"
 }
