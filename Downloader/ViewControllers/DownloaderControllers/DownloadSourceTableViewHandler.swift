@@ -1,5 +1,5 @@
 //
-//  DownloadServiceTableViewHandler.swift
+//  DownloadSourceTableViewHandler.swift
 //  Downloader
 //
 //  Created by Vineet Choudhary on 17/05/20.
@@ -11,7 +11,7 @@ import Cocoa
 
 typealias DownloadSourceChange = (_ downloadSource: DownloadSource) -> Void
 
-class DownloadServiceTableViewHandler: NSObject {
+class DownloadSourceTableViewHandler: NSObject {
     private var downloadSourceChangeClosur: DownloadSourceChange?
     
     init(tableView: NSTableView) {
@@ -22,10 +22,11 @@ class DownloadServiceTableViewHandler: NSObject {
     
     func selectionChange(downloadSourceChange: @escaping DownloadSourceChange) {
         downloadSourceChangeClosur = downloadSourceChange
+        downloadSourceChange(DownloadSource.allCases.first!)
     }
 }
 
-extension DownloadServiceTableViewHandler: NSTableViewDataSource {
+extension DownloadSourceTableViewHandler: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
         return DownloadSource.allCases.count
     }
@@ -40,7 +41,7 @@ extension DownloadServiceTableViewHandler: NSTableViewDataSource {
     }
 }
 
-extension DownloadServiceTableViewHandler: NSTableViewDelegate {
+extension DownloadSourceTableViewHandler: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
         downloadSourceChangeClosur?(DownloadSource.allCases[row])
         return true

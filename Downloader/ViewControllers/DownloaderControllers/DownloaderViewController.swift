@@ -14,12 +14,12 @@ class DownloaderViewController: NSViewController {
     //MARK: - IBOutlets
     @IBOutlet weak var webView: WKWebView!
     @IBOutlet weak var statusLabel: NSTextField!
-    @IBOutlet weak var downloadServicesTableView: NSTableView!
+    @IBOutlet weak var downloadSourceTableView: NSTableView!
     @IBOutlet weak var downloadProgressTableView: NSTableView!
     
     //MARK: - Properties
     var downloadSource: DownloadSource = .tools
-    var downloadServiceTableViewHandler: DownloadServiceTableViewHandler!
+    var downloadSourceTableViewHandler: DownloadSourceTableViewHandler!
     var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
     
     //MARK: - View Lifecycle
@@ -27,8 +27,8 @@ class DownloaderViewController: NSViewController {
         super.viewDidLoad()
 
         //Download Service TableView
-        downloadServiceTableViewHandler = DownloadServiceTableViewHandler(tableView: downloadServicesTableView)
-        downloadServiceTableViewHandler.selectionChange { [weak self] (downloadSource) in
+        downloadSourceTableViewHandler = DownloadSourceTableViewHandler(tableView: downloadSourceTableView)
+        downloadSourceTableViewHandler.selectionChange { [weak self] (downloadSource) in
             guard let self = self else {
                 return;
             }
