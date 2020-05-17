@@ -81,7 +81,7 @@ extension DownloaderViewController {
 //MARK: - WebKit Navigation Delegate
 extension DownloaderViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        if let pathExtension = navigationAction.request.url?.pathExtension,
+        if let pathExtension = navigationAction.request.url?.pathExtension.lowercased(),
             let _ = SupportedExtension(rawValue: pathExtension) {
             let downloadFileURL = navigationAction.request.url?.absoluteString
             self.startDownload(fileURL: downloadFileURL)
