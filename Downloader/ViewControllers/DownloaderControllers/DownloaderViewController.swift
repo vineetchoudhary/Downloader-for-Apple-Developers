@@ -18,6 +18,7 @@ class DownloaderViewController: NSViewController {
     @IBOutlet weak var downloadProgressTableView: NSTableView!
     
     //MARK: - Properties
+    var downloadSource: DownloadSource = .tools
     var downloadServiceTableViewHandler: DownloadServiceTableViewHandler!
     var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
     
@@ -27,11 +28,15 @@ class DownloaderViewController: NSViewController {
 
         //Download Service TableView
         downloadServiceTableViewHandler = DownloadServiceTableViewHandler(tableView: downloadServicesTableView)
-        downloadServiceTableViewHandler.selectionChange { [weak self] (downloadURL) in
+        downloadServiceTableViewHandler.selectionChange { [weak self] (downloadSource) in
             guard let self = self else {
                 return;
             }
-            let url = URL(string: downloadURL.rawValue)!
+            //Set Download URL
+            self.downloadSource = downloadSource;
+            
+            //Load Download URL to WebView
+            let url = URL(string: downloadSource.url)!
             self.webView.navigationDelegate = self
             self.webView.load(URLRequest(url: url))
             self.updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
@@ -61,7 +66,7 @@ class DownloaderViewController: NSViewController {
 //MARK: - Download Helper
 extension DownloaderViewController {
     fileprivate func startDownload(fileURL: String?) {
-        DownloadProcessManager.shared.startDownload(fileURL: fileURL) { (outputStream) in
+        DownloadProcessManager.shared.startDownload(source: downloadSource, fileURL: fileURL) { (outputStream) in
             self.updateStatus(text: outputStream)
         }
     }
@@ -91,7 +96,7 @@ extension DownloaderViewController : WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let currentURL = webView.url?.absoluteString,
-            currentURL.lowercased().contains(DownloadURL.tools.rawValue.lowercased()) {
+            currentURL.lowercased().contains(DownloadSource.tools.url.lowercased()) {
             self.updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
             DispatchQueue.main.asyncAfter(deadline: .now()+4) {
                 webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in

@@ -27,12 +27,7 @@ class DownloadProcessManager {
         downloadAuthToken = token
     }
     
-    func startDownload(fileURL: String?, outputStream: @escaping OutputStream) {
-        guard let authToken = downloadAuthToken else {
-            let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
-            sendOutputStream(outputString: outputString, outputStream: outputStream)
-            return
-        }
+    func startDownload(source: DownloadSource, fileURL: String?, outputStream: @escaping OutputStream) {
         guard var downloadFileURL = fileURL else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
             sendOutputStream(outputString: outputString, outputStream: outputStream)
@@ -41,6 +36,32 @@ class DownloadProcessManager {
         
         //use http protocol instead of https
         downloadFileURL = downloadFileURL.replacingOccurrences(of: "https://", with: "http://")
+        
+        var launchPath: String
+        var launchArguments = [String]()
+        
+        //Add aria2c path
+        let aria2cPath = Bundle.main.path(forResource: "aria2c", ofType: nil)!
+        launchArguments.append(aria2cPath)
+        
+        //Add download URL
+        launchArguments.append(downloadFileURL)
+        
+        //Set/Add Source Specific Variable/Arguments
+        switch source {
+            case .tools:
+                launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")!
+                
+                //Get download auth token and add to launch arguments
+                guard let authToken = downloadAuthToken else {
+                    let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
+                    sendOutputStream(outputString: outputString, outputStream: outputStream)
+                    return
+                }
+                launchArguments.append(authToken);
+            case .video:
+                launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")!
+        }
         
         //create or use existing download process
         var currentDownloadProcess: Process!
@@ -56,10 +77,8 @@ class DownloadProcessManager {
             return
         }
 
-        let aria2c = Bundle.main.path(forResource: "aria2c", ofType: nil)!
-        let launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")
         currentDownloadProcess.launchPath = launchPath
-        currentDownloadProcess.arguments = [aria2c, downloadFileURL, authToken]
+        currentDownloadProcess.arguments = launchArguments
         
         let outputPipe = Pipe()
         currentDownloadProcess.standardOutput = outputPipe

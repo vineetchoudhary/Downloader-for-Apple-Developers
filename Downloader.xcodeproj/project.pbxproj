@@ -12,6 +12,7 @@
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		446F5D3C247106F5006ED589 /* DownloadServiceTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3B247106F5006ED589 /* DownloadServiceTableViewHandler.swift */; };
 		446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */; };
+		446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */; };
 		44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D423C32470F7AB00BC83D4 /* Configuration.swift */; };
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
 		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
@@ -32,6 +33,7 @@
 		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
 		446F5D3B247106F5006ED589 /* DownloadServiceTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadServiceTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressTableViewHandler.swift; sourceTree = "<group>"; };
+		446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AppleVideoDownload.sh; sourceTree = "<group>"; };
 		44D423C32470F7AB00BC83D4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -140,6 +142,7 @@
 			children = (
 				44DE11EC23FAE2E900567A20 /* aria2c */,
 				44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */,
+				446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
 				44DE11ED23FAE2E900567A20 /* aria2c in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
+				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
 				44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */,
 			);

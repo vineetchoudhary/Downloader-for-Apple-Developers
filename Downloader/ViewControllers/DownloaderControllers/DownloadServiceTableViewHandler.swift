@@ -9,10 +9,10 @@
 import Foundation
 import Cocoa
 
-typealias DownloadURLChange = (_ downloadURL: DownloadURL) -> Void
+typealias DownloadSourceChange = (_ downloadSource: DownloadSource) -> Void
 
 class DownloadServiceTableViewHandler: NSObject {
-    private var downloadURLChangeClosur: DownloadURLChange?
+    private var downloadSourceChangeClosur: DownloadSourceChange?
     
     init(tableView: NSTableView) {
         super.init()
@@ -20,20 +20,20 @@ class DownloadServiceTableViewHandler: NSObject {
         tableView.dataSource = self;
     }
     
-    func selectionChange(downloadURLChange: @escaping DownloadURLChange) {
-        downloadURLChangeClosur = downloadURLChange
+    func selectionChange(downloadSourceChange: @escaping DownloadSourceChange) {
+        downloadSourceChangeClosur = downloadSourceChange
     }
 }
 
 extension DownloadServiceTableViewHandler: NSTableViewDataSource {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return DownloadURL.allCases.count
+        return DownloadSource.allCases.count
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
         let identifier = NSUserInterfaceItemIdentifier(rawValue: "downloadServiceTableViewCell")
         if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? NSTableCellView {
-            cell.textField?.stringValue = DownloadURL.allCases[row].title
+            cell.textField?.stringValue = DownloadSource.allCases[row].title
             return cell;
         }
         return nil
@@ -42,7 +42,7 @@ extension DownloadServiceTableViewHandler: NSTableViewDataSource {
 
 extension DownloadServiceTableViewHandler: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        downloadURLChangeClosur?(DownloadURL.allCases[row])
+        downloadSourceChangeClosur?(DownloadSource.allCases[row])
         return true
     }
 }

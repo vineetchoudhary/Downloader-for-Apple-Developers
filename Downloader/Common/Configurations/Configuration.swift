@@ -9,9 +9,19 @@
 import Foundation
 
 //MARK: - Constants
-enum DownloadURL: String, CaseIterable {
-    case tools = "https://developer.apple.com/download/more"
-    case video = "https://developer.apple.com/videos/"
+enum DownloadSource: String, CaseIterable {
+    case tools, video
+    
+    var url: String {
+        get {
+            switch self {
+            case .video:
+                return "https://developer.apple.com/videos/"
+            case .tools:
+                return "https://developer.apple.com/download/more"
+            }
+        }
+    }
     
     var title: String {
         get {
