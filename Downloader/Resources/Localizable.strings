@@ -12,7 +12,7 @@
 "CommonError" = "Something went wrong. Please try again.";
 
 //Configuration.swift
-"WWDCVideos" = "WWDC Videos";
+"WWDCVideos" = "Videos (WWDC, Tech Talks, etc.)";
 "DeveloperTools" = "Tools (Xcode, macOS, etc.)";
 
 //DownloaderWindowController.swift
@@ -26,6 +26,7 @@
 "CheckingDownloadAuthToken" = "Please wait. Checking download authentication token...";
 "SwitchingSource" = "Please wait. Loading %@ page...";
 "LoginRequired" = "Login is required to access this page.";
+"AllSet" = "You're all set.";
 
 //DeveloperToolsDownloader.swift
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";

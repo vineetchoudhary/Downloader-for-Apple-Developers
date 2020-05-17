@@ -123,7 +123,7 @@ extension DownloaderViewController : WKNavigationDelegate {
             updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
             checkDownloadAuthToken()
         } else {
-            updateStatus(text: " ")
+            updateStatus(text: NSLocalizedString("AllSet", comment: ""))
         }
     }
     
