@@ -10,11 +10,6 @@ import Cocoa
 import WebKit
 
 class DownloaderViewController: NSViewController {
-
-    //MARK: - Constants
-    private let downloadAuthCookieName = "ADCDownloadAuth"
-    private let developerToolsDownloadURL = "https://developer.apple.com/download/more";
-    private let supportedExtension = ["xip", "dmg", "zip", "pdf", "pkg"]
     
     //MARK: - IBOutlets
     @IBOutlet weak var webView: WKWebView!
@@ -24,7 +19,7 @@ class DownloaderViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        let url = URL(string: developerToolsDownloadURL)!
+        let url = URL(string: DownloadURL.tools.rawValue)!
         webView.navigationDelegate = self
         webView.load(URLRequest(url: url))
         updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
@@ -67,7 +62,7 @@ extension DownloaderViewController {
 extension DownloaderViewController : WKNavigationDelegate {
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if let pathExtension = navigationAction.request.url?.pathExtension,
-            supportedExtension.contains(pathExtension){
+            let _ = SupportedExtension(rawValue: pathExtension) {
             let downloadFileURL = navigationAction.request.url?.absoluteString
             self.startDownload(fileURL: downloadFileURL)
             decisionHandler(.cancel)
@@ -81,11 +76,11 @@ extension DownloaderViewController : WKNavigationDelegate {
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         if let currentURL = webView.url?.absoluteString,
-            currentURL.lowercased().contains(developerToolsDownloadURL.lowercased()) {
+            currentURL.lowercased().contains(DownloadURL.tools.rawValue.lowercased()) {
             self.updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
             DispatchQueue.main.asyncAfter(deadline: .now()+4) {
                 webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
-                    if let downloadAuthToken = cookie.first(where: {$0.name == self.downloadAuthCookieName})?.value {
+                    if let downloadAuthToken = cookie.first(where: {$0.name == CookieName.DownloadAuthToken.rawValue})?.value {
                         DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
                         self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
                     } else {
