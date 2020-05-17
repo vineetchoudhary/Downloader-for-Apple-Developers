@@ -23,6 +23,7 @@
 "InitialStatus" = "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.";
 "DownloadAuthTokenSuccess" = "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.";
 "CheckingDownloadAuthToken" = "Please wait. Checking download authentication token...";
+"SwitchingSource" = "Please wait. Loading %@ page...";
 
 //DeveloperToolsDownloader.swift
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";

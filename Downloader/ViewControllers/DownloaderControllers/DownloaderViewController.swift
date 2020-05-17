@@ -40,6 +40,7 @@ class DownloaderViewController: NSViewController {
             self.webView.navigationDelegate = self
             self.webView.load(URLRequest(url: url))
             self.updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
+            self.updateStatus(text: String(format: NSLocalizedString("SwitchingSource", comment: ""), downloadSource.title))
         }
         
         downloadProgressTableViewHandler = DownloadProgressTableViewHandler(tableView: downloadProgressTableView)
