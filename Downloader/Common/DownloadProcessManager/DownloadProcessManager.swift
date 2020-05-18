@@ -24,7 +24,7 @@ class DownloadProcessManager {
         downloadAuthToken = token
     }
     
-    //MAKR: - Start Download
+    //MARK: - Start Download
     func startDownload(source: DownloadSource, fileURL: String?) {
         guard var downloadFileURL = fileURL else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
