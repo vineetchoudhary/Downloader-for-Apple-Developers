@@ -10,6 +10,8 @@
 		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
+		445F377224727D5700752087 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* Logger.swift */; };
+		445F3774247293E800752087 /* DownloadProcessObserver.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F3773247293E800752087 /* DownloadProcessObserver.swift */; };
 		446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */; };
 		446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */; };
 		446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */; };
@@ -23,7 +25,6 @@
 		44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */; };
 		44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */; };
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
-		44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE120C23FBF11B00567A20 /* LogsViewController.swift */; };
 		44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE120E23FC2ECA00567A20 /* WebKit.framework */; };
 		44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE121023FC2ECF00567A20 /* Cocoa.framework */; };
 /* End PBXBuildFile section */
@@ -31,6 +32,8 @@
 /* Begin PBXFileReference section */
 		44370C8323FC36BA0015D47D /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
 		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
+		445F377124727D5700752087 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		445F3773247293E800752087 /* DownloadProcessObserver.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessObserver.swift; sourceTree = "<group>"; };
 		446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSourceTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AppleVideoDownload.sh; sourceTree = "<group>"; };
@@ -47,7 +50,6 @@
 		44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderWindowController.swift; sourceTree = "<group>"; };
 		44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessManager.swift; sourceTree = "<group>"; };
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
-		44DE120C23FBF11B00567A20 /* LogsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogsViewController.swift; sourceTree = "<group>"; };
 		44DE120E23FC2ECA00567A20 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
@@ -73,7 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				44DE11FB23FBC8F500567A20 /* DownloaderControllers */,
-				44DE120B23FBF0F000567A20 /* LogsViewController */,
 				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
 			);
 			path = ViewControllers;
@@ -82,6 +83,7 @@
 		44370C8123FC35770015D47D /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				445F377024727D2C00752087 /* Logger */,
 				44D423C22470F79600BC83D4 /* Configurations */,
 				44370C8223FC369B0015D47D /* UpdateManager */,
 				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
@@ -95,6 +97,14 @@
 				44370C8323FC36BA0015D47D /* UpdateManager.swift */,
 			);
 			path = UpdateManager;
+			sourceTree = "<group>";
+		};
+		445F377024727D2C00752087 /* Logger */ = {
+			isa = PBXGroup;
+			children = (
+				445F377124727D5700752087 /* Logger.swift */,
+			);
+			path = Logger;
 			sourceTree = "<group>";
 		};
 		44D423C22470F79600BC83D4 /* Configurations */ = {
@@ -163,6 +173,7 @@
 			children = (
 				44370C8523FD076C0015D47D /* Aria2cParser.swift */,
 				44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */,
+				445F3773247293E800752087 /* DownloadProcessObserver.swift */,
 			);
 			path = DownloadProcessManager;
 			sourceTree = "<group>";
@@ -174,14 +185,6 @@
 				44DE120723FBE48900567A20 /* Localizable.strings */,
 			);
 			path = Resources;
-			sourceTree = "<group>";
-		};
-		44DE120B23FBF0F000567A20 /* LogsViewController */ = {
-			isa = PBXGroup;
-			children = (
-				44DE120C23FBF11B00567A20 /* LogsViewController.swift */,
-			);
-			path = LogsViewController;
 			sourceTree = "<group>";
 		};
 		98064A8414BDA2AB1AA50220 /* Frameworks */ = {
@@ -303,9 +306,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				44DE120D23FBF11B00567A20 /* LogsViewController.swift in Sources */,
+				445F377224727D5700752087 /* Logger.swift in Sources */,
 				44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
+				445F3774247293E800752087 /* DownloadProcessObserver.swift in Sources */,
 				446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */,
 				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
