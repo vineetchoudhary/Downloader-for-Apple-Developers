@@ -9,13 +9,10 @@
 import Foundation
 
 class DownloadProcessManager {
-    typealias OutputStream = (String)-> Void
-    
     //MARK: - Properties
     private(set) var downloadAuthToken: String?
-    private(set) var downloadLogs = String()
-    private(set) var downloadProcesses = [String: Process]()
-    
+    weak var delegate: DownloadProcessDelegate?
+    lazy private(set) var downloadProcesses = [String: Process]()
     
     //MARK: - Initializers
     static let shared = DownloadProcessManager()
@@ -27,10 +24,11 @@ class DownloadProcessManager {
         downloadAuthToken = token
     }
     
-    func startDownload(source: DownloadSource, fileURL: String?, outputStream: @escaping OutputStream) {
+    //MAKR: - Start Download
+    func startDownload(source: DownloadSource, fileURL: String?) {
         guard var downloadFileURL = fileURL else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
-            sendOutputStream(outputString: outputString, outputStream: outputStream)
+            delegate?.outputStream(output: outputString)
             return
         }
         
@@ -55,7 +53,7 @@ class DownloadProcessManager {
                 //Get download auth token and add to launch arguments
                 guard let authToken = downloadAuthToken else {
                     let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
-                    sendOutputStream(outputString: outputString, outputStream: outputStream)
+                    delegate?.outputStream(output: outputString)
                     return
                 }
                 launchArguments.append(authToken);
@@ -71,43 +69,48 @@ class DownloadProcessManager {
             downloadProcesses[downloadFileURL] = currentDownloadProcess
         }
         
+        //Check if download already in process for same url
         if currentDownloadProcess.isRunning {
             let outputString = NSLocalizedString("DownloadInProgress", comment: "")
-            sendOutputStream(outputString: outputString, outputStream: outputStream)
+            delegate?.outputStream(output: outputString)
             return
         }
 
+        //Set launch path and arguments
         currentDownloadProcess.launchPath = launchPath
         currentDownloadProcess.arguments = launchArguments
         
+        //set standard ourput and error pipe
         let outputPipe = Pipe()
         currentDownloadProcess.standardOutput = outputPipe
         currentDownloadProcess.standardError = outputPipe
         outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
+        //observer output changes
         var notificationObserver: NSObjectProtocol?
         notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: .main) { [unowned self] (notification) in
             outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
             let outputData = outputPipe.fileHandleForReading.availableData
+            
+            //If there is some output data means process is running
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
-                self.sendOutputStream(outputString: Aria2cParser.parse(string: outputString), outputStream: outputStream)
+                let parsedOutputString = Aria2cParser.parse(string: outputString)
+                self.delegate?.outputStream(output: parsedOutputString)
             } else if let notificationObserver = notificationObserver {
+                //trigger download finish
+                self.delegate?.downloadFinish(url: downloadFileURL)
+                
+                //terminate current download process and remove process output observer
                 currentDownloadProcess.terminate()
                 self.downloadProcesses.removeValue(forKey: downloadFileURL)
                 NotificationCenter.default.removeObserver(notificationObserver)
             }
         }
         
+        //launch download process
         currentDownloadProcess.launch()
+        
+        //trigger downnload start
+        self.delegate?.downloadStart(url: downloadFileURL)
     }
-    
-    private func sendOutputStream(outputString: String, outputStream: OutputStream) {
-        outputStream(outputString)
-        downloadLogs.append("\(outputString)\n")
-        NotificationCenter.default.post(name: .DownloadOutputStream, object: "\(outputString)\n")
-    }
-}
-
-extension Notification.Name {
-    static let DownloadOutputStream = Notification.Name("DownloadOutputStream")
 }

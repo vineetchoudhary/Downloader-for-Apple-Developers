@@ -18,9 +18,10 @@ class DownloaderViewController: NSViewController {
     @IBOutlet weak var downloadProgressTableView: NSTableView!
     
     //MARK: - Properties
-    var downloadSource: DownloadSource = .tools
-    var downloadSourceTableViewHandler: DownloadSourceTableViewHandler!
-    var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
+    private var downloadSource: DownloadSource = .tools
+    private var downloadSourceTableViewHandler: DownloadSourceTableViewHandler!
+    private var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
+    private var downloadProcessManager = DownloadProcessManager.shared
     
     //MARK: - View Lifecycle
     override func viewDidLoad() {
@@ -28,6 +29,8 @@ class DownloaderViewController: NSViewController {
 
         //Download Service TableView
         downloadSourceTableViewHandler = DownloadSourceTableViewHandler(tableView: downloadSourceTableView)
+        
+        //Handle downnload service selection change
         downloadSourceTableViewHandler.selectionChange { [weak self] (downloadSource) in
             guard let self = self else {
                 return;
@@ -43,7 +46,11 @@ class DownloaderViewController: NSViewController {
             self.updateStatus(text: String(format: NSLocalizedString("SwitchingSource", comment: ""), downloadSource.title))
         }
         
+        //Downnload Progress TableView
         downloadProgressTableViewHandler = DownloadProgressTableViewHandler(tableView: downloadProgressTableView)
+        
+        //Setup download process manager
+        downloadProcessManager.delegate = self
     }
 
     override var representedObject: Any? {
@@ -55,21 +62,12 @@ class DownloaderViewController: NSViewController {
     @IBAction func statusTapAction(_ sender: NSClickGestureRecognizer) {
         performSegue(withIdentifier: "ShowLogsViewController", sender: nil)
     }
-    
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        if let logsViewController = segue.destinationController as? LogsViewController {
-            logsViewController.initialLogs = DownloadProcessManager.shared.downloadLogs
-        }
-    }
-    
 }
 
 //MARK: - Download Helper
 extension DownloaderViewController {
     fileprivate func startDownload(fileURL: String?) {
-        DownloadProcessManager.shared.startDownload(source: downloadSource, fileURL: fileURL) { (outputStream) in
-            self.updateStatus(text: outputStream)
-        }
+        downloadProcessManager.startDownload(source: downloadSource, fileURL: fileURL)
     }
     
     fileprivate func updateStatus(text: String) {
@@ -129,5 +127,20 @@ extension DownloaderViewController : WKNavigationDelegate {
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
         updateStatus(text: error.localizedDescription)
+    }
+}
+
+//MARK: - DownloadProcessManager Delegate
+extension DownloaderViewController: DownloadProcessDelegate {
+    func downloadStart(url: String) {
+        Logger.downloadStart(url: url)
+    }
+    
+    func downloadFinish(url: String) {
+        Logger.downloadFinish(url: url)
+    }
+    
+    func outputStream(output: String) {
+        updateStatus(text: output)
     }
 }
