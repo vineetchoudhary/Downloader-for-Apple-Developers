@@ -30,7 +30,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {
-        for downloadProcess in DownloadProcessManager.shared.downloadProcesses.values {
+        for downloadProcess in DownloadProcessManager.shared.downloadProcesses {
             downloadProcess.terminate()
         }
     }

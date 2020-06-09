@@ -12,7 +12,7 @@ class DownloadProcessManager {
     //MARK: - Properties
     private(set) var downloadAuthToken: String?
     weak var delegate: DownloadProcessDelegate?
-    lazy private(set) var downloadProcesses = [String: Process]()
+    lazy private(set) var downloadProcesses = [DownloadProcess]()
     
     //MARK: - Initializers
     static let shared = DownloadProcessManager()
@@ -62,11 +62,11 @@ class DownloadProcessManager {
         }
         
         //create or use existing download process
-        var currentDownloadProcess: Process!
-        currentDownloadProcess = downloadProcesses[downloadFileURL]
+        var currentDownloadProcess: DownloadProcess!
+        currentDownloadProcess = downloadProcesses.first(where: { $0.url == downloadFileURL })
         if currentDownloadProcess == nil {
-            currentDownloadProcess = Process()
-            downloadProcesses[downloadFileURL] = currentDownloadProcess
+            currentDownloadProcess = DownloadProcess(url: downloadFileURL)
+            downloadProcesses.append(currentDownloadProcess)
         }
         
         //Check if download already in process for same url
@@ -102,7 +102,7 @@ class DownloadProcessManager {
                 
                 //terminate current download process and remove process output observer
                 currentDownloadProcess.terminate()
-                self.downloadProcesses.removeValue(forKey: downloadFileURL)
+                self.downloadProcesses.removeAll(where: { $0.url == downloadFileURL });
                 NotificationCenter.default.removeObserver(notificationObserver)
             }
         }

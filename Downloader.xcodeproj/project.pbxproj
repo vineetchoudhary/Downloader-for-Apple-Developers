@@ -12,6 +12,7 @@
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		445F377224727D5700752087 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* Logger.swift */; };
 		445F3774247293E800752087 /* DownloadProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F3773247293E800752087 /* DownloadProcessProtocol.swift */; };
+		445F37772472AE2A00752087 /* DownloadProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F37762472AE2A00752087 /* DownloadProcess.swift */; };
 		446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */; };
 		446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */; };
 		446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */; };
@@ -34,6 +35,7 @@
 		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
 		445F377124727D5700752087 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		445F3773247293E800752087 /* DownloadProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessProtocol.swift; sourceTree = "<group>"; };
+		445F37762472AE2A00752087 /* DownloadProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcess.swift; sourceTree = "<group>"; };
 		446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSourceTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AppleVideoDownload.sh; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				44370C8523FD076C0015D47D /* Aria2cParser.swift */,
+				445F37762472AE2A00752087 /* DownloadProcess.swift */,
 				44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */,
 				445F3773247293E800752087 /* DownloadProcessProtocol.swift */,
 			);
@@ -317,6 +320,7 @@
 				44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */,
 				44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */,
 				446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */,
+				445F37772472AE2A00752087 /* DownloadProcess.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
