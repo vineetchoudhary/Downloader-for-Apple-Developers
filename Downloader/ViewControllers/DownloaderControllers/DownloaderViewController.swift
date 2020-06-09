@@ -141,6 +141,7 @@ extension DownloaderViewController: DownloadProcessDelegate {
     }
     
     func outputStream(output: String) {
+        downloadProgressTableView.reloadData()
         updateStatus(text: output)
     }
 }
