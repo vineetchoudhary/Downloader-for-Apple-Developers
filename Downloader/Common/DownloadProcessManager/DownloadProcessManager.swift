@@ -58,7 +58,7 @@ class DownloadProcessManager {
                 }
                 launchArguments.append(authToken);
             case .video:
-                launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")!
+                launchPath = Bundle.main.path(forResource: "AppleVideoDownload", ofType: "sh")!
         }
         
         //create or use existing download process
