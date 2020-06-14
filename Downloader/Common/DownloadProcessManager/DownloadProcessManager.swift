@@ -11,12 +11,15 @@ import Foundation
 class DownloadProcessManager {
     //MARK: - Properties
     private(set) var downloadAuthToken: String?
+    private(set) var downloadQueue: OperationQueue!
     weak var delegate: DownloadProcessDelegate?
     lazy private(set) var downloadProcesses = [DownloadProcess]()
     
     //MARK: - Initializers
     static let shared = DownloadProcessManager()
     private init() {
+        downloadQueue = OperationQueue()
+        downloadQueue.name = "Download Queue"
     }
     
     //MARK: - Download Helper
@@ -26,14 +29,20 @@ class DownloadProcessManager {
     
     //MARK: - Start Download
     func startDownload(source: DownloadSource, fileURL: String?) {
-        guard var downloadFileURL = fileURL else {
+        guard var downloadFileURLString = fileURL,
+            let downloadFileURL = URL(string: downloadFileURLString) else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
             delegate?.outputStream(output: outputString)
             return
         }
+
+        let fileExtension = downloadFileURL.pathExtension
+        let lastPathComponent = downloadFileURL.lastPathComponent
+        let fileName = lastPathComponent.components(separatedBy: fileExtension).first!
+        let fullFileName = fileName + fileExtension
         
         //use http protocol instead of https
-        downloadFileURL = downloadFileURL.replacingOccurrences(of: "https://", with: "http://")
+        downloadFileURLString = downloadFileURLString.replacingOccurrences(of: "https://", with: "http://")
         
         var launchPath: String
         var launchArguments = [String]()
@@ -43,7 +52,7 @@ class DownloadProcessManager {
         launchArguments.append(aria2cPath)
         
         //Add download URL
-        launchArguments.append(downloadFileURL)
+        launchArguments.append(downloadFileURLString)
         
         //Set/Add Source Specific Variable/Arguments
         switch source {
@@ -63,9 +72,9 @@ class DownloadProcessManager {
         
         //create or use existing download process
         var currentDownloadProcess: DownloadProcess!
-        currentDownloadProcess = downloadProcesses.first(where: { $0.url == downloadFileURL })
+        currentDownloadProcess = downloadProcesses.first(where: { $0.url == downloadFileURLString })
         if currentDownloadProcess == nil {
-            currentDownloadProcess = DownloadProcess(url: downloadFileURL)
+            currentDownloadProcess = DownloadProcess(url: downloadFileURLString)
             downloadProcesses.append(currentDownloadProcess)
         }
         
@@ -88,10 +97,13 @@ class DownloadProcessManager {
         
         //observer output changes
         var notificationObserver: NSObjectProtocol?
-        notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: .main) { [unowned self] (notification) in
-            outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: downloadQueue) { [unowned self] (notification) in
+            //Start waitinng for next output stream
+            DispatchQueue.main.async {
+                outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+            }
             
-            let fileName = (downloadFileURL as NSString).lastPathComponent
+            //Get current output stream data
             let outputData = outputPipe.fileHandleForReading.availableData
             
             //If there is some output data means process is running
@@ -99,18 +111,22 @@ class DownloadProcessManager {
                 //update progress
                 let parsedOutputString = Aria2cParser.parse(string: outputString)
                 if (!parsedOutputString.isEmpty) {
-                    currentDownloadProcess.progress = DownloadProgress(fileName: fileName, output: parsedOutputString)
+                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutputString)
                     print(currentDownloadProcess.progress.debugDescription)
                 }
                 
                 //trigger output stream update
-                self.delegate?.outputStream(output: parsedOutputString)
+                DispatchQueue.main.async {
+                    self.delegate?.outputStream(output: parsedOutputString)
+                }
             } else if let notificationObserver = notificationObserver {
                 //update progress
-                currentDownloadProcess.progress = DownloadProgress(fileName: fileName, output: "", isFinish: true)
+                currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: "", isFinish: true)
                 
                 //trigger download finish
-                self.delegate?.downloadFinish(url: downloadFileURL)
+                DispatchQueue.main.async {
+                    self.delegate?.downloadFinish(url: downloadFileURLString)
+                }
                 
                 //terminate current download process and remove process output observer
                 currentDownloadProcess.terminate()
@@ -122,6 +138,6 @@ class DownloadProcessManager {
         currentDownloadProcess.launch()
         
         //trigger downnload start
-        self.delegate?.downloadStart(url: downloadFileURL)
+        self.delegate?.downloadStart(url: downloadFileURLString)
     }
 }
