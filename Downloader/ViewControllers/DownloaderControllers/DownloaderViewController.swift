@@ -138,10 +138,10 @@ extension DownloaderViewController: DownloadProcessDelegate {
     
     func downloadFinish(url: String) {
         Logger.downloadFinish(url: url)
+        downloadProgressTableView.reloadData()
     }
     
     func outputStream(output: String) {
         downloadProgressTableView.reloadData()
-        updateStatus(text: output)
     }
 }
