@@ -5,22 +5,23 @@
   Created by Vineet Choudhary on 18/02/20.
   Copyright © 2020 Developer Insider. All rights reserved.
 */
-//Common
+
+//MARK: - Common
 "No" = "No";
 "Yes" = "Yes";
 "PleaseWait" = "Please Wait...";
 "CommonError" = "Something went wrong. Please try again.";
 
-//Configuration.swift
+//MARK: - Configuration.swift
 "WWDCVideos" = "Videos (WWDC, Tech Talks, etc.)";
 "DeveloperTools" = "Tools (Xcode, macOS, etc.)";
 
-//DownloaderWindowController.swift
+//MARK: - DownloaderWindowController.swift
 "WindowCloseMessage" = "Are you sure you want to close Downloader?";
 "WindowCloseInformativeText" = "Closing this will stop the download task.";
 "WindowCloseStopDownloading" = "Stop Downloading";
 
-//DownloaderViewController.swift
+//MARK: - DownloaderViewController.swift
 "InitialStatus" = "Waiting for Download Auth Token. Please login with your Apple Developer account to continue.";
 "DownloadAuthTokenSuccess" = "Download authentication token - OK. Now you can start downloading. You can click here anytime for complete logs.";
 "CheckingDownloadAuthToken" = "Please wait. Checking download authentication token...";
@@ -28,12 +29,15 @@
 "LoginRequired" = "Login is required to access this page.";
 "AllSet" = "You're all set. Start Downloading.";
 
-//DeveloperToolsDownloader.swift
+//MARK: - DeveloperToolsDownloader.swift
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";
 "DownloadURLNotFound" = "Download url not found.";
 "DownloadInProgress" = "Please wait. Download in progress....";
 "DownloadComplete" = "Download Completed. Please check your download folder.";
 
-//UpdateManager.swift
+//MARK: - UpdateManager.swift
 "UpdateMessage" = "New Version Available";
 "UpdateInformativeText" = "A newer version of the \"Downloader\" is available. Do you want to update it?";
+
+//MARK: - DownloadProcessCompleteTableCellView.swift
+"DownloadCompleted" = "Download Completed.";

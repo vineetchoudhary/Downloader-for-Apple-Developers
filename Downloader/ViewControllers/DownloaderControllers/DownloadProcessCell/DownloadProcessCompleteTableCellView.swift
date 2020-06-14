@@ -15,6 +15,6 @@ class DownloadProcessCompleteTableCellView: NSTableCellView {
     
     func config(downloadProgress: DownloadProgress) {
         nameLabel.stringValue = downloadProgress.fileName ?? "--"
-        messageLabel.stringValue = "Download Completed."
+        messageLabel.stringValue = NSLocalizedString("DownloadCompleted", comment: "")
     }
 }
