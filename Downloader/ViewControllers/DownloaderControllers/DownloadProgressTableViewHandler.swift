@@ -53,5 +53,12 @@ extension DownloadProgressTableViewHandler: NSTableViewDataSource {
 }
 
 extension DownloadProgressTableViewHandler: NSTableViewDelegate {
-    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        if let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress,
+            let fileName = downloadProgress.fileName, downloadProgress.isFinish,
+            let fileURL = URL(string: "file://\(NSHomeDirectory())/Downloads/\(fileName)") {
+            NSWorkspace.shared.activateFileViewerSelecting([fileURL])
+        }
+        return false
+    }
 }
