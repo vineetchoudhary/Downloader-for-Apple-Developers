@@ -23,13 +23,18 @@ extension DownloadProgressTableViewHandler: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "downloadProgressTableViewCell")
-        if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? NSTableCellView {
-            let processes = DownloadProcessManager.shared.downloadProcesses
-            cell.textField?.stringValue = processes[row].lastOutput ?? "Waiting..."
-            return cell;
+        let identifierString = String(describing: DownloadProcessTableCellView.self)
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: identifierString)
+        if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? DownloadProcessTableCellView,
+            let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress {
+            cell.config(downloadProgress: downloadProgress)
+            return cell
         }
         return nil
+    }
+    
+    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
+        return false
     }
 }
 
