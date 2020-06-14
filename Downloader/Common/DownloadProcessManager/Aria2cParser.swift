@@ -11,14 +11,18 @@ import Foundation
 struct Aria2cParser {
     static func parse(string: String)-> String {
         let lines = string.components(separatedBy: .newlines)
-        if let readoutLine = lines.last(where: {$0.first == "[" && $0.last == "]"}) {
-            return readoutLine
+        if var readoutLine = lines.last(where: {$0.first == "[" && $0.last == "]"}) {
+            readoutLine.removeFirst()
+            readoutLine.removeLast()
+            return readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         
         if let possibleReadoutLine = lines.last(where: {$0.first == "["}),
-            let readoutLine = possibleReadoutLine.components(separatedBy: "]")
+            var readoutLine = possibleReadoutLine.components(separatedBy: "]")
                 .last(where: {$0.first == "["}) {
-            return readoutLine
+            readoutLine.removeFirst()
+            readoutLine.removeLast()
+            return readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
         }
         
         if string.lowercased().contains("download completed") {
@@ -29,7 +33,6 @@ struct Aria2cParser {
             return ""
         }
         
-        return string
+        return string.trimmingCharacters(in: .whitespacesAndNewlines)
     }
 }
-
