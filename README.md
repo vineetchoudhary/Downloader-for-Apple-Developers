@@ -4,7 +4,11 @@ Download Xcode and other developer tools up to 16 times faster with resume capab
 ## Features
 - 🚀 Download Xcode and other developer tools up to 16 times faster.    
 - ✨ Resume download automatically if the download failed due to any reason.    
-- 🔧 Multiple downloads supported but no proper UI for that.     
+- 🔧 Multiple downloads supported but no proper UI for that. 
+
+## Upcoming Features
+- ⏬ Proper UI for multiple downloads.
+- 🚀 Download WWDC Videos up to 16 times faster.
 
 ## Installation
 
