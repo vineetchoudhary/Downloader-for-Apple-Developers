@@ -23,18 +23,32 @@ extension DownloadProgressTableViewHandler: NSTableViewDataSource {
     }
     
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let identifierString = String(describing: DownloadProcessTableCellView.self)
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: identifierString)
-        if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? DownloadProcessTableCellView,
-            let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress {
-            cell.config(downloadProgress: downloadProgress)
-            return cell
+        guard let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress else {
+            return nil
+        }
+        if downloadProgress.isFinish {
+            let identifierString = String(describing: DownloadProcessCompleteTableCellView.self)
+            let identifier = NSUserInterfaceItemIdentifier(rawValue: identifierString)
+            if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? DownloadProcessCompleteTableCellView {
+                cell.config(downloadProgress: downloadProgress)
+                return cell
+            }
+        } else {
+            let identifierString = String(describing: DownloadProcessTableCellView.self)
+            let identifier = NSUserInterfaceItemIdentifier(rawValue: identifierString)
+            if let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? DownloadProcessTableCellView {
+                cell.config(downloadProgress: downloadProgress)
+                return cell
+            }
         }
         return nil
     }
     
-    func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        return false
+    func tableView(_ tableView: NSTableView, heightOfRow row: Int) -> CGFloat {
+        guard let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress else {
+            return 88
+        }
+        return downloadProgress.isFinish ? 62 : 88
     }
 }
 
