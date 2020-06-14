@@ -90,19 +90,30 @@ class DownloadProcessManager {
         var notificationObserver: NSObjectProtocol?
         notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: .main) { [unowned self] (notification) in
             outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+            
+            let fileName = (downloadFileURL as NSString).lastPathComponent
             let outputData = outputPipe.fileHandleForReading.availableData
             
             //If there is some output data means process is running
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
+                //update progress
                 let parsedOutputString = Aria2cParser.parse(string: outputString)
+                if (!parsedOutputString.isEmpty) {
+                    currentDownloadProcess.progress = DownloadProgress(fileName: fileName, output: parsedOutputString)
+                    print(currentDownloadProcess.progress.debugDescription)
+                }
+                
+                //trigger output stream update
                 self.delegate?.outputStream(output: parsedOutputString)
             } else if let notificationObserver = notificationObserver {
+                //update progress
+                currentDownloadProcess.progress = DownloadProgress(fileName: fileName, output: "", isFinish: true)
+                
                 //trigger download finish
                 self.delegate?.downloadFinish(url: downloadFileURL)
                 
                 //terminate current download process and remove process output observer
                 currentDownloadProcess.terminate()
-                self.downloadProcesses.removeAll(where: { $0.url == downloadFileURL });
                 NotificationCenter.default.removeObserver(notificationObserver)
             }
         }

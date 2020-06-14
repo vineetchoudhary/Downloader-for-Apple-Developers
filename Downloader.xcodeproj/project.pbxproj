@@ -16,6 +16,7 @@
 		446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */; };
 		446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */; };
 		446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */; };
+		446FAED82495EE0E00213C44 /* DownloadProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FAED72495EE0E00213C44 /* DownloadProgress.swift */; };
 		44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D423C32470F7AB00BC83D4 /* Configuration.swift */; };
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
 		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
@@ -39,6 +40,7 @@
 		446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSourceTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3D24710705006ED589 /* DownloadProgressTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgressTableViewHandler.swift; sourceTree = "<group>"; };
 		446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AppleVideoDownload.sh; sourceTree = "<group>"; };
+		446FAED72495EE0E00213C44 /* DownloadProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgress.swift; sourceTree = "<group>"; };
 		44D423C32470F7AB00BC83D4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			isa = PBXGroup;
 			children = (
 				44370C8523FD076C0015D47D /* Aria2cParser.swift */,
+				446FAED72495EE0E00213C44 /* DownloadProgress.swift */,
 				445F37762472AE2A00752087 /* DownloadProcess.swift */,
 				44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */,
 				445F3773247293E800752087 /* DownloadProcessProtocol.swift */,
@@ -313,6 +316,7 @@
 				44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
 				445F3774247293E800752087 /* DownloadProcessProtocol.swift in Sources */,
+				446FAED82495EE0E00213C44 /* DownloadProgress.swift in Sources */,
 				446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */,
 				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,

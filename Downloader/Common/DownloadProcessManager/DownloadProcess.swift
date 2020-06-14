@@ -14,7 +14,7 @@ class DownloadProcess {
     
     //MARK: - public properties
     let url: String!
-    var lastOutput: String?
+    var progress: DownloadProgress?
     
     //MARK: - computed properties
     var isRunning: Bool {
