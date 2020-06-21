@@ -36,8 +36,8 @@ If you face any issue using the above command then you can manually install it b
 | 4. | Now just select "HD Video" or "SD Video" from the Resources section to start the download. |
 
 ## Screenshots
-![](/docs/Login.png)
 ![](/docs/Download.png)
+![](/docs/DownloadVideo.png)
 
 ## Contributions
 Any contribution is more than welcome! You can contribute through pull requests and [issues](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/issues) on [GitHub](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/)
