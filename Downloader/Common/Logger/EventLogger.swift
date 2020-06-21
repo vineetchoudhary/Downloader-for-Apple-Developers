@@ -1,5 +1,5 @@
 //
-//  Logger.swift
+//  EventLogger.swift
 //  Downloader
 //
 //  Created by Vineet Choudhary on 18/05/20.
@@ -9,7 +9,7 @@
 import Foundation
 import AppCenterAnalytics
 
-struct Logger {
+struct EventLogger {
     static func downloadStart(url: String) {
         let params = getParams(from: url)
         MSAnalytics.trackEvent("Download Start", withProperties: params)

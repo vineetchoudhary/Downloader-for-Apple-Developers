@@ -133,11 +133,11 @@ extension DownloaderViewController : WKNavigationDelegate {
 //MARK: - DownloadProcessManager Delegate
 extension DownloaderViewController: DownloadProcessDelegate {
     func downloadStart(url: String) {
-        Logger.downloadStart(url: url)
+        EventLogger.downloadStart(url: url)
     }
     
     func downloadFinish(url: String) {
-        Logger.downloadFinish(url: url)
+        EventLogger.downloadFinish(url: url)
         downloadProgressTableView.reloadData()
     }
     
