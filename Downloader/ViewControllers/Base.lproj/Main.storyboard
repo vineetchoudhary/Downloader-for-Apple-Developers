@@ -119,8 +119,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="1001" height="1010"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOh-vS-p9D">
-                                <rect key="frame" x="0.0" y="40" width="770" height="683"/>
+                            <wkWebView wantsLayer="YES" allowsBackForwardNavigationGestures="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOh-vS-p9D">
+                                <rect key="frame" x="0.0" y="40" width="770" height="654"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -166,16 +166,16 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="583-hM-Cx7">
-                                <rect key="frame" x="770" y="40" width="231" height="683"/>
+                                <rect key="frame" x="770" y="40" width="231" height="654"/>
                                 <subviews>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsx-dl-Ax1">
-                                        <rect key="frame" x="0.0" y="597" width="231" height="86"/>
+                                        <rect key="frame" x="0.0" y="572" width="231" height="82"/>
                                         <clipView key="contentView" id="9LO-8w-qzw">
-                                            <rect key="frame" x="1" y="0.0" width="229" height="85"/>
+                                            <rect key="frame" x="1" y="0.0" width="229" height="81"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="HJm-JV-wjd" viewBased="YES" id="1tF-S2-N8K">
-                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="60"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="56"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -231,13 +231,13 @@
                                         </tableHeaderView>
                                     </scrollView>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="90" horizontalPageScroll="10" verticalLineScroll="90" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-zv-7c1">
-                                        <rect key="frame" x="0.0" y="0.0" width="231" height="597"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="231" height="572"/>
                                         <clipView key="contentView" id="T2h-Kq-HWI">
-                                            <rect key="frame" x="1" y="0.0" width="229" height="596"/>
+                                            <rect key="frame" x="1" y="0.0" width="229" height="571"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="88" headerView="jqC-Ej-igH" viewBased="YES" id="ku4-9J-tE5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="571"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="546"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
