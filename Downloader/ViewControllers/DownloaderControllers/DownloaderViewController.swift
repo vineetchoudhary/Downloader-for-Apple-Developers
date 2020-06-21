@@ -42,8 +42,10 @@ class DownloaderViewController: NSViewController {
             let url = URL(string: downloadSource.url)!
             self.webView.navigationDelegate = self
             self.webView.load(URLRequest(url: url))
-            self.updateStatus(text: NSLocalizedString("InitialStatus", comment: ""))
-            self.updateStatus(text: String(format: NSLocalizedString("SwitchingSource", comment: ""), downloadSource.title))
+            
+            let status = String(format: NSLocalizedString("SwitchingSource", comment: ""), downloadSource.title)
+            DLog.info("Source Status - \(status)")
+            self.updateStatus(text: status)
         }
         
         //Downnload Progress TableView
@@ -85,9 +87,13 @@ extension DownloaderViewController {
             self.webView.configuration.websiteDataStore.httpCookieStore.getAllCookies { [unowned self] (cookie) in
                 if let downloadAuthToken = cookie.first(where: {$0.name == CookieName.downloadAuthToken.rawValue})?.value {
                     DownloadProcessManager.shared.setDownloadAuthToken(token: downloadAuthToken)
-                    self.updateStatus(text: NSLocalizedString("DownloadAuthTokenSuccess", comment: ""))
+                    let status = NSLocalizedString("DownloadAuthTokenSuccess", comment: "")
+                    DLog.error("Status - \(status)")
+                    self.updateStatus(text: status)
                 } else {
-                    self.updateStatus(text: NSLocalizedString("DownloadAuthTokenNotFound", comment: ""))
+                    let status = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
+                    DLog.error("Status - \(status)")
+                    self.updateStatus(text: status)
                 }
             }
         }
@@ -100,6 +106,7 @@ extension DownloaderViewController : WKNavigationDelegate {
         if let pathExtension = navigationAction.request.url?.pathExtension.lowercased(),
             let _ = SupportedExtension(rawValue: pathExtension) {
             let downloadFileURL = navigationAction.request.url?.absoluteString
+            DLog.info("Decided download for extension = - \(pathExtension)")
             self.startDownload(fileURL: downloadFileURL)
             decisionHandler(.cancel)
         }
@@ -107,25 +114,35 @@ extension DownloaderViewController : WKNavigationDelegate {
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
+        DLog.error("Navigation Error - \(error.localizedDescription)")
         updateStatus(text: error.localizedDescription)
     }
 
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
         guard let currentURL = webView.url?.absoluteString else {
-            updateStatus(text: NSLocalizedString("CommonError", comment: ""))
+            let status = NSLocalizedString("CommonError", comment: "")
+            DLog.info("Navigation Status - \(status)")
+            updateStatus(text: status)
             return;
         }
         if currentURL.lowercased().contains(AppleDomains.auth.rawValue.lowercased()) {
-            updateStatus(text: NSLocalizedString("LoginRequired", comment: ""))
+            let status = NSLocalizedString("LoginRequired", comment: "")
+            DLog.info("Navigation Status - \(status)")
+            updateStatus(text: status)
         } else if currentURL.lowercased().contains(DownloadSource.tools.url.lowercased()) {
-            updateStatus(text: NSLocalizedString("CheckingDownloadAuthToken", comment: ""))
+            let status = NSLocalizedString("CheckingDownloadAuthToken", comment: "")
+            DLog.info("Navigation Status - \(status)")
+            updateStatus(text: status)
             checkDownloadAuthToken()
         } else {
-            updateStatus(text: NSLocalizedString("AllSet", comment: ""))
+            let status = NSLocalizedString("AllSet", comment: "")
+            DLog.info("Navigation Status - \(status)")
+            updateStatus(text: status)
         }
     }
     
     func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
+        DLog.error(error.localizedDescription)
         updateStatus(text: error.localizedDescription)
     }
 }
@@ -133,15 +150,18 @@ extension DownloaderViewController : WKNavigationDelegate {
 //MARK: - DownloadProcessManager Delegate
 extension DownloaderViewController: DownloadProcessDelegate {
     func downloadStart(url: String) {
+        DLog.info("Download Started - \(url)")
         EventLogger.downloadStart(url: url)
     }
     
     func downloadFinish(url: String) {
+        DLog.info("Download Finish - \(url)")
         EventLogger.downloadFinish(url: url)
         downloadProgressTableView.reloadData()
     }
     
     func outputStream(output: String) {
+        DLog.info("Output Stream - \(output)")
         downloadProgressTableView.reloadData()
     }
 }

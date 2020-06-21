@@ -10,8 +10,15 @@ import Foundation
 import CocoaLumberjack
 
 struct DLog {
+    private init() {
+    }
+    
     static func config() {
         DDLog.add(DDOSLogger.sharedInstance)
+        
+        if let ttyLogger = DDTTYLogger.sharedInstance {
+            DDLog.add(ttyLogger)
+        }
         
         let fileLogger = DDFileLogger()
         fileLogger.doNotReuseLogFiles = true
@@ -19,23 +26,23 @@ struct DLog {
         DDLog.add(fileLogger)
     }
     
-    static func verbose(message: String) {
+    static func verbose(_ message: String) {
         DDLogVerbose(message)
     }
     
-    static func debug(message: String) {
+    static func debug(_ message: String) {
         DDLogDebug(message)
     }
     
-    static func info(message: String) {
+    static func info(_ message: String) {
         DDLogInfo(message)
     }
     
-    static func warning(message: String) {
+    static func warning(_ message: String) {
         DDLogWarn(message)
     }
     
-    static func error(message: String) {
+    static func error(_ message: String) {
         DDLogError(message)
     }
 }
