@@ -19,6 +19,7 @@
 		446FAED82495EE0E00213C44 /* DownloadProgress.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FAED72495EE0E00213C44 /* DownloadProgress.swift */; };
 		446FAEDB2496161100213C44 /* DownloadProcessTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FAEDA2496161100213C44 /* DownloadProcessTableCellView.swift */; };
 		446FAEDD24964D1100213C44 /* DownloadProcessCompleteTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446FAEDC24964D1100213C44 /* DownloadProcessCompleteTableCellView.swift */; };
+		44B6927D249F23CF001D62FD /* DLog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B6927C249F23CF001D62FD /* DLog.swift */; };
 		44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44D423C32470F7AB00BC83D4 /* Configuration.swift */; };
 		44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D623FA9B3900567A20 /* AppDelegate.swift */; };
 		44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11D823FA9B3900567A20 /* DownloaderViewController.swift */; };
@@ -45,6 +46,7 @@
 		446FAED72495EE0E00213C44 /* DownloadProgress.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProgress.swift; sourceTree = "<group>"; };
 		446FAEDA2496161100213C44 /* DownloadProcessTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessTableCellView.swift; sourceTree = "<group>"; };
 		446FAEDC24964D1100213C44 /* DownloadProcessCompleteTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessCompleteTableCellView.swift; sourceTree = "<group>"; };
+		44B6927C249F23CF001D62FD /* DLog.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DLog.swift; sourceTree = "<group>"; };
 		44D423C32470F7AB00BC83D4 /* Configuration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Configuration.swift; sourceTree = "<group>"; };
 		44DE11D323FA9B3900567A20 /* Downloader.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Downloader.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44DE11D623FA9B3900567A20 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 		445F377024727D2C00752087 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
+				44B6927C249F23CF001D62FD /* DLog.swift */,
 				445F377124727D5700752087 /* EventLogger.swift */,
 			);
 			path = Logger;
@@ -355,6 +358,7 @@
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
 				44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */,
+				44B6927D249F23CF001D62FD /* DLog.swift in Sources */,
 				44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */,
 				446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */,
 				446FAEDB2496161100213C44 /* DownloadProcessTableCellView.swift in Sources */,
