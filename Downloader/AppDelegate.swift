@@ -17,6 +17,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationWillFinishLaunching(_ notification: Notification) {
         //CocoaLumberjack
         DLog.config()
+        DLog.info("Downloader Started.")
         
         //App Center
         if let appCenter = Bundle.main.object(forInfoDictionaryKey: "AppCenter") as? String {
@@ -25,6 +26,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
+        DLog.info("Downloader Finish Launching.")
+        
         //Update Manager
         UpdateManager.shared.checkForUpdates { (updateURL) in
             UpdateManager.shared.showUpdateAlert(updateURL: updateURL)
@@ -35,6 +38,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         for downloadProcess in DownloadProcessManager.shared.downloadProcesses {
             downloadProcess.terminate()
         }
+        DLog.info("Downloader Terminated.")
     }
     
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {

@@ -58,14 +58,12 @@
                                             <modifierMask key="keyEquivalentModifierMask"/>
                                             <menu key="submenu" title="Logs" id="IEW-x3-mNn">
                                                 <items>
-                                                    <menuItem title="Show in Finder" id="q5b-c9-PVG">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <menuItem title="Show in Finder" keyEquivalent="f" id="q5b-c9-PVG">
                                                         <connections>
                                                             <action selector="logsShowInFinder:" target="Voe-Tx-rLC" id="9mR-m6-rmi"/>
                                                         </connections>
                                                     </menuItem>
-                                                    <menuItem title="Show in Console App" id="SIq-yg-HDw">
-                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                    <menuItem title="Show in Console App" keyEquivalent="l" id="SIq-yg-HDw">
                                                         <connections>
                                                             <action selector="logsShowInConsoleApp:" target="Voe-Tx-rLC" id="8ve-Ny-F0w"/>
                                                         </connections>
