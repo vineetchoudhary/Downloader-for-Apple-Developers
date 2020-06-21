@@ -50,6 +50,32 @@
                                     </items>
                                 </menu>
                             </menuItem>
+                            <menuItem title="File" id="le4-xY-kaH" userLabel="File">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="File" id="sXV-kb-TwY">
+                                    <items>
+                                        <menuItem title="Logs" id="fTP-uH-Oee">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Logs" id="IEW-x3-mNn">
+                                                <items>
+                                                    <menuItem title="Show in Finder" id="q5b-c9-PVG">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="logsShowInFinder:" target="Voe-Tx-rLC" id="9mR-m6-rmi"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                    <menuItem title="Show in Console App" id="SIq-yg-HDw">
+                                                        <modifierMask key="keyEquivalentModifierMask"/>
+                                                        <connections>
+                                                            <action selector="logsShowInConsoleApp:" target="Voe-Tx-rLC" id="8ve-Ny-F0w"/>
+                                                        </connections>
+                                                    </menuItem>
+                                                </items>
+                                            </menu>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
                             <menuItem title="Help" id="wpr-3q-Mcd">
                                 <modifierMask key="keyEquivalentModifierMask"/>
                             </menuItem>
@@ -96,7 +122,7 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <wkWebView wantsLayer="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zOh-vS-p9D">
-                                <rect key="frame" x="0.0" y="40" width="770" height="740"/>
+                                <rect key="frame" x="0.0" y="40" width="770" height="683"/>
                                 <wkWebViewConfiguration key="configuration">
                                     <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
                                     <wkPreferences key="preferences"/>
@@ -142,16 +168,16 @@
                                 </connections>
                             </button>
                             <customView translatesAutoresizingMaskIntoConstraints="NO" id="583-hM-Cx7">
-                                <rect key="frame" x="770" y="40" width="231" height="740"/>
+                                <rect key="frame" x="770" y="40" width="231" height="683"/>
                                 <subviews>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xsx-dl-Ax1">
-                                        <rect key="frame" x="0.0" y="647" width="231" height="93"/>
+                                        <rect key="frame" x="0.0" y="597" width="231" height="86"/>
                                         <clipView key="contentView" id="9LO-8w-qzw">
-                                            <rect key="frame" x="1" y="0.0" width="229" height="92"/>
+                                            <rect key="frame" x="1" y="0.0" width="229" height="85"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="HJm-JV-wjd" viewBased="YES" id="1tF-S2-N8K">
-                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="67"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
@@ -207,13 +233,13 @@
                                         </tableHeaderView>
                                     </scrollView>
                                     <scrollView autohidesScrollers="YES" horizontalLineScroll="90" horizontalPageScroll="10" verticalLineScroll="90" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XZR-zv-7c1">
-                                        <rect key="frame" x="0.0" y="0.0" width="231" height="647"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="231" height="597"/>
                                         <clipView key="contentView" id="T2h-Kq-HWI">
-                                            <rect key="frame" x="1" y="0.0" width="229" height="646"/>
+                                            <rect key="frame" x="1" y="0.0" width="229" height="596"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <subviews>
                                                 <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" columnSelection="YES" multipleSelection="NO" autosaveColumns="NO" rowHeight="88" headerView="jqC-Ej-igH" viewBased="YES" id="ku4-9J-tE5">
-                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="621"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="229" height="571"/>
                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                     <size key="intercellSpacing" width="3" height="2"/>
                                                     <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>

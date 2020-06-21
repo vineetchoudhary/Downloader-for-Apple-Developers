@@ -40,6 +40,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     func applicationShouldTerminateAfterLastWindowClosed(_ sender: NSApplication) -> Bool {
         return true
     }
-
+    
+    //MARK: - Menu Actions
+    @IBAction func logsShowInFinder(_ sender: NSMenuItem) {
+        logsShowInFinderActionn()
+    }
+    
+    @IBAction func logsShowInConsoleApp(_ sender: NSMenuItem) {
+        logsShowInConsoleAppAction()
+    }
+    
 }
-
