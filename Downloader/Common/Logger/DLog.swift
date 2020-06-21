@@ -10,17 +10,26 @@ import Foundation
 import CocoaLumberjack
 
 struct DLog {
+    private static let fileLogger = DDFileLogger()
+    private static var ddLogLevel: DDLogLevel = .info
+
+    static var sortedLogFilePath: [String] {
+        return fileLogger.logFileManager.sortedLogFilePaths
+    }
+    
     private init() {
     }
     
     static func config() {
+        //Add OS Logger
         DDLog.add(DDOSLogger.sharedInstance)
         
+        //Add TTYLogger (for Xcode)
         if let ttyLogger = DDTTYLogger.sharedInstance {
             DDLog.add(ttyLogger)
         }
         
-        let fileLogger = DDFileLogger()
+        //Config and Add File Logger
         fileLogger.doNotReuseLogFiles = true
         fileLogger.logFileManager.maximumNumberOfLogFiles = 3;
         DDLog.add(fileLogger)
