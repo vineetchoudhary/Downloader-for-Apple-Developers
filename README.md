@@ -3,12 +3,9 @@ Download Xcode and other developer tools up to 16 times faster with resume capab
 
 ## Features
 - 🚀 Download Xcode and other developer tools up to 16 times faster.    
+- 🎥 Download WWDC, Tech Talks and other videos up to 16 times faster.    
 - ✨ Resume download automatically if the download failed due to any reason.    
-- 🔧 Multiple downloads supported but no proper UI for that. 
-
-## Upcoming Features
-- ⏬ Proper UI for multiple downloads.
-- 🚀 Download WWDC Videos up to 16 times faster.
+- ⏬ Multiple downloads supported.
 
 ## Installation
 
@@ -23,11 +20,20 @@ If you face any issue using the above command then you can manually install it b
 
 ## How to use  
 
+#### Download Xcode and Other Developer Tools
 | Step | Description |
 | :--- | :--- |
 | 1. | Log in with your Apple Developer Account. |
 | 2. | After login, you'll see the Apple Developer Downloads page. |
-| 3. | Select any file which you want to download. |
+| 3. | Select any file to start the download. |
+
+#### Download WWDC, Tech Talks, and Other Videos 
+| Step | Description |
+| :--- | :--- |
+| 1. | Select "Videos (WWDC, Tech Talks, etc.)" from the right side download source list. |
+| 2. | After that, you'll see the Apple Developer Videos page. |
+| 3. | Select any video which you want to download. |
+| 4. | Now just select "HD Video" or "SD Video" from the Resources section to start the download. |
 
 ## Screenshots
 ![](/docs/Login.png)
