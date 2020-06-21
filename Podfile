@@ -4,4 +4,5 @@ target 'Downloader' do
   use_frameworks!
 
   pod 'AppCenter'
+  pod 'CocoaLumberjack/Swift'
 end

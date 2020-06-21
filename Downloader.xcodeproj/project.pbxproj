@@ -3,14 +3,14 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
-		445F377224727D5700752087 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* Logger.swift */; };
+		445F377224727D5700752087 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* EventLogger.swift */; };
 		445F3774247293E800752087 /* DownloadProcessProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F3773247293E800752087 /* DownloadProcessProtocol.swift */; };
 		445F37772472AE2A00752087 /* DownloadProcess.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F37762472AE2A00752087 /* DownloadProcess.swift */; };
 		446F5D3C247106F5006ED589 /* DownloadSourceTableViewHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */; };
@@ -36,7 +36,7 @@
 /* Begin PBXFileReference section */
 		44370C8323FC36BA0015D47D /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
 		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
-		445F377124727D5700752087 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		445F377124727D5700752087 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
 		445F3773247293E800752087 /* DownloadProcessProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessProtocol.swift; sourceTree = "<group>"; };
 		445F37762472AE2A00752087 /* DownloadProcess.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcess.swift; sourceTree = "<group>"; };
 		446F5D3B247106F5006ED589 /* DownloadSourceTableViewHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadSourceTableViewHandler.swift; sourceTree = "<group>"; };
@@ -110,7 +110,7 @@
 		445F377024727D2C00752087 /* Logger */ = {
 			isa = PBXGroup;
 			children = (
-				445F377124727D5700752087 /* Logger.swift */,
+				445F377124727D5700752087 /* EventLogger.swift */,
 			);
 			path = Logger;
 			sourceTree = "<group>";
@@ -237,6 +237,7 @@
 				44DE11CF23FA9B3900567A20 /* Sources */,
 				44DE11D023FA9B3900567A20 /* Frameworks */,
 				44DE11D123FA9B3900567A20 /* Resources */,
+				2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -254,7 +255,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1140;
 				ORGANIZATIONNAME = "Developer Insider";
 				TargetAttributes = {
 					44DE11D223FA9B3900567A20 = {
@@ -297,6 +298,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		CB3C7817B329B7489B34745C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -326,7 +344,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				445F377224727D5700752087 /* Logger.swift in Sources */,
+				445F377224727D5700752087 /* EventLogger.swift in Sources */,
 				446FAEDD24964D1100213C44 /* DownloadProcessCompleteTableCellView.swift in Sources */,
 				44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */,
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
@@ -477,6 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
@@ -502,6 +521,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
