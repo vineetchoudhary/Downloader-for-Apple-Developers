@@ -62,7 +62,9 @@ class DownloaderViewController: NSViewController {
     }
     
     @IBAction func statusTapAction(_ sender: NSClickGestureRecognizer) {
-        performSegue(withIdentifier: "ShowLogsViewController", sender: nil)
+        if let latestLogFilePath = DLog.sortedLogFilePath.first {
+            NSWorkspace.shared.openFile(latestLogFilePath)
+        }
     }
 }
 
