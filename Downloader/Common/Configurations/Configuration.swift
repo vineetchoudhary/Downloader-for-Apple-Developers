@@ -37,7 +37,7 @@ enum DownloadSource: String, CaseIterable {
 
 //Supported download file extension
 enum SupportedExtension: String {
-    case xip, dmg, zip, pdf, pkg, mov, mp4, avi
+    case xip, dmg, zip, pdf, pkg, mov, mp4, avi, ipsw
     case unsupported
 }
 
