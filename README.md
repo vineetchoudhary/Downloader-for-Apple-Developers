@@ -37,7 +37,7 @@ If you face any issue using the above command then you can manually install it b
 
 ## Screenshots
 ![](/docs/CommonCover.png)
-![](/docs/Download.png)
+![](/docs/DownloadXcodeCover.png)
 
 ## Contributions
 Any contribution is more than welcome! You can contribute through pull requests and [issues](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/issues) on [GitHub](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/)
