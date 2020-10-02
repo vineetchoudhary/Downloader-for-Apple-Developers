@@ -10,7 +10,7 @@ import Foundation
 
 struct DownloadProgress {
     var gid: String?
-    var output: String?
+    var output: Aria2cOutput?
     var isFinish: Bool
     var fileName: String?
     var progress: String?
@@ -19,12 +19,12 @@ struct DownloadProgress {
     var uploadSpeed: String?
     var expectedTime: String?
     
-    init(fileName: String, output: String, isFinish: Bool = false) {
+    init(fileName: String, output: Aria2cOutput, isFinish: Bool = false) {
         self.output = output
         self.fileName = fileName
         self.isFinish = isFinish
         
-        let outputComponents = output.components(separatedBy: " ")
+        let outputComponents = output.output.components(separatedBy: " ")
         for component in outputComponents {
             if (component.hasPrefix("#")) {
                 gid = component

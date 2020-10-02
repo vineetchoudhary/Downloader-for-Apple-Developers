@@ -12,6 +12,8 @@ class DownloadProcessManager {
     //MARK: - Properties
     private(set) var downloadAuthToken: String?
     private(set) var downloadQueue: OperationQueue!
+    private(set) var outputNotificationObserver: NSObjectProtocol?
+    
     weak var delegate: DownloadProcessDelegate?
     lazy private(set) var downloadProcesses = [DownloadProcess]()
     
@@ -74,7 +76,7 @@ class DownloadProcessManager {
         var currentDownloadProcess: DownloadProcess!
         currentDownloadProcess = downloadProcesses.first(where: { $0.url == downloadFileURLString })
         if currentDownloadProcess == nil {
-            currentDownloadProcess = DownloadProcess(url: downloadFileURLString)
+            currentDownloadProcess = DownloadProcess(url: downloadFileURLString, fileName: fullFileName)
             downloadProcesses.append(currentDownloadProcess)
         }
         
@@ -91,11 +93,11 @@ class DownloadProcessManager {
         
         //set standard ourput pipe
         let outputPipe = Pipe()
+        currentDownloadProcess.standardError = outputPipe
         currentDownloadProcess.standardOutput = outputPipe
         outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         //observer output changes
-        var outputNotificationObserver: NSObjectProtocol?
         outputNotificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: downloadQueue) { [unowned self] (notification) in
             //Start waitinng for next output stream
             DispatchQueue.main.async {
@@ -108,78 +110,65 @@ class DownloadProcessManager {
             //If there is some output data means process is running
             if outputData.count > 0, let outputString = String.init(data: outputData, encoding: .utf8) {
                 //update progress
-                let parsedOutputString = Aria2cParser.parse(string: outputString)
-                if (!parsedOutputString.isEmpty) {
-                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutputString)
+                let parsedOutput = Aria2cParser.parse(string: outputString)
+                if (parsedOutput.error?.count ?? 0) > 0 {
+                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutput, isFinish: true)
+                    completeDownloadProcess(currentDownloadProcess, output: parsedOutput)
+                    triggerOutputStream(parsedOutput)
+                    return
+                } else if (!parsedOutput.output.isEmpty) {
+                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutput)
                     print(currentDownloadProcess.progress.debugDescription)
                 }
                 
-                //trigger output stream update
-                DispatchQueue.main.async {
-                    self.delegate?.outputStream(output: parsedOutputString)
-                }
-            } else if let notificationObserver = outputNotificationObserver {
-                //update progress
-                currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: "", isFinish: true)
-                
-                //trigger download finish
-                DispatchQueue.main.async {
-                    self.delegate?.downloadFinish(url: downloadFileURLString)
-                }
-                
-                //terminate current download process and remove process output observer
-                currentDownloadProcess.terminate()
-                NotificationCenter.default.removeObserver(notificationObserver)
+                triggerOutputStream(parsedOutput)
+            } else {
+                completeDownloadProcess(currentDownloadProcess, output: nil)
             }
         }
-        
-        //set standard error pipe
-        let errorPipe = Pipe()
-        currentDownloadProcess.standardError = errorPipe
-        errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-        
-        var errorNotificationObserver: NSObjectProtocol?
-        errorNotificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: errorPipe, queue: downloadQueue, using: { (notification) in
-            //Start waitinng for next output stream
-            DispatchQueue.main.async {
-                errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
-            }
-            
-            //Get current output stream data
-            let errorData = outputPipe.fileHandleForReading.availableData
-            
-            //If there is some output data means process is running
-            if errorData.count > 0, let outputString = String.init(data: errorData, encoding: .utf8) {
-                //update progress
-                let parsedOutputString = Aria2cParser.parse(string: outputString)
-                if (!parsedOutputString.isEmpty) {
-                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutputString)
-                    print(currentDownloadProcess.progress.debugDescription)
-                }
-                
-                //trigger output stream update
-                DispatchQueue.main.async {
-                    self.delegate?.outputStream(output: parsedOutputString)
-                }
-            } else if let notificationObserver = errorNotificationObserver {
-                //update progress
-                currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: "", isFinish: true)
-                
-                //trigger download finish
-                DispatchQueue.main.async {
-                    self.delegate?.downloadFinish(url: downloadFileURLString)
-                }
-                
-                //terminate current download process and remove process output observer
-                currentDownloadProcess.terminate()
-                NotificationCenter.default.removeObserver(notificationObserver)
-            }
-        }) 
         
         //launch download process
         currentDownloadProcess.launch()
         
         //trigger downnload start
-        self.delegate?.downloadStart(url: downloadFileURLString)
+        triggerDownloadStart(downloadFileURLString)
+    }
+    
+    func completeDownloadProcess(_ downloadProcess: DownloadProcess, output: Aria2cOutput?) {
+        if let notificationObserver = outputNotificationObserver {
+            //update progress
+            let finalOutput = output ?? Aria2cOutput("", nil)
+            downloadProcess.progress = DownloadProgress(fileName: downloadProcess.fileName, output: finalOutput, isFinish: true)
+            
+            //trigger download finish
+            triggerDownloadFinish(downloadProcess.url)
+            
+            //terminate current download process and remove process output observer
+            downloadProcess.terminate()
+            NotificationCenter.default.removeObserver(notificationObserver)
+        }
+    }
+}
+
+//MARK: - Delegate trigger
+extension DownloadProcessManager {
+    func triggerDownloadStart(_ url: String) {
+        DispatchQueue.main.async {
+            self.delegate?.downloadStart(url: url)
+        }
+    }
+    
+    func triggerDownloadFinish(_ url: String) {
+        DispatchQueue.main.async {
+            self.delegate?.downloadFinish(url: url)
+        }
+    }
+    
+    func triggerOutputStream(_ output: Aria2cOutput) {
+        //trigger output stream update
+        DispatchQueue.main.async {
+            let finalOutput = "\(output.output) - \(output.error ?? "")"
+            self.delegate?.outputStream(output: finalOutput)
+        }
     }
 }
