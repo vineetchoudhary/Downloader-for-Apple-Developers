@@ -31,12 +31,13 @@ struct Aria2cParser {
         
         let lowercasedOutput = string.lowercased()
         if lowercasedOutput.contains("download completed") {
-            let output = NSLocalizedString("DownloadComplete", comment: "")
+            let output = NSLocalizedString("DownloadCompleted", comment: "")
             return Aria2cOutput(output, nil)
         }
         
         if lowercasedOutput.contains("error") {
-            return Aria2cOutput("Error", string)
+            let output = NSLocalizedString("DownloadError", comment: "")
+            return Aria2cOutput(output, string)
         }
         
         if lines.filter({ $0.contains("***") || $0.contains("===") }).count > 0{
