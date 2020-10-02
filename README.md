@@ -1,7 +1,7 @@
 [![Build Status](https://img.shields.io/travis/vineetchoudhary/AppBox-iOSAppsWirelessInstallation.svg?style=flat-square)](https://travis-ci.org/vineetchoudhary/Downloader-for-Apple-Developers)
 [![GitHub Release](https://img.shields.io/github/release/vineetchoudhary/Downloader-for-Apple-Developers.svg?style=flat-square)](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/releases/latest)
 [![License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](#license)
-[![Support](https://img.shields.io/static/v1?logo=paypal&label=PayPal&message=Support&color=brightgreen&style=flat-square)](https://http://paypal.me/vineetchoudhary/)
+[![Support](https://img.shields.io/static/v1?logo=paypal&label=PayPal&message=Support&color=brightgreen&style=flat-square)](https://paypal.me/vineetchoudhary/)
 
 ## Downloader for Apple Developers
 Download Xcode and other developer tools up to 16 times faster with resume capability.
