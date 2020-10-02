@@ -12,8 +12,9 @@ import Cocoa
 class DownloadProgressTableViewHandler: NSObject {
     init(tableView: NSTableView) {
         super.init()
-        tableView.delegate = self;
-        tableView.dataSource = self;
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.usesAutomaticRowHeights = true
     }
 }
 
@@ -54,11 +55,23 @@ extension DownloadProgressTableViewHandler: NSTableViewDataSource {
 
 extension DownloadProgressTableViewHandler: NSTableViewDelegate {
     func tableView(_ tableView: NSTableView, shouldSelectRow row: Int) -> Bool {
-        if let downloadProgress = DownloadProcessManager.shared.downloadProcesses[row].progress,
-            let fileName = downloadProgress.fileName, downloadProgress.isFinish,
-            let fileURL = URL(string: "file://\(NSHomeDirectory())/Downloads/\(fileName)") {
+        let downloadProcess = DownloadProcessManager.shared.downloadProcesses[row]
+        handleCellTap(downloadProcess)
+        return false
+    }
+    
+    func handleCellTap(_ downloadProcess: DownloadProcess) {
+        guard let progress = downloadProcess.progress,
+              let fileName = downloadProcess.fileName,
+              let fileURL = URL(string: "file://\(NSHomeDirectory())/Downloads/\(fileName)"),
+              progress.isFinish else {
+            return
+        }
+        
+        if progress.hasError {
+            DLog.openLatestLogFile()
+        } else {
             NSWorkspace.shared.activateFileViewerSelecting([fileURL])
         }
-        return false
     }
 }

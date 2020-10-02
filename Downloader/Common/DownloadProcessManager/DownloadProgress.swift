@@ -19,6 +19,13 @@ struct DownloadProgress {
     var uploadSpeed: String?
     var expectedTime: String?
     
+    var hasError: Bool {
+        if !isFinish {
+            return false
+        }
+        return output?.error != nil
+    }
+    
     init(fileName: String, output: Aria2cOutput, isFinish: Bool = false) {
         self.output = output
         self.fileName = fileName
