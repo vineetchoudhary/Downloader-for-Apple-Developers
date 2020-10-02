@@ -8,13 +8,16 @@
 
 import Foundation
 
+typealias Aria2cOutput = (output: String, error: String?)
+
 struct Aria2cParser {
-    static func parse(string: String)-> String {
+    static func parse(string: String)-> Aria2cOutput {
         let lines = string.components(separatedBy: .newlines)
         if var readoutLine = lines.last(where: {$0.first == "[" && $0.last == "]"}) {
             readoutLine.removeFirst()
             readoutLine.removeLast()
-            return readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
+            let output = readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
+            return Aria2cOutput(output, nil)
         }
         
         if let possibleReadoutLine = lines.last(where: {$0.first == "["}),
@@ -22,17 +25,25 @@ struct Aria2cParser {
                 .last(where: {$0.first == "["}) {
             readoutLine.removeFirst()
             readoutLine.removeLast()
-            return readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
+            let output = readoutLine.trimmingCharacters(in: .whitespacesAndNewlines)
+            return Aria2cOutput(output, nil)
         }
         
-        if string.lowercased().contains("download completed") {
-            return NSLocalizedString("DownloadComplete", comment: "")
+        let lowercasedOutput = string.lowercased()
+        if lowercasedOutput.contains("download completed") {
+            let output = NSLocalizedString("DownloadComplete", comment: "")
+            return Aria2cOutput(output, nil)
+        }
+        
+        if lowercasedOutput.contains("error") {
+            return Aria2cOutput("Error", string)
         }
         
         if lines.filter({ $0.contains("***") || $0.contains("===") }).count > 0{
-            return ""
+            return Aria2cOutput("", nil)
         }
         
-        return string.trimmingCharacters(in: .whitespacesAndNewlines)
+        let output = string.trimmingCharacters(in: .whitespacesAndNewlines)
+        return Aria2cOutput(output, nil)
     }
 }
