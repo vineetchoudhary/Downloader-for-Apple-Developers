@@ -14,6 +14,7 @@ class DownloadProcess {
     
     //MARK: - public properties
     let url: String!
+    let fileName: String!
     var progress: DownloadProgress?
     
     //MARK: - computed properties
@@ -42,8 +43,9 @@ class DownloadProcess {
     }
     
     //MARK: - Init
-    init(url: String) {
+    init(url: String, fileName: String) {
         self.url = url
+        self.fileName = fileName
         self.process = Process()
     }
     

@@ -15,6 +15,12 @@ class DownloadProcessCompleteTableCellView: NSTableCellView {
     
     func config(downloadProgress: DownloadProgress) {
         nameLabel.stringValue = downloadProgress.fileName ?? "--"
-        messageLabel.stringValue = NSLocalizedString("DownloadCompleted", comment: "")
+        messageLabel.maximumNumberOfLines = 6
+        if let output = downloadProgress.output?.output, let error = downloadProgress.output?.error {
+            let finalOutput = "\(output)\n\n\(error)"
+            messageLabel.stringValue = finalOutput
+        } else {
+            messageLabel.stringValue = NSLocalizedString("DownloadCompleted", comment: "")
+        }
     }
 }
