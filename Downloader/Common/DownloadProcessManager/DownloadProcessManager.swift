@@ -89,15 +89,14 @@ class DownloadProcessManager {
         currentDownloadProcess.launchPath = launchPath
         currentDownloadProcess.arguments = launchArguments
         
-        //set standard ourput and error pipe
+        //set standard ourput pipe
         let outputPipe = Pipe()
         currentDownloadProcess.standardOutput = outputPipe
-        currentDownloadProcess.standardError = outputPipe
         outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
         
         //observer output changes
-        var notificationObserver: NSObjectProtocol?
-        notificationObserver = NotificationCenter.default.addObserver(forName: NSNotification.Name.NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: downloadQueue) { [unowned self] (notification) in
+        var outputNotificationObserver: NSObjectProtocol?
+        outputNotificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: outputPipe.fileHandleForReading, queue: downloadQueue) { [unowned self] (notification) in
             //Start waitinng for next output stream
             DispatchQueue.main.async {
                 outputPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
@@ -119,7 +118,7 @@ class DownloadProcessManager {
                 DispatchQueue.main.async {
                     self.delegate?.outputStream(output: parsedOutputString)
                 }
-            } else if let notificationObserver = notificationObserver {
+            } else if let notificationObserver = outputNotificationObserver {
                 //update progress
                 currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: "", isFinish: true)
                 
@@ -133,6 +132,49 @@ class DownloadProcessManager {
                 NotificationCenter.default.removeObserver(notificationObserver)
             }
         }
+        
+        //set standard error pipe
+        let errorPipe = Pipe()
+        currentDownloadProcess.standardError = errorPipe
+        errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+        
+        var errorNotificationObserver: NSObjectProtocol?
+        errorNotificationObserver = NotificationCenter.default.addObserver(forName: .NSFileHandleDataAvailable, object: errorPipe, queue: downloadQueue, using: { (notification) in
+            //Start waitinng for next output stream
+            DispatchQueue.main.async {
+                errorPipe.fileHandleForReading.waitForDataInBackgroundAndNotify()
+            }
+            
+            //Get current output stream data
+            let errorData = outputPipe.fileHandleForReading.availableData
+            
+            //If there is some output data means process is running
+            if errorData.count > 0, let outputString = String.init(data: errorData, encoding: .utf8) {
+                //update progress
+                let parsedOutputString = Aria2cParser.parse(string: outputString)
+                if (!parsedOutputString.isEmpty) {
+                    currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: parsedOutputString)
+                    print(currentDownloadProcess.progress.debugDescription)
+                }
+                
+                //trigger output stream update
+                DispatchQueue.main.async {
+                    self.delegate?.outputStream(output: parsedOutputString)
+                }
+            } else if let notificationObserver = errorNotificationObserver {
+                //update progress
+                currentDownloadProcess.progress = DownloadProgress(fileName: fullFileName, output: "", isFinish: true)
+                
+                //trigger download finish
+                DispatchQueue.main.async {
+                    self.delegate?.downloadFinish(url: downloadFileURLString)
+                }
+                
+                //terminate current download process and remove process output observer
+                currentDownloadProcess.terminate()
+                NotificationCenter.default.removeObserver(notificationObserver)
+            }
+        }) 
         
         //launch download process
         currentDownloadProcess.launch()
