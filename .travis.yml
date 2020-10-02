@@ -1,0 +1,6 @@
+language: swift
+xcode_project: Downloader.xcworkspace
+osx_image: xcode12
+xcode_scheme: Downloader
+script:
+- xcodebuild clean build -workspace Downloader.xcworkspace -scheme Downloader CODE_SIGN_IDENTITY="" CODE_SIGNING_REQUIRED=NO | xcpretty
