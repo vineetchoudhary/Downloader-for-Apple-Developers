@@ -33,11 +33,11 @@
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";
 "DownloadURLNotFound" = "Download url not found.";
 "DownloadInProgress" = "Please wait. Download in progress....";
-"DownloadComplete" = "Download Completed. Please check your download folder.";
 
 //MARK: - UpdateManager.swift
 "UpdateMessage" = "New Version Available";
 "UpdateInformativeText" = "A newer version of the \"Downloader\" is available. Do you want to update it?";
 
 //MARK: - DownloadProcessCompleteTableCellView.swift
-"DownloadCompleted" = "Download Completed.";
+"DownloadCompleted" = "Download Completed. Please check your download folder.";
+"DownloadError" = "Error in downloading. You can restart this download by clicking on the same link again. Click here to check the logs for complete details.\n";
