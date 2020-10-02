@@ -35,6 +35,12 @@ struct DLog {
         DDLog.add(fileLogger)
     }
     
+    static func openLatestLogFile() {
+        if let latestLogFilePath = DLog.sortedLogFilePath.first {
+            NSWorkspace.shared.openFile(latestLogFilePath)
+        }
+    }
+    
     static func verbose(_ message: String) {
         DDLogVerbose(message)
     }
