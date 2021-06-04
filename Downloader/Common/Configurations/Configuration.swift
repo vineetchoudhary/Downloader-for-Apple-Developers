@@ -18,7 +18,7 @@ enum DownloadSource: String, CaseIterable {
             case .video:
                 return "https://developer.apple.com/videos/"
             case .tools:
-                return "https://developer.apple.com/download/more"
+                return "https://developer.apple.com/download/all"
             }
         }
     }
