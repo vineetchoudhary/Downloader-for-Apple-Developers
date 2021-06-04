@@ -1,6 +1,6 @@
 // Software License Agreement (BSD License)
 //
-// Copyright (c) 2010-2020, Deusty, LLC
+// Copyright (c) 2010-2021, Deusty, LLC
 // All rights reserved.
 //
 // Redistribution and use of this software in source and binary forms,
@@ -13,14 +13,15 @@
 //   to endorse or promote products derived from this software without specific
 //   prior written permission of Deusty, LLC.
 
-#import <CocoaLumberjack/DDDispatchQueueLogFormatter.h>
+#if !__has_feature(objc_arc)
+#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
+#endif
+
 #import <pthread/pthread.h>
 #import <stdatomic.h>
 #import <sys/qos.h>
 
-#if !__has_feature(objc_arc)
-#error This file must be compiled with ARC. Use -fobjc-arc flag (or convert project to ARC).
-#endif
+#import <CocoaLumberjack/DDDispatchQueueLogFormatter.h>
 
 DDQualityOfServiceName const DDQualityOfServiceUserInteractive = @"UI";
 DDQualityOfServiceName const DDQualityOfServiceUserInitiated   = @"IN";
@@ -51,7 +52,6 @@ static DDQualityOfServiceName _qos_name(NSUInteger qos) {
     NSUInteger _maxQueueLength;           // _prefix == Only access via atomic property
     NSMutableDictionary *_replacements;   // _prefix == Only access from within spinlock
 }
-
 @end
 
 
@@ -228,9 +228,7 @@ static DDQualityOfServiceName _qos_name(NSUInteger qos) {
     NSString *timestamp = [self stringFromDate:(logMessage->_timestamp)];
     NSString *queueThreadLabel = [self queueThreadLabelForLogMessage:logMessage];
 
-    if (@available(macOS 10.10, iOS 8.0, *))
-        return [NSString stringWithFormat:@"%@ [%@ (QOS:%@)] %@", timestamp, queueThreadLabel, _qos_name(logMessage->_qos), logMessage->_message];
-    return [NSString stringWithFormat:@"%@ [%@] %@", timestamp, queueThreadLabel, logMessage->_message];
+    return [NSString stringWithFormat:@"%@ [%@ (QOS:%@)] %@", timestamp, queueThreadLabel, _qos_name(logMessage->_qos), logMessage->_message];
 }
 
 @end

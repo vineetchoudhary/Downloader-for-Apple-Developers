@@ -21,7 +21,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         //App Center
         if let appCenter = Bundle.main.object(forInfoDictionaryKey: "AppCenter") as? String {
-            MSAppCenter.start(appCenter, withServices:[MSAnalytics.self, MSCrashes.self])
+            AppCenter.start(withAppSecret: appCenter, services: [Analytics.self, Crashes.self])
         }
     }
 

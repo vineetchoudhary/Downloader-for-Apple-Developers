@@ -1,14 +1,14 @@
 PODS:
-  - AppCenter (2.5.3):
-    - AppCenter/Analytics (= 2.5.3)
-    - AppCenter/Crashes (= 2.5.3)
-  - AppCenter/Analytics (2.5.3):
+  - AppCenter (4.1.1):
+    - AppCenter/Analytics (= 4.1.1)
+    - AppCenter/Crashes (= 4.1.1)
+  - AppCenter/Analytics (4.1.1):
     - AppCenter/Core
-  - AppCenter/Core (2.5.3)
-  - AppCenter/Crashes (2.5.3):
+  - AppCenter/Core (4.1.1)
+  - AppCenter/Crashes (4.1.1):
     - AppCenter/Core
-  - CocoaLumberjack/Core (3.6.1)
-  - CocoaLumberjack/Swift (3.6.1):
+  - CocoaLumberjack/Core (3.7.2)
+  - CocoaLumberjack/Swift (3.7.2):
     - CocoaLumberjack/Core
 
 DEPENDENCIES:
@@ -21,9 +21,9 @@ SPEC REPOS:
     - CocoaLumberjack
 
 SPEC CHECKSUMS:
-  AppCenter: 765ff38c4d360fc5ec61b61a8be24d74cd6d4d83
-  CocoaLumberjack: b17ae15142558d08bbacf69775fa10c4abbebcc9
+  AppCenter: cd53e3ed3563cc720bcb806c9731a12389b40d44
+  CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
 
 PODFILE CHECKSUM: 3b97e283480b815248cc0f11e64d9f11932a152f
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.1
