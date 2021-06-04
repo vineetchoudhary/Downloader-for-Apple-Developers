@@ -15,6 +15,7 @@
 #import "DDASLLogCapture.h"
 #import "DDASLLogger.h"
 #import "DDAssertMacros.h"
+#import "DDContextFilterLogFormatter+Deprecated.h"
 #import "DDContextFilterLogFormatter.h"
 #import "DDDispatchQueueLogFormatter.h"
 #import "DDFileLogger+Buffering.h"

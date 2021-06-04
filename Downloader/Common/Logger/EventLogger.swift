@@ -12,12 +12,12 @@ import AppCenterAnalytics
 struct EventLogger {
     static func downloadStart(url: String) {
         let params = getParams(from: url)
-        MSAnalytics.trackEvent("Download Start", withProperties: params)
+        Analytics.trackEvent("Download Start", withProperties: params)
     }
     
     static func downloadFinish(url: String) {
         let params = getParams(from: url)
-        MSAnalytics.trackEvent("Download Finish", withProperties: params)
+        Analytics.trackEvent("Download Finish", withProperties: params)
     }
     
     private static func getParams(from urlString: String)-> [String: String] {
