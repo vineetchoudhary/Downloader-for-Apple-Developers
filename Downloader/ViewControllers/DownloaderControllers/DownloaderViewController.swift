@@ -109,8 +109,9 @@ extension DownloaderViewController : WKNavigationDelegate {
             DLog.info("Decided download for extension = - \(pathExtension)")
             self.startDownload(fileURL: downloadFileURL)
             decisionHandler(.cancel)
-        }
-        decisionHandler(.allow)
+		} else {
+			decisionHandler(.allow)			
+		}
     }
     
     func webView(_ webView: WKWebView, didFailProvisionalNavigation navigation: WKNavigation!, withError error: Error) {
