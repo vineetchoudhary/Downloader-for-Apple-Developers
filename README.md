@@ -18,7 +18,7 @@ Download Xcode and other developer tools up to 16 times faster with resume capab
 Now, you can install Downloader by running the following command in your terminal -
 
 ```bash
-curl -s https://raw.githubusercontent.com/vineetchoudhary/Downloader-for-Apple-Developers/master/install.sh | bash
+curl -s https://xcdownloader.com/install.sh | bash
 ```
 #### Manual
 If you face any issue using the above command then you can manually install it by downloading it from [here](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/releases/download/1.0.8/Downloader.app.zip). After that, unzip Downloader.app.zip and move Downloader.app into the /Applications directory.
