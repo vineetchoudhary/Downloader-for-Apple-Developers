@@ -45,7 +45,7 @@ If you face any issue using the above command then you can manually install it b
 ![](/docs/CommonCover.png)
 ![](/docs/DownloadXcodeCover.png)
 
-### How does it work?
+## How does it work?
 Basically, this program is completely dependent on [aria2](https://aria2.github.io). `aria2` is a utility for downloading files that support segmented downloading. When we start downloading, this program takes the download auth token from cookies (as well as other required parameters), and pass them to `aria2`.
 
 An instance of [Process](https://developer.apple.com/documentation/foundation/process) takes the output from `aria2` and shows it on UI. You can achieve the same with `aria2` without this program, but you'd have to manually take out the auth token from cookies and other parameters and feed them into `aria2`.
