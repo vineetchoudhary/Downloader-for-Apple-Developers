@@ -1,0 +1,104 @@
+/*=== Media Query ===*/
+.theme-mode-panel-open .mode-switcher-panel-wrapper {
+  transform: translate(0);
+}
+
+.mode-switcher-panel-wrapper {
+  transition: .4s;
+}
+
+.mode-switcher-panel {
+  box-shadow: 0 22px 34px rgba(22, 28, 45, 0.18);
+  border: transparent;
+  background-color: #495fef;
+  max-width: 185px;
+  padding-left: 13px;
+  padding-right: 13px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  text-align: center;
+  border-bottom-left-radius: 25px;
+}
+
+.mode-switcher-panel .text {
+  color: $white;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: -0.09px;
+  line-height: 26px;
+  padding-bottom: 8px;
+  display: inline-flex;
+}
+
+.mode-switcher-panel .buttons {
+  box-shadow: 0 12px 34px rgba(22, 28, 45, 0.2);
+  border-radius: 33px;
+  background-color: $white;
+  overflow: hidden;
+  display: flex;
+  max-width: 153px;
+}
+
+.mode-switcher-panel .buttons button {
+  background: transparent;
+  border: none;
+  width: 50%;
+  font-size: 11px;
+  font-weight: 700;
+  height: 42px;
+  padding-left: 15px;
+  padding-right: 15px;
+  letter-spacing: 1.38px;
+  text-transform: uppercase;
+}
+
+.mode-switcher-panel .buttons button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.mode-switcher-panel .buttons button.active {
+  background-color: #ced4e7;
+}
+
+.mode-switcher-panel .switcher-minimize-button {
+  width: 30px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: #495fef;
+  color:$white;
+  font-size: 30px;
+  position: absolute;
+  left: 1px;
+  top: 0;
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+  transform: translateX(-100%);
+}
+
+.mode-switcher-panel .switcher-minimize-button i {
+  font-size: inherit;
+  pointer-events: none;
+  transition: .4s;
+}
+
+.mode-switcher-panel .switcher-minimize-button:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.mode-switcher-panel .switcher-minimize-button.open i {
+  transform: scaleX(-1);
+}
+
+.position-fixed-right {
+  position: fixed;
+  right: 0;
+  transform: translateX(100%);
+  top: 30%;
+  z-index: 99;
+}
+

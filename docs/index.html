@@ -1,199 +1,264 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Downloader for Apple Developers</title>
-    <meta name="HandheldFriendly" content="True" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="canonical" href="https://xcdownloader.com" />
-    <meta name="referrer" content="no-referrer-when-downgrade" />
-    
-    <meta property="og:site_name" content="Downloader for Apple Developers" />
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="Downloader for Apple Developers" />
-    <meta property="og:description" content="Download Xcode and other developer tools up to 16 times faster with resume capability." />
-    <meta property="og:url" content="https://xcdownloader.com" />
-    
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="Downloader for Apple Developers" />
-    <meta name="twitter:description" content="Download Xcode and other developer tools up to 16 times faster with resume capability." />
-    <meta name="twitter:url" content="https://xcdownloader.com" />
-
-    <style>
-    * {
-        box-sizing: border-box;
-        margin: 0
-    }
-
-    html {
-        display: flex;
-        align-items: center;
-        height:100%;
-    }
-
-        
-    span {
-        display: inline-block;
-    }
-    
-    body {
-        text-align:center;
-        font-size:18px;
-        font-family: Menlo,Courier,monospace;
-        max-width: 60rem;
-        margin: 0 auto;
-        padding: 2rem;
-        line-height: 2;
-        color: #555
-    }
-    
-    body>footer,body>header {
-        text-align: center;
-        padding: 1rem
-    }
-    
-    h1,h2,h3,h4,h5,h6,strong {
-        color: #444
-    }
-    
-    p+p {
-        margin: 20px 0
-    }
-    
-    article>h1,article>h2,article>h3,article>h4,article>h5,article>h6,article>header {
-        padding: 1rem
-    }
-    
-    a {
-        text-decoration: none;
-        color: hotpink
-    }
-    
-    a>h1:before,a>h2:before {
-        color: hotpink;
-        content: "> "
-    }
-    
-    @media (max-width: 600px) {
-        a>h2:before {
-            content:""
-        }
-        
-        a>h2 {
-            -webkit-text-decoration-line: underline;
-            text-decoration-line: underline;
-            -webkit-text-decoration-style: dashed;
-            text-decoration-style: dashed;
-            -webkit-text-decoration-color: hotpink;
-            text-decoration-color: hotpink
-        }
-    }
-    
-    blockquote,code,pre {
-        background: #eee
-    }
-    
-    p>code {
-        padding: 0 .5rem
-    }
-
-    blockquote,pre {
-        overflow-x: auto;
-        border-left: .5rem solid hotpink
-    }
-
-    blockquote,figure,pre {
-        padding: 1rem;
-        margin: 1rem
-    }
-
-    figcaption {
-        text-align: center
-    }
-
-    img {
-        max-width: 100%
-    }
-
-    ol,ul {
-        padding-left: 2rem;
-        margin: 1rem
-    }
-
-    .gh-post-upgrade-cta-content, .gh-post-upgrade-cta {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        text-align: center;
-        width: 100%;
-        color: #ffffff;
-        font-size: 16px;
-    }
-
-    .gh-post-upgrade-cta-content {
-        border-radius: 8px;
-        padding: 40px 4vw;
-    }
-
-    .gh-post-upgrade-cta h2 {
-        color: #ffffff;
-        font-size: 28px;
-        letter-spacing: -0.2px;
-        margin: 0;
-        padding: 0;
-    }
-
-    .gh-post-upgrade-cta p {
-        margin: 20px 0 0;
-        padding: 0;
-    }
-
-    .gh-post-upgrade-cta small {
-        font-size: 16px;
-        letter-spacing: -0.2px;
-    }
-
-    .gh-post-upgrade-cta a {
-        color: #ffffff;
-        cursor: pointer;
-        font-weight: 500;
-        box-shadow: none;
-        text-decoration: underline;
-    }
-
-    .gh-post-upgrade-cta a:hover {
-        color: #ffffff;
-        opacity: 0.8;
-        box-shadow: none;
-        text-decoration: underline;
-    }
-
-    .gh-post-upgrade-cta a.gh-btn {
-        display: block;
-        background: #ffffff;
-        text-decoration: none;
-        margin: 28px 0 0;
-        padding: 8px 18px;
-        border-radius: 4px;
-        font-size: 16px;
-        font-weight: 600;
-    }
-
-    .gh-post-upgrade-cta a.gh-btn:hover {
-        opacity: 0.92;
-    }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Downloader for Apple Developers</title>
+  <meta name="description" content="Download Xcode, WWDC Videos, and other developer tools up to 16 times faster." />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+  <!-- Bootstrap , fonts & icons  -->
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./fonts/icon-font/css/style.css">
+  <link rel="stylesheet" href="./fonts/typography-font/typo.css">
+  <link rel="stylesheet" href="./fonts/fontawesome-5/css/all.css">
+  <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+  <!-- Plugin'stylesheets  -->
+  <link rel="stylesheet" href="./plugins/aos/aos.min.css">
+  <link rel="stylesheet" href="./plugins/slick/slick.min.css">
+  <!-- Vendor stylesheets  -->
+  <link rel="stylesheet" href="./css/main.css">
+  <!-- Custom stylesheet -->
 </head>
-<body>
-    <h1> Downloader for Apple Developers </h1>
-    <p> Download Xcode, WWDC Videos, and other developer tools up to 16 times faster. </p>
-    <span>Github: <a href="https://github.com/vineetchoudhary/Downloader-for-Apple-Developers">vineetchoudhary/Downloader-for-Apple-Developers</a></span><br/>
-    <br/>
-    <span><strong> Installation </strong></span><br />
-    <span>Using curl: <a>curl -s https://xcdownloader.com/install.sh | bash</a></span>
-    <br/>
-    <span>Download via Github Releases: <a href="/download">Downloader.app</a></span>
+
+<body data-theme-mode-panel-active data-theme="light" style="font-family: 'Mazzard H';">
+  <div class="site-wrapper overflow-hidden position-relative">
+    <!-- Site Header -->
+    <!-- Preloader -->
+    <!-- <div id="loading">
+      <div class="preloader">
+        <img src="./image/preloader.gif" alt="preloader">
+      </div>
+    </div>  -->
+
+    <!--Site Header Area -->
+    <header class="site-header site-header--menu-left landing-11-menu site-header--absolute site-header--sticky">
+      <div class="container">
+        <nav class="navbar site-navbar">
+          <!-- Brand Logo-->
+          <div class="brand-logo">
+            <a href="#">
+              <span> Downloader for Apple Developers</span>
+            </a>
+          </div>
+          <div class="menu-block-wrapper">
+            <div class="menu-overlay"></div>
+            <nav class="menu-block" id="append-menu-header">
+              <div class="mobile-menu-head">
+                <div class="go-back">
+                  <i class="fa fa-angle-left"></i>
+                </div>
+                <div class="current-menu-title"></div>
+                <div class="mobile-menu-close">&times;</div>
+              </div>
+              <ul class="site-menu-main">
+                <li class="nav-item">
+                  <a href="https://paypal.me/vineetchoudhary" target="_blank" class="nav-link-item">Support</a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div class="header-btns  header-btn-l11 ms-auto d-none d-xs-inline-flex align-items-center">
+            <a class="download-trail-btn btn focus-reset" href="/download">
+              Download
+            </a>
+          </div>
+          <!-- mobile menu trigger -->
+          <div class="mobile-menu-trigger">
+            <span></span>
+          </div>
+          <!--/.Mobile Menu Hamburger Ends-->
+        </nav>
+      </div>
+    </header>
+    <!-- navbar- -->
+    <!-- Hero Area -->
+    <div class="hero-area-l11 position-relative z-index-1 overflow-hidden">
+      <div class="container position-relative">
+        <div class="row position-relative justify-content-center">
+          <div class="col-xl-8 col-lg-9 col-md-12 order-lg-1 order-1" data-aos="fade-up" data-aos-duration="500" data-aos-once="true">
+            <div class="content">
+              <h1>Downloader for Apple<br class="d-none d-md-block"> Developers</h1>
+              <div class="row banner-l-11-bottom-content">
+                <div class="col-lg-8 col-md-8 col-sm-10">
+                  <p class="position-relative banner-main-content-l-12">Download Xcode, WWDC Videos, and other developer tools up to 16 times faster.
+                    <span class="line-left-content"></span>
+                  </p>
+                </div>
+                <div class="col-lg-4 col-md-4 col-sm-6 flex-y-center ">
+                  <a class="btn l-11-hero-btn" href="/download">Download</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-9 order-lg-1 order-0" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+            <img src="CommonCover.png" alt="" class="w-100 hero-l11-main-image">
+          </div>
+        </div>
+      </div>
+      <div class="hero-shape-l11-1 d-none d-md-block">
+        <img src="./image/l2/hero-shape-1.svg" alt="">
+      </div>
+      <div class="hero-shape-l11-2 d-none d-md-block">
+        <img src="./image/l2/hero-shape-2.png" alt="">
+      </div>
+    </div>
+    <!-- Content Area-1 -->
+    <div class="content-area-l-11-1">
+      <div class="container">
+        <div class="row align-items-center justify-content-lg-start justify-content-center">
+          <div class="col-xl-6 col-md-5 col-md-10" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+            <div class="content-img position-relative z-index-1">
+              <img src="image/l2/content-img1.png" alt="" class="w-100">
+            </div>
+          </div>
+          <div class="offset-xxl-1 col-xxl-5 col-xl-6 col-lg-7 col-md-9" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+            <div class="content section-heading-5">
+              <h2>
+                Trusted by thousands of Apple Developers all around the worlds
+              </h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content Area-2  -->
+    <div class="content-area-l-11-2">
+      <div class="container">
+        <div class="row align-items-center justify-content-lg-between justify-content-center">
+          <div class="col-xxl-4 col-xl-5 col-lg-6 col-md-9 order-lg-1 order-1" data-aos="fade-right" data-aos-duration="800" data-aos-once="true">
+            <div class="content section-heading-5">
+              <h2>
+                Completely Free for Everyone.
+              </h2>
+            </div>
+          </div>
+          <div class="col-xxl-6 offset-xxl-2 col-xl-6 col-lg-5 col-md-9 order-lg-1 order-0" data-aos="fade-left" data-aos-duration="800" data-aos-once="true">
+            <div class="content-img">
+              <img src="image/l2/content-img2.png" alt="" class="w-lg-auto w-100">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Content Area -->
+    <div class="content-area-l-11-3 position-relative">
+      <div class="container">
+        <div class="row align-items-center justify-content-center justify-content-lg-start">
+          <div class="col-xl-6 col-lg-6 col-md-8 order-lg-1 order-0" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
+            <div class="content-img">
+              <img src="image/l2/content-img3.png" alt="" class="w-100">
+            </div>
+          </div>
+          <div class="offset-xl-1 col-xl-5 col-lg-6 col-md-9 order-lg-1 order-1" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
+            <div class="content section-heading-5">
+              <p></p>
+              <ul class="list-unstyled pl-0">
+                <li class="d-flex align-items-center">
+                  <i class="fas fa-check"></i>Download Xcode and other developer tools up to 16 times faster
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="fas fa-check"></i>Download WWDC, Tech Talks and other videos up to 16 times faster
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="fas fa-check"></i>Resume download automatically if the download failed due to any reason
+                </li>
+                <li class="d-flex align-items-center">
+                  <i class="fas fa-check"></i>Multiple downloads supported
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+      <div class="col-xl-10 col-lg-12 col-md-10">
+        <div class="testimonial-slider-l-11 position-relative">
+          <div class="single-slide focus-reset">
+            <div class="testimonial-card">
+              <br />
+              <br />
+              <br />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Newsletter-area start -->
+    <div class="newsletter-l-11">
+      <div class="container">
+        <div class="row justify-content-center news-l-11-main-bg position-relative">
+          <div class="news-l-11-second-bg w-100 h-100"></div>
+          <div class="col-xxl-8 col-xl-10 col-lg-8 col-md-11" data-aos="fade-up" data-aos-duration="800" data-aos-once="true">
+            <div class="content text-center">
+              <h2>Try Downloader for Apple</h2>
+              <h2>Developers for Free!</h2>
+              <div class="btn-area">
+                <a href="/download" class="btn"><i class="fas fa-download d-inline-block"></i> Download</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Footer Area -->
+    <footer class="footer-l-11 text-center text-md-start">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3">
+            <div class="footer-logo-l-11">
+              <a href="/">
+                <span> Downloader for Apple Developers</span></a>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="footer-widget-l-11">
+              <ul class="pl-0 list-unstyled d-flex flex-wrap justify-content-center align-items-end ">
+                <li class="d-flex"><a target="_blank" href="https://developerinsider.co/about/">About</a></li>
+                <li class="d-flex"><a target="_blank" href="http://paypal.me/vineetchoudhary">Support</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="social-icons-l-11">
+              <ul class="pl-0 list-unstyled d-flex  justify-content-center justify-content-md-end align-items-end ">
+                <li class="d-flex flex-column justify-content-center"><a target="_blank" href="https://twitter.com/appboxhq"><i class="fab fa-twitter"></i></a></li>
+                <li class="d-flex flex-column justify-content-center"><a target="_blank" href="https://github.com/vineetchoudhary/Downloader-for-Apple-Developers"><i class="fab fa-github"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <div class="copyright-area-l-11">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div class="text-center">
+              <p>© Developer Insider. All right reserved. </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Vendor Scripts -->
+  <script src="js/vendor.min.js"></script>
+  <!-- Plugin's Scripts -->
+  <script src="./plugins/aos/aos.min.js"></script>
+  <script src="./plugins/slick/slick.min.js"></script>
+  <script src="./plugins/menu/menu.js"></script>
+  <!-- Activation Script -->
+  <script src="js/custom.js"></script>
 </body>
+
 </html>

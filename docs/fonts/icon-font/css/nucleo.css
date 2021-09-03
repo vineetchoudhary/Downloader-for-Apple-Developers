@@ -1,0 +1,540 @@
+/* --------------------------------
+
+avasta Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@font-face {
+  font-family: 'avasta';
+  src: url("../fonts/avasta.eot");
+  src: url("../fonts/avasta.eot") format("embedded-opentype"), url("../fonts/avasta.woff2") format("woff2"), url("../fonts/avasta.woff") format("woff"), url("../fonts/avasta.ttf") format("truetype"), url("../fonts/avasta.svg") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*------------------------
+	base class definition
+-------------------------*/
+.icon {
+  display: inline-block;
+  font: normal normal normal 1em/1 'avasta';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------
+  change icon size
+-------------------------*/
+/* relative units */
+.icon-sm {
+  font-size: 0.8em;
+}
+
+.icon-lg {
+  font-size: 1.2em;
+}
+
+/* absolute units */
+.icon-16 {
+  font-size: 16px;
+}
+
+.icon-32 {
+  font-size: 32px;
+}
+
+/*----------------------------------
+  add a square/circle background
+-----------------------------------*/
+.icon-bg-square,
+.icon-bg-circle {
+  padding: 0.35em;
+  background-color: #eee;
+}
+
+.icon-bg-circle {
+  border-radius: 50%;
+}
+
+/*------------------------------------
+  use icons as list item markers
+-------------------------------------*/
+.icon-ul {
+  padding-left: 0;
+  list-style-type: none;
+}
+
+.icon-ul > li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  line-height: 1.4;
+}
+
+.icon-ul > li > .icon {
+  margin-right: 0.4em;
+  line-height: inherit;
+}
+
+/*------------------------
+  spinning icons
+-------------------------*/
+.icon-is-spinning {
+  -webkit-animation: icon-spin 2s infinite linear;
+  animation: icon-spin 2s infinite linear;
+}
+
+@-webkit-keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes icon-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------
+  rotated/flipped icons
+-------------------------*/
+.icon-rotate-90 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=1);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.icon-rotate-180 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: rotate(180deg);
+  transform: rotate(180deg);
+}
+
+.icon-rotate-270 {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+  -webkit-transform: rotate(270deg);
+  transform: rotate(270deg);
+}
+
+.icon-flip-y {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=0);
+  -webkit-transform: scale(-1, 1);
+  transform: scale(-1, 1);
+}
+
+.icon-flip-x {
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=2);
+  -webkit-transform: scale(1, -1);
+  transform: scale(1, -1);
+}
+
+/*------------------------
+	icons
+-------------------------*/
+.icon-cloud-download-95::before {
+  content: "\ea02";
+}
+
+.icon-home-minimal::before {
+  content: "\ea03";
+}
+
+.icon-single-04::before {
+  content: "\ea04";
+}
+
+.icon-users-mm::before {
+  content: "\ea05";
+}
+
+.icon-webpage::before {
+  content: "\ea06";
+}
+
+.icon-layout-25::before {
+  content: "\ea07";
+}
+
+.icon-analytics::before {
+  content: "\ea08";
+}
+
+.icon-chart-pie-36::before {
+  content: "\ea09";
+}
+
+.icon-chart-bar-33::before {
+  content: "\ea0a";
+}
+
+.icon-single-copy-06::before {
+  content: "\ea0b";
+}
+
+.icon-home::before {
+  content: "\ea0c";
+}
+
+.icon-single-content-03::before {
+  content: "\ea0d";
+}
+
+.icon-bell-53::before {
+  content: "\ea0e";
+}
+
+.icon-email-84::before {
+  content: "\ea0f";
+}
+
+.icon-send::before {
+  content: "\ea10";
+}
+
+.icon-at-sign::before {
+  content: "\ea11";
+}
+
+.icon-attach-87::before {
+  content: "\ea12";
+}
+
+.icon-edit-72::before {
+  content: "\ea13";
+}
+
+.icon-tail-right::before {
+  content: "\ea14";
+}
+
+.icon-minimal-right::before {
+  content: "\ea15";
+}
+
+.icon-tail-left::before {
+  content: "\ea16";
+}
+
+.icon-minimal-left::before {
+  content: "\ea17";
+}
+
+.icon-tail-up::before {
+  content: "\ea18";
+}
+
+.icon-minimal-up::before {
+  content: "\ea19";
+}
+
+.icon-minimal-down::before {
+  content: "\ea1a";
+}
+
+.icon-tail-down::before {
+  content: "\ea1b";
+}
+
+.icon-settings-gear-64::before {
+  content: "\ea1c";
+}
+
+.icon-settings::before {
+  content: "\ea1d";
+}
+
+.icon-menu-dots::before {
+  content: "\ea1e";
+}
+
+.icon-menu-left::before {
+  content: "\ea1f";
+}
+
+.icon-funnel-40::before {
+  content: "\ea20";
+}
+
+.icon-filter::before {
+  content: "\ea21";
+}
+
+.icon-preferences-circle::before {
+  content: "\ea22";
+}
+
+.icon-check-2::before {
+  content: "\ea23";
+}
+
+.icon-cart-simple::before {
+  content: "\ea24";
+}
+
+.icon-cart-9::before {
+  content: "\ea25";
+}
+
+.icon-card-update::before {
+  content: "\ea26";
+}
+
+.icon-basket::before {
+  content: "\ea27";
+}
+
+.icon-check-circle-07::before {
+  content: "\ea28";
+}
+
+.icon-simple-remove::before {
+  content: "\ea29";
+}
+
+.icon-circle-remove::before {
+  content: "\ea2a";
+}
+
+.icon-alert-circle-exc::before {
+  content: "\ea2b";
+}
+
+.icon-bug::before {
+  content: "\ea2c";
+}
+
+.icon-share-66::before {
+  content: "\ea2d";
+}
+
+.icon-time-3::before {
+  content: "\ea2e";
+}
+
+.icon-time::before {
+  content: "\ea2f";
+}
+
+.icon-coffee::before {
+  content: "\ea30";
+}
+
+.icon-smile::before {
+  content: "\ea31";
+}
+
+.icon-sad::before {
+  content: "\ea32";
+}
+
+.icon-broken-heart::before {
+  content: "\ea33";
+}
+
+.icon-heart-2::before {
+  content: "\ea34";
+}
+
+.icon-pin-3::before {
+  content: "\ea35";
+}
+
+.icon-marker-3::before {
+  content: "\ea36";
+}
+
+.icon-globe-2::before {
+  content: "\ea37";
+}
+
+.icon-world-2::before {
+  content: "\ea38";
+}
+
+.icon-phone-2::before {
+  content: "\ea39";
+}
+
+.icon-check-square-11::before {
+  content: "\ea3a";
+}
+
+.icon-wallet-90::before {
+  content: "\ea3b";
+}
+
+.icon-credit-card::before {
+  content: "\ea3c";
+}
+
+.icon-payment::before {
+  content: "\ea3d";
+}
+
+.icon-tag::before {
+  content: "\ea3e";
+}
+
+.icon-tag-cut::before {
+  content: "\ea3f";
+}
+
+.icon-tag-content::before {
+  content: "\ea40";
+}
+
+.icon-flag-diagonal-33::before {
+  content: "\ea41";
+}
+
+.icon-triangle-right-17::before {
+  content: "\ea47";
+}
+
+.icon-puzzle-10::before {
+  content: "\ea48";
+}
+
+.icon-triangle-right-17-2::before {
+  content: "\ea49";
+}
+
+.icon-btn-play::before {
+  content: "\ea4a";
+}
+
+.icon-btn-play-2::before {
+  content: "\ea4b";
+}
+
+.icon-menu-34::before {
+  content: "\ea4c";
+}
+
+.icon-menu-left-2::before {
+  content: "\ea4d";
+}
+
+.icon-heart-2-2::before {
+  content: "\ea4e";
+}
+
+.icon-single-04-2::before {
+  content: "\ea4f";
+}
+
+.icon-users-mm-2::before {
+  content: "\ea50";
+}
+
+.icon-l-settings::before {
+  content: "\ea51";
+}
+
+.icon-book-open-2::before {
+  content: "\ea52";
+}
+
+.icon-layers-3::before {
+  content: "\ea53";
+}
+
+.icon-logo-fb-simple::before {
+  content: "\ea55";
+}
+
+.icon-logo-twitter::before {
+  content: "\ea56";
+}
+
+.icon-google::before {
+  content: "\ea57";
+}
+
+.icon-logo-pinterest::before {
+  content: "\ea58";
+}
+
+.icon-logo-instagram::before {
+  content: "\ea59";
+}
+
+.icon-logo-dribbble::before {
+  content: "\ea5a";
+}
+
+.icon-tablet-mobile::before {
+  content: "\ea5b";
+}
+
+.icon-house-search-engine::before {
+  content: "\ea5c";
+}
+
+.icon-house-pricing::before {
+  content: "\ea5d";
+}
+
+.icon-pulse-chart::before {
+  content: "\ea5e";
+}
+
+.icon-plug::before {
+  content: "\ea5f";
+}
+
+.icon-app-store::before {
+  content: "\ea60";
+}
+
+.icon-power-level::before {
+  content: "\ea61";
+}
+
+.icon-window-add::before {
+  content: "\ea62";
+}
+
+.icon-form::before {
+  content: "\ea63";
+}
+
+.icon-folder-15::before {
+  content: "\ea64";
+}
+
+.icon-lock::before {
+  content: "\ea65";
+}
+
+.icon-unlocked::before {
+  content: "\ea66";
+}
+
+.icon-e-reader::before {
+  content: "\ea67";
+}
+
+.icon-layout-grid::before {
+  content: "\ea68";
+}
+
+.icon-single-copies::before {
+  content: "\ea69";
+}
+/*# sourceMappingURL=nucleo.css.map */
