@@ -32,19 +32,19 @@ class DownloadProcessManager {
     //MARK: - Start Download
     func startDownload(source: DownloadSource, fileURL: String?) {
         guard let downloadFileURLString = fileURL,
-            let downloadFileURL = URL(string: downloadFileURLString) else {
+              let downloadFileURL = URL(string: downloadFileURLString) else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
             delegate?.outputStream(output: outputString)
             return
         }
-
+        
         let fileExtension = downloadFileURL.pathExtension
         let lastPathComponent = downloadFileURL.lastPathComponent
         let fileName = lastPathComponent.components(separatedBy: fileExtension).first!
         let fullFileName = fileName + fileExtension
         
-//        use http protocol instead of https
-//        downloadFileURLString = downloadFileURLString.replacingOccurrences(of: "https://", with: "http://")
+        //        use http protocol instead of https
+        //        downloadFileURLString = downloadFileURLString.replacingOccurrences(of: "https://", with: "http://")
         
         var launchPath: String
         var launchArguments = [String]()
@@ -58,18 +58,25 @@ class DownloadProcessManager {
         
         //Set/Add Source Specific Variable/Arguments
         switch source {
-            case .tools:
-                launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")!
-                
-                //Get download auth token and add to launch arguments
-                guard let authToken = downloadAuthToken else {
-                    let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
-                    delegate?.outputStream(output: outputString)
-                    return
-                }
-                launchArguments.append(authToken);
-            case .video:
-                launchPath = Bundle.main.path(forResource: "AppleVideoDownload", ofType: "sh")!
+        case .operatingSystems:
+            launchPath = Bundle.main.path(forResource: "AppleOSDownload", ofType: "sh")!
+        case .tools:
+            launchPath = Bundle.main.path(forResource: "AppleMoreDownload", ofType: "sh")!
+        case .video:
+            launchPath = Bundle.main.path(forResource: "AppleVideoDownload", ofType: "sh")!
+        }
+        
+        // If source is operating systems or tools, add download auth token to  launch arguments
+        if source == .operatingSystems || source == .tools {
+            guard let downloadAuthToken = downloadAuthToken else {
+                let outputString = NSLocalizedString("DownloadAuthTokenNotFound", comment: "")
+                delegate?.outputStream(output: outputString)
+                return
+            }
+            launchArguments.append(downloadAuthToken)
+        } else {
+            let outputString = NSLocalizedString("DownloadNoTokenRequired", comment: "")
+            delegate?.outputStream(output: outputString)
         }
         
         //create or use existing download process
@@ -86,7 +93,7 @@ class DownloadProcessManager {
             delegate?.outputStream(output: outputString)
             return
         }
-
+        
         //Set launch path and arguments
         currentDownloadProcess.launchPath = launchPath
         currentDownloadProcess.arguments = launchArguments

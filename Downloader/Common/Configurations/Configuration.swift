@@ -10,11 +10,13 @@ import Foundation
 
 //MARK: - Download Sources
 enum DownloadSource: String, CaseIterable {
-    case tools, video
+    case operatingSystems, tools, video
     
     var url: String {
         get {
             switch self {
+            case .operatingSystems:
+                return "https://developer.apple.com/download/"
             case .video:
                 return "https://developer.apple.com/videos/"
             case .tools:
@@ -26,6 +28,8 @@ enum DownloadSource: String, CaseIterable {
     var title: String {
         get {
             switch self {
+            case .operatingSystems:
+                return NSLocalizedString("OperatingSystems", comment: "")
             case .video:
                 return NSLocalizedString("WWDCVideos", comment: "")
             case .tools:

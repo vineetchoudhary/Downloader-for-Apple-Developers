@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
+		2112AD8828AAE57A00BD4D10 /* AppleOSDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 2112AD8728AAE57A00BD4D10 /* AppleOSDownload.sh */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		445F377224727D5700752087 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* EventLogger.swift */; };
@@ -36,6 +37,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		2112AD8728AAE57A00BD4D10 /* AppleOSDownload.sh */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.sh; path = AppleOSDownload.sh; sourceTree = "<group>"; };
 		44370C8323FC36BA0015D47D /* UpdateManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateManager.swift; sourceTree = "<group>"; };
 		44370C8523FD076C0015D47D /* Aria2cParser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cParser.swift; sourceTree = "<group>"; };
 		445F377124727D5700752087 /* EventLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventLogger.swift; sourceTree = "<group>"; };
@@ -176,6 +178,7 @@
 				44DE11EC23FAE2E900567A20 /* aria2c */,
 				44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */,
 				446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */,
+				2112AD8728AAE57A00BD4D10 /* AppleOSDownload.sh */,
 			);
 			path = Scripts;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
 				44DE11ED23FAE2E900567A20 /* aria2c in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
+				2112AD8828AAE57A00BD4D10 /* AppleOSDownload.sh in Resources */,
 				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
 				44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */,

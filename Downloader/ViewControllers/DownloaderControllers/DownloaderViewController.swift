@@ -18,7 +18,7 @@ class DownloaderViewController: NSViewController {
     @IBOutlet weak var downloadProgressTableView: NSTableView!
     
     //MARK: - Properties
-    private var downloadSource: DownloadSource = .tools
+    private var downloadSource: DownloadSource = .operatingSystems
     private var downloadSourceTableViewHandler: DownloadSourceTableViewHandler!
     private var downloadProgressTableViewHandler: DownloadProgressTableViewHandler!
     private var downloadProcessManager = DownloadProcessManager.shared
@@ -98,6 +98,12 @@ extension DownloaderViewController {
             }
         }
     }
+    
+    fileprivate func shouldCheckForAuthToken(urlString: String?) -> Bool {
+        guard let urlString = urlString else { return false }
+        
+        return urlString.contains(DownloadSource.operatingSystems.url.lowercased()) || urlString.contains(DownloadSource.tools.url.lowercased())
+    }
 }
 
 //MARK: - WebKit Navigation Delegate
@@ -130,7 +136,7 @@ extension DownloaderViewController : WKNavigationDelegate {
             let status = NSLocalizedString("LoginRequired", comment: "")
             DLog.info("Navigation Status - \(status)")
             updateStatus(text: status)
-        } else if currentURL.lowercased().contains(DownloadSource.tools.url.lowercased()) {
+        } else if shouldCheckForAuthToken(urlString: currentURL) {
             let status = NSLocalizedString("CheckingDownloadAuthToken", comment: "")
             DLog.info("Navigation Status - \(status)")
             updateStatus(text: status)

@@ -15,6 +15,7 @@
 //MARK: - Configuration.swift
 "WWDCVideos" = "Videos (WWDC, Tech Talks, etc.)";
 "DeveloperTools" = "Tools (Xcode, macOS, etc.)";
+"OperatingSystems" = "Operating Systems (iOS, iPadOS, etc.)";
 
 //MARK: - DownloaderWindowController.swift
 "WindowCloseMessage" = "Are you sure you want to close Downloader?";
@@ -33,6 +34,7 @@
 "DownloadAuthTokenNotFound" = "Error - download authentication token not found. Press ⌘+R to get updated token.";
 "DownloadURLNotFound" = "Download url not found.";
 "DownloadInProgress" = "Please wait. Download in progress....";
+"DownloadNoTokenRequired" = "Download is not OS or tools, download auth token not required.";
 
 //MARK: - UpdateManager.swift
 "UpdateMessage" = "New Version Available";
