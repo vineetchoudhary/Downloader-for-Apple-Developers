@@ -8,7 +8,7 @@
 
 import Foundation
 
-protocol DownloadProcessDelegate: class {
+protocol DownloadProcessDelegate: AnyObject {
     func downloadStart(url: String)
     func downloadFinish(url: String)
     func outputStream(output: String)
