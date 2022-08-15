@@ -31,7 +31,7 @@ class DownloadProcessManager {
     
     //MARK: - Start Download
     func startDownload(source: DownloadSource, fileURL: String?) {
-        guard var downloadFileURLString = fileURL,
+        guard let downloadFileURLString = fileURL,
             let downloadFileURL = URL(string: downloadFileURLString) else {
             let outputString = NSLocalizedString("DownloadURLNotFound", comment: "")
             delegate?.outputStream(output: outputString)
@@ -43,8 +43,8 @@ class DownloadProcessManager {
         let fileName = lastPathComponent.components(separatedBy: fileExtension).first!
         let fullFileName = fileName + fileExtension
         
-        //use http protocol instead of https
-        downloadFileURLString = downloadFileURLString.replacingOccurrences(of: "https://", with: "http://")
+//        use http protocol instead of https
+//        downloadFileURLString = downloadFileURLString.replacingOccurrences(of: "https://", with: "http://")
         
         var launchPath: String
         var launchArguments = [String]()

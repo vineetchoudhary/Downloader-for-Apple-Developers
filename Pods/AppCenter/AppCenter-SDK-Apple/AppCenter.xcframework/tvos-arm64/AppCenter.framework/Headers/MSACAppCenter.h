@@ -14,10 +14,6 @@
 
 @class MSACWrapperSdk;
 
-#if !TARGET_OS_TV
-@class MSACCustomProperties;
-#endif
-
 NS_SWIFT_NAME(AppCenter)
 @interface MSACAppCenter : NSObject
 
@@ -96,6 +92,14 @@ NS_SWIFT_NAME(AppCenter)
 @property(class, nonatomic, getter=isEnabled, setter=setEnabled:) BOOL enabled NS_SWIFT_NAME(enabled);
 
 /**
+ * Flag indicating whether SDK can send network requests.
+ *
+ * The state is persisted in the device's storage across application launches.
+ */
+@property(class, nonatomic, getter=isNetworkRequestsAllowed, setter=setNetworkRequestsAllowed:)
+    BOOL networkRequestsAllowed NS_SWIFT_NAME(networkRequestsAllowed);
+
+/**
  * The SDK's log level.
  */
 @property(class, nonatomic) MSACLogLevel logLevel;
@@ -115,15 +119,6 @@ NS_SWIFT_NAME(AppCenter)
  * Center SDK under the hood, e.g. our Xamarin SDK or ReactNative SDk.
  */
 @property(class, nonatomic, strong) MSACWrapperSdk *wrapperSdk;
-
-#if !TARGET_OS_TV
-/**
- * Set the custom properties.
- *
- * @param customProperties Custom properties object.
- */
-+ (void)setCustomProperties:(MSACCustomProperties *)customProperties;
-#endif
 
 /**
  * Check whether the application delegate forwarder is enabled or not.
