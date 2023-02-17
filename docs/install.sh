@@ -10,5 +10,4 @@ echo "Downloading Downloader for Apple Developers $VERSION..."
 curl -OL $FILE_URL
 echo "Installing Downloader for Apple Developers $VERSION..."
 tar -xf $FILE_NAME -C $APPLICATION_DIR
-echo "Starting Downloader for Apple Developers $VERSION..."
-open $APPLICATION_DIR/$APP_NAME
+echo "Launch $APP_NAME from your Applications directory."
