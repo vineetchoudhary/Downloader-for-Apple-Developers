@@ -16,6 +16,8 @@ APPLICATION_DIR='/Applications'
 
 echo "Downloading Downloader for Apple Developers $VERSION..."
 curl -OL $APPBOX_FULL_FILE_URL
+echo "Uninstalling existing AppBox..."
+rm -rf $APPLICATION_DIR/$APPBOX_APP_NAME
 echo "Installing Downloader for Apple Developers $VERSION..."
 tar -xf $APPBOX_GITHUB_FILE_NAME -C $APPLICATION_DIR
 echo "Download aria2c $VERSION..."
@@ -23,3 +25,5 @@ curl -OL $ARIA2C_FULL_FILE_URL
 echo "Installing aria2c $VERSION..."
 mv $ARIA2C_GITHUB_FILE_NAME $APPLICATION_DIR/$APPBOX_APP_NAME/$ARIA2C_PARH
 echo "Launch $APPBOX_APP_NAME from your Applications directory."
+echo "Starting AppBox..."
+open $APPLICATION_DIR/$APPBOX_APP_NAME
