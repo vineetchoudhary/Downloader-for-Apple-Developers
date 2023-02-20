@@ -27,7 +27,6 @@
 		44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DA23FA9B3F00567A20 /* Assets.xcassets */; };
 		44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DC23FA9B3F00567A20 /* Main.storyboard */; };
 		44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */; };
-		44DE11ED23FAE2E900567A20 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11EC23FAE2E900567A20 /* aria2c */; };
 		44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */; };
 		44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */; };
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
@@ -293,7 +292,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
-				44DE11ED23FAE2E900567A20 /* aria2c in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
 				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
@@ -508,15 +506,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4F7SW76LL6;
-				ENABLE_HARDENED_RUNTIME = NO;
+				DEVELOPMENT_TEAM = 3PQ7E4L589;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -534,15 +532,15 @@
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "";
-				DEVELOPMENT_TEAM = 4F7SW76LL6;
-				ENABLE_HARDENED_RUNTIME = NO;
+				DEVELOPMENT_TEAM = 3PQ7E4L589;
+				ENABLE_HARDENED_RUNTIME = YES;
 				INFOPLIST_FILE = Downloader/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/../Frameworks",
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
-				MARKETING_VERSION = 2.2;
+				MARKETING_VERSION = 2.3;
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
