@@ -1,6 +1,6 @@
 #!/bin/sh
 
-VERSION="2.3.0"
+VERSION="2.2.0"
 APPBOX_APP_NAME="Downloader.app"
 APPBOX_GITHUB_FILE_NAME="Downloader.tar.gz"
 GITHUB_RELEASES_BASE_URL="https://github.com/vineetchoudhary/Downloader-for-Apple-Developer/releases/download/$VERSION"
