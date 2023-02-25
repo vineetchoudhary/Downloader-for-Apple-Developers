@@ -5,4 +5,5 @@ target 'Downloader' do
 
   pod 'AppCenter'
   pod 'CocoaLumberjack/Swift'
+	pod 'SSZipArchive'
 end

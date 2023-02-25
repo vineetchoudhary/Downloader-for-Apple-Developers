@@ -10,20 +10,24 @@ PODS:
   - CocoaLumberjack/Core (3.7.2)
   - CocoaLumberjack/Swift (3.7.2):
     - CocoaLumberjack/Core
+  - SSZipArchive (2.4.3)
 
 DEPENDENCIES:
   - AppCenter
   - CocoaLumberjack/Swift
+  - SSZipArchive
 
 SPEC REPOS:
   trunk:
     - AppCenter
     - CocoaLumberjack
+    - SSZipArchive
 
 SPEC CHECKSUMS:
   AppCenter: cd53e3ed3563cc720bcb806c9731a12389b40d44
   CocoaLumberjack: b7e05132ff94f6ae4dfa9d5bce9141893a21d9da
+  SSZipArchive: fe6a26b2a54d5a0890f2567b5cc6de5caa600aef
 
-PODFILE CHECKSUM: 3b97e283480b815248cc0f11e64d9f11932a152f
+PODFILE CHECKSUM: e8c3ca8fa305f787868719bcd3be02bd085fd87f
 
-COCOAPODS: 1.10.1
+COCOAPODS: 1.10.2
