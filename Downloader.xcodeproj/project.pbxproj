@@ -27,7 +27,6 @@
 		44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DA23FA9B3F00567A20 /* Assets.xcassets */; };
 		44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11DC23FA9B3F00567A20 /* Main.storyboard */; };
 		44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */; };
-		44DE11ED23FAE2E900567A20 /* aria2c in Resources */ = {isa = PBXBuildFile; fileRef = 44DE11EC23FAE2E900567A20 /* aria2c */; };
 		44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */; };
 		44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */; };
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
@@ -58,7 +57,6 @@
 		44DE11DF23FA9B3F00567A20 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		44DE11E023FA9B3F00567A20 /* Downloader.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Downloader.entitlements; sourceTree = "<group>"; };
 		44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */ = {isa = PBXFileReference; lastKnownFileType = text.script.sh; path = AppleMoreDownload.sh; sourceTree = "<group>"; };
-		44DE11EC23FAE2E900567A20 /* aria2c */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.executable"; path = aria2c; sourceTree = "<group>"; };
 		44DE11F723FBC8DA00567A20 /* DownloaderWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloaderWindowController.swift; sourceTree = "<group>"; };
 		44DE11FD23FBC9AE00567A20 /* DownloadProcessManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadProcessManager.swift; sourceTree = "<group>"; };
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
@@ -173,7 +171,6 @@
 		44DE11E623FAA88C00567A20 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				44DE11EC23FAE2E900567A20 /* aria2c */,
 				44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */,
 				446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */,
 			);
@@ -293,7 +290,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
-				44DE11ED23FAE2E900567A20 /* aria2c in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
 				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
