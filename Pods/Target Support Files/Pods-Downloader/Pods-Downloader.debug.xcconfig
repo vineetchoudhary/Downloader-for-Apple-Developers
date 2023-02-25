@@ -1,10 +1,10 @@
 ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES
 CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = NO
-FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack" "${PODS_ROOT}/AppCenter/AppCenter-SDK-Apple" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterAnalytics" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterCrashes"
+FRAMEWORK_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack" "${PODS_CONFIGURATION_BUILD_DIR}/SSZipArchive" "${PODS_ROOT}/AppCenter/AppCenter-SDK-Apple" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenter" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterAnalytics" "${PODS_XCFRAMEWORKS_BUILD_DIR}/AppCenterCrashes"
 GCC_PREPROCESSOR_DEFINITIONS = $(inherited) COCOAPODS=1
-HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack/CocoaLumberjack.framework/Headers"
+HEADER_SEARCH_PATHS = $(inherited) "${PODS_CONFIGURATION_BUILD_DIR}/CocoaLumberjack/CocoaLumberjack.framework/Headers" "${PODS_CONFIGURATION_BUILD_DIR}/SSZipArchive/SSZipArchive.framework/Headers"
 LD_RUNPATH_SEARCH_PATHS = $(inherited) '@executable_path/../Frameworks' '@loader_path/Frameworks'
-OTHER_LDFLAGS = $(inherited) -l"c++" -l"sqlite3" -l"z" -framework "AppCenter" -framework "AppCenterAnalytics" -framework "AppCenterCrashes" -framework "AppKit" -framework "CocoaLumberjack" -framework "Foundation" -framework "SystemConfiguration"
+OTHER_LDFLAGS = $(inherited) -ObjC -l"c++" -l"iconv" -l"sqlite3" -l"z" -framework "AppCenter" -framework "AppCenterAnalytics" -framework "AppCenterCrashes" -framework "AppKit" -framework "CocoaLumberjack" -framework "Foundation" -framework "SSZipArchive" -framework "Security" -framework "SystemConfiguration"
 OTHER_SWIFT_FLAGS = $(inherited) -D COCOAPODS
 PODS_BUILD_DIR = ${BUILD_DIR}
 PODS_CONFIGURATION_BUILD_DIR = ${PODS_BUILD_DIR}/$(CONFIGURATION)$(EFFECTIVE_PLATFORM_NAME)
