@@ -32,6 +32,7 @@
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
 		44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE120E23FC2ECA00567A20 /* WebKit.framework */; };
 		44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE121023FC2ECF00567A20 /* Cocoa.framework */; };
+		DB50408429AA3D340035B12D /* aria2c.zip in Resources */ = {isa = PBXBuildFile; fileRef = DB50408329AA3D340035B12D /* aria2c.zip */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +65,7 @@
 		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
 		C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.debug.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.debug.xcconfig"; sourceTree = "<group>"; };
+		DB50408329AA3D340035B12D /* aria2c.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = aria2c.zip; sourceTree = "<group>"; };
 		FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Downloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -171,6 +173,7 @@
 		44DE11E623FAA88C00567A20 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
+				DB50408329AA3D340035B12D /* aria2c.zip */,
 				44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */,
 				446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */,
 			);
@@ -292,6 +295,7 @@
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
 				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
+				DB50408429AA3D340035B12D /* aria2c.zip in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
 				44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */,
 			);
