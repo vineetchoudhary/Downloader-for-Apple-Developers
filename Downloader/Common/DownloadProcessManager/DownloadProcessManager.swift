@@ -50,7 +50,7 @@ class DownloadProcessManager {
         var launchArguments = [String]()
         
         //Add aria2c path
-        let aria2cPath = Bundle.main.path(forResource: "aria2c", ofType: nil)!
+        let aria2cPath = "/Library/DownloaderForAppleDeveloper/aria2c"
         launchArguments.append(aria2cPath)
         
         //Add download URL
@@ -135,18 +135,22 @@ class DownloadProcessManager {
     }
     
     func completeDownloadProcess(_ downloadProcess: DownloadProcess, output: Aria2cOutput?) {
-        if let notificationObserver = outputNotificationObserver {
-            //update progress
-            let finalOutput = output ?? Aria2cOutput("", nil)
-            downloadProcess.progress = DownloadProgress(fileName: downloadProcess.fileName, output: finalOutput, isFinish: true)
-            
-            //trigger download finish
-            triggerDownloadFinish(downloadProcess.url)
-            
-            //terminate current download process and remove process output observer
-            downloadProcess.terminate()
-            NotificationCenter.default.removeObserver(notificationObserver)
-        }
+		guard let notificationObserver = outputNotificationObserver else {
+			return
+		}
+
+		//update progress
+		let finalOutput = output ?? Aria2cOutput("", nil)
+		downloadProcess.progress = DownloadProgress(fileName: downloadProcess.fileName, output: finalOutput, isFinish: true)
+
+		//terminate current download process and remove process output observer
+		downloadProcess.terminate()
+		NotificationCenter.default.removeObserver(notificationObserver)
+
+		//trigger download finish
+		if output != nil {
+			triggerDownloadFinish(downloadProcess.url)
+		}
     }
 }
 
