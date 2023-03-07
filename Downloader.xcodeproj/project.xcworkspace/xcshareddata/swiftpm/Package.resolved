@@ -1,0 +1,50 @@
+{
+  "pins" : [
+    {
+      "identity" : "appcenter-sdk-apple",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/microsoft/appcenter-sdk-apple",
+      "state" : {
+        "revision" : "0c38cfb756f86673991d51f273b7bbcbaa28f94d",
+        "version" : "5.0.1"
+      }
+    },
+    {
+      "identity" : "cocoalumberjack",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/CocoaLumberjack/CocoaLumberjack",
+      "state" : {
+        "revision" : "0188d31089b5881a269e01777be74c7316924346",
+        "version" : "3.8.0"
+      }
+    },
+    {
+      "identity" : "plcrashreporter",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/microsoft/PLCrashReporter.git",
+      "state" : {
+        "revision" : "b1a342da19ed9b3af61ea2efa7656c2af30aeb7c",
+        "version" : "1.11.0"
+      }
+    },
+    {
+      "identity" : "swift-log",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/apple/swift-log.git",
+      "state" : {
+        "revision" : "32e8d724467f8fe623624570367e3d50c5638e46",
+        "version" : "1.5.2"
+      }
+    },
+    {
+      "identity" : "ziparchive",
+      "kind" : "remoteSourceControl",
+      "location" : "https://github.com/ZipArchive/ZipArchive",
+      "state" : {
+        "revision" : "b56f8c605a233fb25fe8d49f1b9ed50912c2d1b7",
+        "version" : "2.5.4"
+      }
+    }
+  ],
+  "version" : 2
+}

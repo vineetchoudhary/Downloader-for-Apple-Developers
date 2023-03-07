@@ -3,11 +3,10 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		445F377224727D5700752087 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* EventLogger.swift */; };
@@ -32,7 +31,11 @@
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
 		44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE120E23FC2ECA00567A20 /* WebKit.framework */; };
 		44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE121023FC2ECF00567A20 /* Cocoa.framework */; };
-		DB50408429AA3D340035B12D /* aria2c.zip in Resources */ = {isa = PBXBuildFile; fileRef = DB50408329AA3D340035B12D /* aria2c.zip */; };
+		DB50408729AA40060035B12D /* Aria2cDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB50408629AA40060035B12D /* Aria2cDownloader.swift */; };
+		DBC9563F29B70C65000DE0CE /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9563E29B70C65000DE0CE /* AppCenterAnalytics */; };
+		DBC9564129B70C65000DE0CE /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564029B70C65000DE0CE /* AppCenterCrashes */; };
+		DBC9564429B70C87000DE0CE /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564329B70C87000DE0CE /* CocoaLumberjackSwift */; };
+		DBC9564729B70CA1000DE0CE /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564629B70CA1000DE0CE /* ZipArchive */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -63,10 +66,7 @@
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		44DE120E23FC2ECA00567A20 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
-		C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.debug.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.debug.xcconfig"; sourceTree = "<group>"; };
-		DB50408329AA3D340035B12D /* aria2c.zip */ = {isa = PBXFileReference; lastKnownFileType = archive.zip; path = aria2c.zip; sourceTree = "<group>"; };
-		FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Downloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		DB50408629AA40060035B12D /* Aria2cDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cDownloader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,8 +75,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */,
-				09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */,
 				44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */,
+				DBC9563F29B70C65000DE0CE /* AppCenterAnalytics in Frameworks */,
+				DBC9564129B70C65000DE0CE /* AppCenterCrashes in Frameworks */,
+				DBC9564429B70C87000DE0CE /* CocoaLumberjackSwift in Frameworks */,
+				DBC9564729B70CA1000DE0CE /* ZipArchive in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -98,6 +101,7 @@
 				445F377024727D2C00752087 /* Logger */,
 				44D423C22470F79600BC83D4 /* Configurations */,
 				44370C8223FC369B0015D47D /* UpdateManager */,
+				DB50408529AA3FEF0035B12D /* ResourceManager */,
 				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
 			);
 			path = Common;
@@ -142,7 +146,6 @@
 			children = (
 				44DE11D523FA9B3900567A20 /* Downloader */,
 				44DE11D423FA9B3900567A20 /* Products */,
-				CB1EAA203A3960A8004525D0 /* Pods */,
 				98064A8414BDA2AB1AA50220 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -173,7 +176,6 @@
 		44DE11E623FAA88C00567A20 /* Scripts */ = {
 			isa = PBXGroup;
 			children = (
-				DB50408329AA3D340035B12D /* aria2c.zip */,
 				44DE11E723FAA8B000567A20 /* AppleMoreDownload.sh */,
 				446F5D3F2471128D006ED589 /* AppleVideoDownload.sh */,
 			);
@@ -218,18 +220,16 @@
 			children = (
 				44DE121023FC2ECF00567A20 /* Cocoa.framework */,
 				44DE120E23FC2ECA00567A20 /* WebKit.framework */,
-				FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		CB1EAA203A3960A8004525D0 /* Pods */ = {
+		DB50408529AA3FEF0035B12D /* ResourceManager */ = {
 			isa = PBXGroup;
 			children = (
-				C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */,
-				AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */,
+				DB50408629AA40060035B12D /* Aria2cDownloader.swift */,
 			);
-			path = Pods;
+			path = ResourceManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -239,17 +239,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "Downloader" */;
 			buildPhases = (
-				CB3C7817B329B7489B34745C /* [CP] Check Pods Manifest.lock */,
 				44DE11CF23FA9B3900567A20 /* Sources */,
 				44DE11D023FA9B3900567A20 /* Frameworks */,
 				44DE11D123FA9B3900567A20 /* Resources */,
-				2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Downloader;
+			packageProductDependencies = (
+				DBC9563E29B70C65000DE0CE /* AppCenterAnalytics */,
+				DBC9564029B70C65000DE0CE /* AppCenterCrashes */,
+				DBC9564329B70C87000DE0CE /* CocoaLumberjackSwift */,
+				DBC9564629B70CA1000DE0CE /* ZipArchive */,
+			);
 			productName = DeveloperToolsDownloader;
 			productReference = 44DE11D323FA9B3900567A20 /* Downloader.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +282,11 @@
 				Base,
 			);
 			mainGroup = 44DE11CA23FA9B3900567A20;
+			packageReferences = (
+				DBC9563D29B70C65000DE0CE /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */,
+				DBC9564229B70C87000DE0CE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+				DBC9564529B70CA1000DE0CE /* XCRemoteSwiftPackageReference "ZipArchive" */,
+			);
 			productRefGroup = 44DE11D423FA9B3900567A20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -295,55 +304,12 @@
 				44DE120823FBE48900567A20 /* Localizable.strings in Resources */,
 				44DE11E923FAB88800567A20 /* AppleMoreDownload.sh in Resources */,
 				446F5D402471128D006ED589 /* AppleVideoDownload.sh in Resources */,
-				DB50408429AA3D340035B12D /* aria2c.zip in Resources */,
 				44DE11DB23FA9B3F00567A20 /* Assets.xcassets in Resources */,
 				44DE11DE23FA9B3F00567A20 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB3C7817B329B7489B34745C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Downloader-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		44DE11CF23FA9B3900567A20 /* Sources */ = {
@@ -360,6 +326,7 @@
 				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
+				DB50408729AA40060035B12D /* Aria2cDownloader.swift in Sources */,
 				44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */,
 				44B6927D249F23CF001D62FD /* DLog.swift in Sources */,
 				44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */,
@@ -499,7 +466,6 @@
 		};
 		44DE11E423FA9B3F00567A20 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
@@ -525,7 +491,6 @@
 		};
 		44DE11E523FA9B3F00567A20 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
@@ -571,6 +536,56 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		DBC9563D29B70C65000DE0CE /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/microsoft/appcenter-sdk-apple";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+		DBC9564229B70C87000DE0CE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
+		DBC9564529B70CA1000DE0CE /* XCRemoteSwiftPackageReference "ZipArchive" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ZipArchive/ZipArchive";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBC9563E29B70C65000DE0CE /* AppCenterAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC9563D29B70C65000DE0CE /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterAnalytics;
+		};
+		DBC9564029B70C65000DE0CE /* AppCenterCrashes */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC9563D29B70C65000DE0CE /* XCRemoteSwiftPackageReference "appcenter-sdk-apple" */;
+			productName = AppCenterCrashes;
+		};
+		DBC9564329B70C87000DE0CE /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC9564229B70C87000DE0CE /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		DBC9564629B70CA1000DE0CE /* ZipArchive */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = DBC9564529B70CA1000DE0CE /* XCRemoteSwiftPackageReference "ZipArchive" */;
+			productName = ZipArchive;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44DE11CB23FA9B3900567A20 /* Project object */;
 }
