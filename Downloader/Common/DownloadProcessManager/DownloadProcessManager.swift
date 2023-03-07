@@ -50,7 +50,11 @@ class DownloadProcessManager {
         var launchArguments = [String]()
         
         //Add aria2c path
-        let aria2cPath = "/Library/DownloaderForAppleDeveloper/aria2c"
+		guard let aria2cPath = Aria2cDownloader.aira2cLocalPath else {
+			DLog.info("Unable to find aria2c. Please restart the Downloader.")
+			return
+		}
+		
         launchArguments.append(aria2cPath)
         
         //Add download URL
