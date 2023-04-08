@@ -31,11 +31,11 @@
 		44DE120823FBE48900567A20 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 44DE120723FBE48900567A20 /* Localizable.strings */; };
 		44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE120E23FC2ECA00567A20 /* WebKit.framework */; };
 		44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 44DE121023FC2ECF00567A20 /* Cocoa.framework */; };
-		DB50408729AA40060035B12D /* Aria2cDownloader.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB50408629AA40060035B12D /* Aria2cDownloader.swift */; };
 		DBC9563F29B70C65000DE0CE /* AppCenterAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9563E29B70C65000DE0CE /* AppCenterAnalytics */; };
 		DBC9564129B70C65000DE0CE /* AppCenterCrashes in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564029B70C65000DE0CE /* AppCenterCrashes */; };
 		DBC9564429B70C87000DE0CE /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564329B70C87000DE0CE /* CocoaLumberjackSwift */; };
 		DBC9564729B70CA1000DE0CE /* ZipArchive in Frameworks */ = {isa = PBXBuildFile; productRef = DBC9564629B70CA1000DE0CE /* ZipArchive */; };
+		DBC9564A29B71941000DE0CE /* Aria2cPathController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DBC9564929B71941000DE0CE /* Aria2cPathController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,7 +66,7 @@
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		44DE120E23FC2ECA00567A20 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		DB50408629AA40060035B12D /* Aria2cDownloader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cDownloader.swift; sourceTree = "<group>"; };
+		DBC9564929B71941000DE0CE /* Aria2cPathController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Aria2cPathController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +89,7 @@
 		44370C8023FC354A0015D47D /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				DBC9564829B7191A000DE0CE /* Aria2cPathController */,
 				44DE11FB23FBC8F500567A20 /* DownloaderControllers */,
 				44DE11DC23FA9B3F00567A20 /* Main.storyboard */,
 			);
@@ -101,7 +102,6 @@
 				445F377024727D2C00752087 /* Logger */,
 				44D423C22470F79600BC83D4 /* Configurations */,
 				44370C8223FC369B0015D47D /* UpdateManager */,
-				DB50408529AA3FEF0035B12D /* ResourceManager */,
 				44DE11FC23FBC99900567A20 /* DownloadProcessManager */,
 			);
 			path = Common;
@@ -224,12 +224,12 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		DB50408529AA3FEF0035B12D /* ResourceManager */ = {
+		DBC9564829B7191A000DE0CE /* Aria2cPathController */ = {
 			isa = PBXGroup;
 			children = (
-				DB50408629AA40060035B12D /* Aria2cDownloader.swift */,
+				DBC9564929B71941000DE0CE /* Aria2cPathController.swift */,
 			);
-			path = ResourceManager;
+			path = Aria2cPathController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -322,11 +322,11 @@
 				44DE11D923FA9B3900567A20 /* DownloaderViewController.swift in Sources */,
 				445F3774247293E800752087 /* DownloadProcessProtocol.swift in Sources */,
 				446FAED82495EE0E00213C44 /* DownloadProgress.swift in Sources */,
+				DBC9564A29B71941000DE0CE /* Aria2cPathController.swift in Sources */,
 				446F5D3E24710705006ED589 /* DownloadProgressTableViewHandler.swift in Sources */,
 				44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */,
 				44DE11FE23FBC9AE00567A20 /* DownloadProcessManager.swift in Sources */,
 				44DE11D723FA9B3900567A20 /* AppDelegate.swift in Sources */,
-				DB50408729AA40060035B12D /* Aria2cDownloader.swift in Sources */,
 				44D423C42470F7AB00BC83D4 /* Configuration.swift in Sources */,
 				44B6927D249F23CF001D62FD /* DLog.swift in Sources */,
 				44DE11F823FBC8DA00567A20 /* DownloaderWindowController.swift in Sources */,
