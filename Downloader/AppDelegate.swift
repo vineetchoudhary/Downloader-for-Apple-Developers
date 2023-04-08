@@ -18,8 +18,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         //CocoaLumberjack
         DLog.config()
         DLog.info("Downloader Started.")
-
-		Aria2cDownloader().startDownload()
         
         //App Center
         if let appCenter = Bundle.main.object(forInfoDictionaryKey: "AppCenter") as? String {
