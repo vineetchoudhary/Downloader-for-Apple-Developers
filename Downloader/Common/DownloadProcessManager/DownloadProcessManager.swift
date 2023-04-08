@@ -50,7 +50,7 @@ class DownloadProcessManager {
         var launchArguments = [String]()
         
         //Add aria2c path
-		let aria2cPath = "aria2c"
+		let aria2cPath = "/usr/local/bin/aria2c"
 		
         launchArguments.append(aria2cPath)
         

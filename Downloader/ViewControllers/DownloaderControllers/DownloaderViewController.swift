@@ -60,7 +60,13 @@ class DownloaderViewController: NSViewController {
         // Update the view, if already loaded.
         }
     }
-    
+
+	override func viewWillLayout() {
+		super.viewWillLayout()
+		downloadSourceTableView.tableColumns.first?.width = downloadSourceTableView.frame.width
+		downloadProgressTableView.tableColumns.first?.width = downloadProgressTableView.frame.width
+	}
+
     @IBAction func statusTapAction(_ sender: NSClickGestureRecognizer) {
         DLog.openLatestLogFile()
     }
