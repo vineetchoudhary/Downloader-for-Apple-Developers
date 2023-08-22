@@ -7,7 +7,7 @@
 //
 
 import Foundation
-import CocoaLumberjack
+import CocoaLumberjackSwift
 
 struct DLog {
     private static let fileLogger = DDFileLogger()

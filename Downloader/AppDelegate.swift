@@ -7,22 +7,16 @@
 //
 
 import Cocoa
-import AppCenter
-import AppCenterAnalytics
-import AppCenterCrashes
+//import AppCenter
+
+//import AppCenterCrashes
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
     func applicationWillFinishLaunching(_ notification: Notification) {
-        //CocoaLumberjack
         DLog.config()
         DLog.info("Downloader Started.")
-        
-        //App Center
-        if let appCenter = Bundle.main.object(forInfoDictionaryKey: "AppCenter") as? String {
-            AppCenter.start(withAppSecret: appCenter, services: [Analytics.self, Crashes.self])
-        }
     }
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {

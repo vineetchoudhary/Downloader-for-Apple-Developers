@@ -7,17 +7,15 @@
 //
 
 import Foundation
-import AppCenterAnalytics
+
 
 struct EventLogger {
     static func downloadStart(url: String) {
         let params = getParams(from: url)
-        Analytics.trackEvent("Download Start", withProperties: params)
     }
     
     static func downloadFinish(url: String) {
         let params = getParams(from: url)
-        Analytics.trackEvent("Download Finish", withProperties: params)
     }
     
     private static func getParams(from urlString: String)-> [String: String] {
