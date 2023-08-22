@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
-		09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */; };
+		1FE527B32A94539D00E4F97F /* CocoaLumberjack in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE527B22A94539D00E4F97F /* CocoaLumberjack */; };
+		1FE527B52A94539D00E4F97F /* CocoaLumberjackSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE527B42A94539D00E4F97F /* CocoaLumberjackSwift */; };
+		1FE527B72A94539D00E4F97F /* CocoaLumberjackSwiftLogBackend in Frameworks */ = {isa = PBXBuildFile; productRef = 1FE527B62A94539D00E4F97F /* CocoaLumberjackSwiftLogBackend */; };
 		44370C8423FC36BA0015D47D /* UpdateManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8323FC36BA0015D47D /* UpdateManager.swift */; };
 		44370C8623FD076C0015D47D /* Aria2cParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44370C8523FD076C0015D47D /* Aria2cParser.swift */; };
 		445F377224727D5700752087 /* EventLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 445F377124727D5700752087 /* EventLogger.swift */; };
@@ -64,9 +66,6 @@
 		44DE120723FBE48900567A20 /* Localizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
 		44DE120E23FC2ECA00567A20 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		44DE121023FC2ECF00567A20 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
-		AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.release.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.release.xcconfig"; sourceTree = "<group>"; };
-		C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Downloader.debug.xcconfig"; path = "Target Support Files/Pods-Downloader/Pods-Downloader.debug.xcconfig"; sourceTree = "<group>"; };
-		FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Downloader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,9 +73,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1FE527B32A94539D00E4F97F /* CocoaLumberjack in Frameworks */,
 				44DE120F23FC2ECA00567A20 /* WebKit.framework in Frameworks */,
-				09435A5D3EB4AE6C4D2B4F5A /* Pods_Downloader.framework in Frameworks */,
 				44DE121123FC2ECF00567A20 /* Cocoa.framework in Frameworks */,
+				1FE527B72A94539D00E4F97F /* CocoaLumberjackSwiftLogBackend in Frameworks */,
+				1FE527B52A94539D00E4F97F /* CocoaLumberjackSwift in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -218,7 +219,6 @@
 			children = (
 				44DE121023FC2ECF00567A20 /* Cocoa.framework */,
 				44DE120E23FC2ECA00567A20 /* WebKit.framework */,
-				FC38D235D7E8E50E8D688864 /* Pods_Downloader.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -226,8 +226,6 @@
 		CB1EAA203A3960A8004525D0 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */,
-				AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -239,17 +237,20 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 44DE11E323FA9B3F00567A20 /* Build configuration list for PBXNativeTarget "Downloader" */;
 			buildPhases = (
-				CB3C7817B329B7489B34745C /* [CP] Check Pods Manifest.lock */,
 				44DE11CF23FA9B3900567A20 /* Sources */,
 				44DE11D023FA9B3900567A20 /* Frameworks */,
 				44DE11D123FA9B3900567A20 /* Resources */,
-				2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = Downloader;
+			packageProductDependencies = (
+				1FE527B22A94539D00E4F97F /* CocoaLumberjack */,
+				1FE527B42A94539D00E4F97F /* CocoaLumberjackSwift */,
+				1FE527B62A94539D00E4F97F /* CocoaLumberjackSwiftLogBackend */,
+			);
 			productName = DeveloperToolsDownloader;
 			productReference = 44DE11D323FA9B3900567A20 /* Downloader.app */;
 			productType = "com.apple.product-type.application";
@@ -278,6 +279,9 @@
 				Base,
 			);
 			mainGroup = 44DE11CA23FA9B3900567A20;
+			packageReferences = (
+				1FE527B12A94539D00E4F97F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */,
+			);
 			productRefGroup = 44DE11D423FA9B3900567A20 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -302,48 +306,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2A652454B81E2BABA93DCEEE /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Downloader/Pods-Downloader-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		CB3C7817B329B7489B34745C /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-Downloader-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		44DE11CF23FA9B3900567A20 /* Sources */ = {
@@ -499,7 +461,6 @@
 		};
 		44DE11E423FA9B3F00567A20 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C38590FFA7C91C670C6D1982 /* Pods-Downloader.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
@@ -517,6 +478,18 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 2.2;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AppKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -525,7 +498,6 @@
 		};
 		44DE11E523FA9B3F00567A20 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = AF027EACAF7837C941BB6E0E /* Pods-Downloader.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = Downloader/Downloader.entitlements;
@@ -543,6 +515,18 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MARKETING_VERSION = 2.2;
+				OTHER_LDFLAGS = (
+					"$(inherited)",
+					"-l\"c++\"",
+					"-l\"sqlite3\"",
+					"-l\"z\"",
+					"-framework",
+					"\"AppKit\"",
+					"-framework",
+					"\"Foundation\"",
+					"-framework",
+					"\"SystemConfiguration\"",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = co.di.Downloader;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -571,6 +555,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		1FE527B12A94539D00E4F97F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/CocoaLumberjack/CocoaLumberjack.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.8.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		1FE527B22A94539D00E4F97F /* CocoaLumberjack */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE527B12A94539D00E4F97F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjack;
+		};
+		1FE527B42A94539D00E4F97F /* CocoaLumberjackSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE527B12A94539D00E4F97F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwift;
+		};
+		1FE527B62A94539D00E4F97F /* CocoaLumberjackSwiftLogBackend */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 1FE527B12A94539D00E4F97F /* XCRemoteSwiftPackageReference "CocoaLumberjack" */;
+			productName = CocoaLumberjackSwiftLogBackend;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 44DE11CB23FA9B3900567A20 /* Project object */;
 }
