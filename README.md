@@ -22,7 +22,7 @@ curl -s https://xcdownloader.com/install.sh | bash
 ```
 
 #### Manual
-If you face any issue using the above command then you can manually install it by downloading it from [here](https://xcdownloader.com/download). After that, unzip Downloader.app.zip and move Downloader.app into the /Applications directory.
+If you face any issue using the above command then you can manually install it by downloading it from [here](https://github.com/vineetchoudhary/Downloader-for-Apple-Developers/releases/latest/). After that, unzip Downloader.app.zip and move Downloader.app into the /Applications directory.
 
 ## How to use  
 
